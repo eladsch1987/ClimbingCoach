@@ -89,6 +89,9 @@ header { display: grid; gap: 4px; margin-bottom: 18px; }
 .links a.alt { color: var(--muted); font-weight: 500; }
 .sub { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
 .sub li { display: flex; gap: 8px; flex-wrap: wrap; align-items: baseline; }
+.sub .pic { width: 100%; display: grid; gap: 6px; margin-bottom: 8px; }
+.sub .pic svg { width: 100%; max-width: 340px; height: auto; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; }
+.sub .pic p { font-size: 0.9rem; color: var(--fg); }
 .sub a { color: var(--accent); font-size: 0.88rem; text-decoration: none; font-weight: 600; }
 footer { margin-top: 32px; color: var(--muted); font-size: 0.85rem; display: grid; gap: 6px; }
 @media (prefers-reduced-motion: no-preference) { .chip { transition: background .15s, color .15s; } }
@@ -130,6 +133,30 @@ footer { margin-top: 32px; color: var(--muted); font-size: 0.85rem; display: gri
 const yt = id => `https://www.youtube.com/watch?v=${id}`;
 const search = q => `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`;
 
+// Simple stick-figure pictures for the hip mobility positions.
+function fig(view, lines, heads, ground, notes, mirror) {
+  const g = (ground || []).map(l => `<line x1="${l[0]}" y1="${l[1]}" x2="${l[2]}" y2="${l[3]}" stroke="var(--line)" stroke-width="4" stroke-linecap="round"/>`).join("");
+  const b = lines.map(l => `<line x1="${l[0]}" y1="${l[1]}" x2="${l[2]}" y2="${l[3]}" stroke="var(--fg)" stroke-width="6" stroke-linecap="round"/>`).join("");
+  const h = heads.map(c => `<circle cx="${c[0]}" cy="${c[1]}" r="${c[2]}" fill="var(--fg)"/>`).join("");
+  const n = (notes || []).map(t => `<text x="${t[0]}" y="${t[1]}" font-size="11" fill="var(--muted)" font-family="Inter, system-ui, sans-serif" text-anchor="${t[3] || "middle"}">${t[2]}</text>`).join("");
+  const body = mirror ? `<g transform="translate(240,0) scale(-1,1)">${g}${b}${h}</g>` : `${g}${b}${h}`;
+  return `<svg viewBox="0 0 240 160" role="img" aria-label="${view}">${body}${n}<text x="8" y="154" font-size="10" fill="var(--muted)" font-family="Inter, system-ui, sans-serif">${view}</text></svg>`;
+}
+const FROG = [[105,48,102,18],[135,48,138,18],[105,48,135,48],[120,48,120,85],[108,85,132,85],[108,85,55,85],[132,85,185,85],[55,85,55,128],[185,85,185,128],[55,128,44,128],[185,128,196,128]];
+const NINETY = [[130,75,130,32],[130,32,82,32],[110,75,62,75],[62,75,62,122],[108,78,132,78]];
+const COUCH = [[55,132,44,84],[55,132,95,85],[95,85,136,90],[136,90,136,132],[136,132,152,132],[95,85,95,40],[95,48,128,86]];
+const SQUAT = [[110,133,132,133],[110,133,132,95],[132,95,96,114],[96,114,110,60],[110,66,128,90],[128,90,120,76]];
+const PANCAKE = [[112,96,50,36],[128,96,190,36],[120,96,120,58],[112,64,108,20],[128,64,132,20],[50,36,42,30],[190,36,198,30]];
+const PICS = {
+  frog: fig("Seen from above", FROG, [[120,28,11]], null, [[8,108,"knees","start"],[120,146,"push hips back"]]),
+  ninety: fig("Seen from above", NINETY, [[120,74,12]], null, [[106,22,"front leg"],[8,100,"back leg","start"],[180,100,"then swing both"],[180,113,"knees to the"],[180,126,"other side"]]),
+  couch: fig("From the side", COUCH, [[95,27,11]], [[10,136,232,136],[38,136,38,30]], [[4,22,"wall / couch","start"],[175,70,"squeeze the"],[175,83,"back glute"]]),
+  couchR: fig("From the side · other leg", COUCH, [[95,27,11]], [[10,136,232,136],[38,136,38,30]], [[236,22,"wall / couch","end"]], true),
+  squat: fig("From the side", SQUAT, [[114,47,11]], [[10,136,232,136]], [[185,60,"chest up"],[185,120,"heels down"]]),
+  pancake: fig("Seen from above", PANCAKE, [[120,46,11]], null, [[120,146,"hinge from the hips, back long"]]),
+};
+
+const HIP_CUES = {"frog": "On forearms and knees. Knees wide, shins out to the sides, ankles in line with knees. Slowly push your hips back until you feel the inner thighs.", "ninety": "Sit with both knees bent 90°: front shin across in front of you, back shin out to the side and behind. Sit tall. Lift both knees and swing them to the other side = 1 switch.", "couch": "Back knee on a cushion close to the wall or couch, back shin up the wall. Front foot forward. Squeeze the back-leg glute, torso upright. Feel the front of the hip and thigh.", "squat": "Feet shoulder-width, toes slightly out, heels down. Sit as low as is comfortable, chest up, elbows gently pushing the knees out. Hold a pole if you need to.", "pancake": "Sit with legs wide and straight, toes up. Sit tall, then walk your hands forward, bending at the hips without rounding your back. Centre, then over the left leg, then the right."};
 const GROUPS = [
   { id: "warmup", name: "Warm-up" },
   { id: "fingers", name: "Fingers" },
@@ -250,11 +277,11 @@ const EX = {
     cues: ["Relaxed breathing; ease into each position, no forcing", "Good for climbing: high steps, heel hooks, getting hips close to the wall"],
     mistake: "Bouncing into stretches.",
     parts: [
-      ["Frog stretch", "60 s", "Bw3MfGx9iIM", "Frog Stretch Routine"],
-      ["Pancake (centre / left / right)", "30–60 s each", "gk4FjX1Jjb4", "Pancake tutorial with Tom Merrick"],
-      ["90/90 switches", "10 slow switches", "1NAxUbceNao", "90/90 Hip Mobility, 10-min follow-along"],
-      ["Deep squat hold", "60 s", null, "deep squat hold mobility"],
-      ["Couch stretch", "60 s each side", "-rsIS-wl-ig", "How to do the Couch Stretch for Tight Hip Flexors"],
+      ["Frog stretch", "60 s", "Bw3MfGx9iIM", "Frog Stretch Routine", "frog"],
+      ["Pancake (centre / left / right)", "30–60 s each", "gk4FjX1Jjb4", "Pancake tutorial with Tom Merrick", "pancake"],
+      ["90/90 switches", "10 slow switches", "1NAxUbceNao", "90/90 Hip Mobility, 10-min follow-along", "ninety"],
+      ["Deep squat hold", "60 s", null, "deep squat hold mobility", "squat"],
+      ["Couch stretch", "60 s each side", "-rsIS-wl-ig", "How to do the Couch Stretch for Tight Hip Flexors", "couch"],
     ],
     video: ["g391rm8Whaw", "Fix Tight Hips in 10 Minutes (follow-along)"], q: "hip mobility routine climbers" },
   grips: { g: "fingers", name: "Grip positions", dose: "learn before Abrahangs",
@@ -287,7 +314,7 @@ function exHTML(key, step) {
   const parts = e.parts ? `<ul class="sub">${e.parts.map(p =>
     `<li><span>${p[0]} · <b>${p[1]}</b></span>${p[2]
       ? `<a href="${yt(p[2])}" target="_blank" rel="noopener">Video ↗</a>`
-      : `<a href="${search(p[3])}" target="_blank" rel="noopener">Search ↗</a>`}</li>`).join("")}</ul>` : "";
+      : `<a href="${search(p[3])}" target="_blank" rel="noopener">Search ↗</a>`}${p[4] ? `<div class="pic">${PICS[p[4]]}<p>${HIP_CUES[p[4]]}</p></div>` : ""}</li>`).join("")}</ul>` : "";
   const tags = sessionsFor(key).map(t => `<span class="tag">${t}</span>`).join("");
   return `<li class="ex">
     <div class="ex-head"><h3>${step ? `<span class="step">${step}</span>` : ""}${e.name}</h3><span class="dose">${e.dose}</span></div>
