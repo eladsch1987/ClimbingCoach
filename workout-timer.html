@@ -53,7 +53,8 @@ select { flex: 1; min-width: 0; }
   border-top: 6px solid var(--phase, var(--work));
 }
 .stage.work { --phase: var(--work); --phase-soft: var(--work-soft); }
-.stage.rest { --phase: var(--rest); --phase-soft: var(--rest-soft); }
+.stage.rest { --phase: var(--rest); --phase-soft: var(--rest-soft); background: var(--rest-soft); border-color: var(--rest); }
+.stage.rest .phase-label { background: var(--surface); }
 .stage.done { --phase: var(--work); --phase-soft: var(--work-soft); }
 .phase-label {
   justify-self: center; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;
@@ -128,7 +129,7 @@ ol.list li.cur button { color: var(--work); font-weight: 700; }
   <div class="row">
     <button id="back" type="button">◀ Back</button>
     <button id="plus" type="button">+15 s</button>
-    <button id="skip" type="button">Next ▶</button>
+    <button id="skip" type="button">Skip set ▶</button>
   </div>
   <p class="next" id="next"></p>
 
@@ -403,11 +404,11 @@ function render() {
   if (isRest) {
     const n = phases[idx + 1];
     const nItem = n ? session.items[n.ei] : null;
-    els.phaseLabel.textContent = p.label;
-    els.exName.textContent = p.transition && nItem ? `Next: ${EX[nItem.ex].name}` : ex.name;
-    els.setLabel.textContent = n ? (n.label ? `Up next: ${n.label}` : "") : "";
+    els.phaseLabel.textContent = p.transition ? "Rest" : ex.name;
+    els.exName.textContent = p.label === "Rest" ? "Rest" : p.label;
+    els.setLabel.textContent = p.transition && nItem ? `Next exercise: ${EX[nItem.ex].name}` : n ? `Then: ${n.label}` : "";
   } else {
-    els.phaseLabel.textContent = p.timed ? (running ? "Hold" : "Get ready") : "Your set";
+    els.phaseLabel.textContent = p.timed ? (running ? (item.type === "interval" ? "Go" : "Hold") : "Get ready") : "Your set";
     els.exName.textContent = ex.name;
     els.setLabel.textContent = p.label;
   }
