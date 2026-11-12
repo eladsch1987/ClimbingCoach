@@ -1,0 +1,510 @@
+<title>Elad's Workout Timer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: single phone-first column. Top: session picker + elapsed. Middle: the current step with a huge countdown. Bottom: big thumb-sized controls, then the exercise list. */
+:root {
+  --bg: #F1F4F3;
+  --surface: #FFFFFF;
+  --fg: #16201C;
+  --muted: #5A6762;
+  --line: #D5DDD9;
+  --work: #0B7A63;
+  --work-soft: #DCEFEA;
+  --rest: #2F5F9E;
+  --rest-soft: #DFE8F5;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101513; --surface: #18201D; --fg: #E4EBE8; --muted: #93A29C; --line: #2A3531;
+    --work: #43C4A3; --work-soft: #163a31; --rest: #7FA9E6; --rest-soft: #1a2a40; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101513; --surface: #18201D; --fg: #E4EBE8; --muted: #93A29C; --line: #2A3531;
+  --work: #43C4A3; --work-soft: #163a31; --rest: #7FA9E6; --rest-soft: #1a2a40; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.5; }
+.wrap {
+  max-width: 560px; margin: 0 auto; display: grid; gap: 14px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 16px 48px;
+}
+h1, h2 { font-family: var(--font-display); font-weight: 700; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.top { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.top label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; width: 100%; }
+select, .small {
+  font: 600 0.95rem var(--font-body); color: var(--fg); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px;
+}
+select { flex: 1; min-width: 0; }
+.small { cursor: pointer; flex: none; }
+.meta { display: flex; justify-content: space-between; color: var(--muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+
+.stage {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: 18px 16px; display: grid; gap: 10px; text-align: center;
+  border-top: 6px solid var(--phase, var(--work));
+}
+.stage.work { --phase: var(--work); --phase-soft: var(--work-soft); }
+.stage.rest { --phase: var(--rest); --phase-soft: var(--rest-soft); }
+.stage.done { --phase: var(--work); --phase-soft: var(--work-soft); }
+.phase-label {
+  justify-self: center; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;
+  color: var(--phase); background: var(--phase-soft); padding: 3px 10px; border-radius: 999px;
+}
+.ex-name { font-size: 2rem; line-height: 1.05; text-transform: uppercase; }
+.sub { color: var(--muted); font-size: 0.95rem; }
+.big {
+  font-family: var(--font-display); font-weight: 700; font-variant-numeric: tabular-nums;
+  font-size: clamp(4.5rem, 26vw, 8rem); line-height: 1; color: var(--phase); letter-spacing: 0.01em;
+}
+.big.text { font-size: clamp(2.6rem, 13vw, 4rem); line-height: 1.05; }
+.bar { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.bar > i { display: block; height: 100%; width: 0; background: var(--phase); }
+.dots { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+.dots span { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--phase); }
+.dots span.on { background: var(--phase); }
+.dots span.now { box-shadow: 0 0 0 3px var(--phase-soft); }
+.cue { font-size: 0.95rem; }
+.vid { color: var(--work); font-weight: 600; text-decoration: none; font-size: 0.92rem; }
+.next { color: var(--muted); font-size: 0.88rem; }
+
+.primary {
+  width: 100%; font: 700 1.35rem var(--font-display); letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 18px; border-radius: 12px; border: none; cursor: pointer;
+  background: var(--phase-btn, var(--work)); color: var(--bg);
+}
+.primary.rest { --phase-btn: var(--rest); }
+.row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.row button {
+  font: 600 0.95rem var(--font-body); padding: 13px 6px; border-radius: 10px; cursor: pointer;
+  background: var(--surface); color: var(--fg); border: 1px solid var(--line);
+}
+.row button:disabled { opacity: 0.4; cursor: default; }
+button:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid var(--work); outline-offset: 2px; }
+
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 4px 14px; }
+summary { cursor: pointer; font-weight: 600; padding-block: 10px; }
+ol.list { margin: 0 0 10px; padding: 0; list-style: none; display: grid; }
+ol.list li button {
+  width: 100%; text-align: left; display: flex; justify-content: space-between; gap: 10px;
+  padding: 10px 2px; background: none; border: none; border-top: 1px solid var(--line);
+  color: var(--fg); font: 500 0.95rem var(--font-body); cursor: pointer;
+}
+ol.list li button span:last-child { color: var(--muted); font-size: 0.85rem; flex: none; }
+ol.list li.past button { color: var(--muted); }
+ol.list li.cur button { color: var(--work); font-weight: 700; }
+.foot { color: var(--muted); font-size: 0.82rem; }
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <label for="session">Session</label>
+    <select id="session"></select>
+    <button class="small" id="sound" type="button" aria-pressed="true">Sound on</button>
+    <button class="small" id="reset" type="button">Restart</button>
+  </div>
+  <div class="meta"><span id="progress">Exercise 1 of 1</span><span id="elapsed">00:00</span></div>
+
+  <section class="stage work" id="stage" aria-live="polite">
+    <span class="phase-label" id="phaseLabel">Get ready</span>
+    <h1 class="ex-name" id="exName">Jump rope</h1>
+    <p class="sub" id="setLabel"></p>
+    <div class="big" id="big">0:30</div>
+    <div class="bar" id="bar"><i id="barFill"></i></div>
+    <div class="dots" id="dots"></div>
+    <p class="cue" id="cue"></p>
+    <a class="vid" id="vid" href="#" target="_blank" rel="noopener">▶ How to do it</a>
+  </section>
+
+  <button class="primary" id="primary" type="button">Start</button>
+  <div class="row">
+    <button id="back" type="button">◀ Back</button>
+    <button id="plus" type="button">+15 s</button>
+    <button id="skip" type="button">Next ▶</button>
+  </div>
+  <p class="next" id="next"></p>
+
+  <details id="listWrap">
+    <summary>All exercises in this session</summary>
+    <ol class="list" id="list"></ol>
+  </details>
+
+  <p class="foot">Beeps at 3-2-1 and at the end of each countdown. Rests start on their own; timed holds within an exercise start on their own after the rest. Keep the screen on. Stop if anything hurts more than 2/10.</p>
+</div>
+
+<script>
+const V = id => `https://www.youtube.com/watch?v=${id}`;
+const EX = {
+  rope:     { name: "Jump rope", vid: "7GZ3uEDJqXA", cue: "Small bounces on the balls of your feet. Turn with the wrists." },
+  pushup:   { name: "Push-ups (handles)", vid: "k2YnU7UFAaE", cue: "Straight body, elbows ~45°, chest all the way down." },
+  pike:     { name: "Pike push-ups", vid: "pHR5yG6xBps", cue: "Hips high. Head toward a point in front of your hands." },
+  ohp:      { name: "One-arm DB press (8 kg)", vid: "rXZWWoJPucM", cue: "Glutes tight, don't lean away from the weight. Left arm, then right = 1 set." },
+  split:    { name: "Split squats", vid: "-IpkZv8tZYM", cue: "Back foot on the floor. Back knee straight down. Left leg, then right = 1 set." },
+  hollow:   { name: "Hollow body hold", vid: "HAfUt2Cco74", cue: "Lower back pressed into the floor. Bend the knees if it lifts." },
+  sideplank:{ name: "Side plank", vid: "0M-erHBl48U", cue: "Elbow under the shoulder, hips up, straight line." },
+  extrot:   { name: "External rotation (5 kg)", vid: "20v3G-odF5c", cue: "Elbow pinned to your ribs. Slow and light. Both arms = 1 set." },
+  ytw:      { name: "Prone Y-T-W", vid: "ZpZEQ2JCXyc", cue: "Face down. 8 Y, 8 T, 8 W. Squeeze shoulder blades, small lifts." },
+  revcurl:  { name: "Reverse wrist curls (5 kg)", vid: "0fU51irU-Q0", cue: "Forearm on thigh, palm down. Lower for 3 s. Both arms = 1 set." },
+  bands:    { name: "Finger-extensor bands", vid: "Kx3Xli2nGdA", cue: "Band around all fingertips. Open wide, close slowly. Skip if no band." },
+  hips:     { name: "Hip mobility", vid: "g391rm8Whaw", cue: "Ease in, breathe, no bouncing." },
+  scap:     { name: "Scapular pull-ups", vid: "-ZIpSoTRsuE", cue: "Arms straight. Pull shoulder blades down, hold 2 s at the top." },
+  pullup:   { name: "Pull-ups", vid: "rmdn5X_KLkY", cue: "Dead hang to chin over bar. Stop each set with 2+ reps left." },
+  ringrow:  { name: "Ring rows", vid: "h8Nj6fEP0cg", cue: "Body straight, rings to lower ribs, 3 s down." },
+  tuck:     { name: "Tuck front lever", vid: "RMo1Ki1-tb8", cue: "Arms locked, knees to chest, push the bar toward your hips." },
+  dips:     { name: "Dip support hold", vid: "U2qlLldx3jM", cue: "Arms locked, shoulders pushed down away from the ears." },
+  ringpush: { name: "Ring push-ups", vid: "V0K5SRAXwC0", cue: "Rings close to the body, no wobble. Turn them out at the top." },
+  knees:    { name: "Hanging knee raises", vid: "0BmrlKCfTPU", cue: "Curl the pelvis up. Pause at the bottom, no swinging." },
+  glides:   { name: "Tendon glides", vid: "_7Uikppmd_o", cue: "Straight → hook fist → full fist → tabletop → flat fist. Slow, 2 s each." },
+  abra:     { name: "Abrahangs (20 mm)", vid: "VOI2Xcbe45I", cue: "Feet stay on the floor. Pull gently: effort 2–4 out of 10." },
+  pulltest: { name: "Max pull-up test", vid: "rmdn5X_KLkY", cue: "One all-out set. Dead hang start, chin over bar, full lockout. Only clean reps count." },
+  easyclimb:{ name: "Easy problems", vid: "", cue: "8–12 problems from V0 up to V3. Silent feet. Then start your session." },
+};
+
+const HIPS = { ex: "hips", type: "circuit", parts: [
+  { name: "Frog stretch", secs: 60 },
+  { name: "90/90 switches", reps: "10 slow" },
+  { name: "Deep squat hold", secs: 60 },
+  { name: "Couch stretch · left", secs: 60 },
+  { name: "Couch stretch · right", secs: 60 },
+]};
+const ROPE = { ex: "rope", type: "interval", rounds: 4, on: 30, off: 30, onLabel: "Jump", offLabel: "Rest" };
+
+const SESSIONS = [
+  { id: "recovery", name: "Recovery (no grip) · ~40 min", items: [
+    ROPE,
+    { ex: "pushup", type: "reps", sets: 3, target: "10–15", unit: "reps", rest: 60 },
+    { ex: "pike", type: "reps", sets: 3, target: "6–10", unit: "reps", rest: 60 },
+    { ex: "ohp", type: "reps", sets: 3, target: "10–12", unit: "reps each arm", rest: 60 },
+    { ex: "split", type: "reps", sets: 3, target: "10", unit: "reps each leg", rest: 60 },
+    { ex: "hollow", type: "hold", sets: 3, secs: 25, rest: 45 },
+    { ex: "sideplank", type: "hold", sets: 2, secs: 30, sides: true, rest: 45 },
+    { ex: "extrot", type: "reps", sets: 2, target: "12–15", unit: "reps each arm", rest: 45 },
+    { ex: "ytw", type: "reps", sets: 2, target: "8+8+8", unit: "Y, T, W", rest: 45 },
+    { ex: "revcurl", type: "reps", sets: 2, target: "15", unit: "reps each arm", rest: 45 },
+    { ex: "bands", type: "reps", sets: 2, target: "25", unit: "reps (optional)", rest: 30 },
+    HIPS,
+  ]},
+  { id: "pulltest", name: "Pull-up test + Park A · ~45 min", items: [
+    ROPE,
+    { ex: "scap", type: "reps", sets: 2, target: "8", unit: "reps, 2 s hold", rest: 60 },
+    { ex: "pullup", type: "reps", sets: 2, target: "2–3", unit: "easy warm-up reps", rest: 120 },
+    { ex: "pulltest", type: "reps", sets: 1, target: "MAX", unit: "clean reps. Write it down", rest: 180, restBefore: 180 },
+    { ex: "ringrow", type: "reps", sets: 3, target: "10", unit: "reps, 3 s down", rest: 90 },
+    { ex: "tuck", type: "hold", sets: 5, secs: 8, rest: 60 },
+    { ex: "dips", type: "hold", sets: 3, secs: 20, rest: 60 },
+    { ex: "hollow", type: "hold", sets: 3, secs: 30, rest: 45 },
+    { ex: "extrot", type: "reps", sets: 2, target: "12–15", unit: "reps each arm", rest: 45 },
+  ]},
+  { id: "parkA", name: "Park A (pull) · ~45 min", items: [
+    ROPE,
+    { ex: "scap", type: "reps", sets: 3, target: "8–10", unit: "reps, 2 s hold", rest: 60 },
+    { ex: "pullup", type: "reps", sets: 5, target: "50–70%", unit: "of your max reps", rest: 150 },
+    { ex: "ringrow", type: "reps", sets: 3, target: "10", unit: "reps, 3 s down", rest: 90 },
+    { ex: "tuck", type: "hold", sets: 5, secs: 8, rest: 60 },
+    { ex: "dips", type: "hold", sets: 3, secs: 20, rest: 60 },
+    { ex: "hollow", type: "hold", sets: 3, secs: 30, rest: 45 },
+    { ex: "extrot", type: "reps", sets: 2, target: "12–15", unit: "reps each arm", rest: 45 },
+  ]},
+  { id: "parkB", name: "Park B (push/legs) · ~45 min", items: [
+    ROPE,
+    { ex: "ringpush", type: "reps", sets: 3, target: "8–12", unit: "reps", rest: 90 },
+    { ex: "pike", type: "reps", sets: 3, target: "6–10", unit: "reps", rest: 90 },
+    { ex: "ohp", type: "reps", sets: 3, target: "10–12", unit: "reps each arm", rest: 60 },
+    { ex: "knees", type: "reps", sets: 3, target: "8", unit: "reps", rest: 60 },
+    { ex: "split", type: "reps", sets: 3, target: "10", unit: "reps each leg", rest: 60 },
+    { ex: "ytw", type: "reps", sets: 2, target: "8+8+8", unit: "Y, T, W", rest: 45 },
+    { ex: "revcurl", type: "reps", sets: 2, target: "15", unit: "reps each arm", rest: 45 },
+    HIPS,
+  ]},
+  { id: "abra", name: "Abrahangs · 12 min", items: [
+    { ex: "glides", type: "reps", sets: 1, target: "5–10", unit: "slow rounds", rest: 30 },
+    { ex: "abra", type: "interval", rounds: 10, on: 10, off: 50, labels: ["Half crimp", "Open hand", "3-finger drag"], offLabel: "Rest" },
+  ]},
+  { id: "climbwu", name: "Climb warm-up · ~15 min", items: [
+    ROPE,
+    { ex: "glides", type: "reps", sets: 1, target: "5–10", unit: "slow rounds", rest: 20 },
+    { ex: "extrot", type: "reps", sets: 2, target: "15", unit: "reps each arm (band)", rest: 30 },
+    { ex: "scap", type: "reps", sets: 2, target: "8", unit: "reps, 2 s hold", rest: 60 },
+    { ex: "easyclimb", type: "reps", sets: 1, target: "8–12", unit: "easy problems", rest: 0 },
+  ]},
+];
+
+function build(session) {
+  const out = [];
+  const items = session.items;
+  items.forEach((it, ei) => {
+    const last = ei === items.length - 1;
+    const add = p => out.push({ ei, ...p });
+    const trans = secs => { if (!last && secs > 0) add({ kind: "rest", secs, label: "Rest", transition: true }); };
+    if (it.restBefore && out.length) {
+      const prev = out[out.length - 1];
+      if (prev.kind === "rest") prev.secs = Math.max(prev.secs, it.restBefore);
+    }
+    if (it.type === "reps") {
+      for (let s = 1; s <= it.sets; s++) {
+        add({ kind: "work", timed: false, set: s, sets: it.sets, label: it.sets > 1 ? `Set ${s} of ${it.sets}` : "", target: it.target, unit: it.unit });
+        if (s < it.sets) add({ kind: "rest", secs: it.rest, label: "Rest" });
+      }
+      trans(it.rest);
+    } else if (it.type === "hold") {
+      for (let s = 1; s <= it.sets; s++) {
+        const base = `Set ${s} of ${it.sets}`;
+        if (it.sides) {
+          add({ kind: "work", timed: true, secs: it.secs, set: s, sets: it.sets, label: `${base} · left side` });
+          add({ kind: "rest", secs: 10, label: "Switch sides" });
+          add({ kind: "work", timed: true, secs: it.secs, set: s, sets: it.sets, label: `${base} · right side` });
+        } else {
+          add({ kind: "work", timed: true, secs: it.secs, set: s, sets: it.sets, label: base });
+        }
+        if (s < it.sets) add({ kind: "rest", secs: it.rest, label: "Rest" });
+      }
+      trans(it.rest);
+    } else if (it.type === "interval") {
+      for (let r = 1; r <= it.rounds; r++) {
+        const lab = it.labels ? it.labels[(r - 1) % it.labels.length] : it.onLabel;
+        add({ kind: "work", timed: true, secs: it.on, set: r, sets: it.rounds, label: `${lab} · ${r} of ${it.rounds}` });
+        if (r < it.rounds) add({ kind: "rest", secs: it.off, label: it.offLabel || "Rest" });
+      }
+      trans(30);
+    } else if (it.type === "circuit") {
+      it.parts.forEach((p, pi) => {
+        add({ kind: "work", timed: !!p.secs, secs: p.secs, set: pi + 1, sets: it.parts.length, label: p.name, target: p.reps, unit: p.reps ? "" : "" });
+        if (pi < it.parts.length - 1) add({ kind: "rest", secs: 10, label: "Next position" });
+      });
+      trans(30);
+    }
+  });
+  return out;
+}
+
+const $ = id => document.getElementById(id);
+const els = {
+  session: $("session"), sound: $("sound"), reset: $("reset"), progress: $("progress"), elapsed: $("elapsed"),
+  stage: $("stage"), phaseLabel: $("phaseLabel"), exName: $("exName"), setLabel: $("setLabel"), big: $("big"),
+  bar: $("bar"), barFill: $("barFill"), dots: $("dots"), cue: $("cue"), vid: $("vid"),
+  primary: $("primary"), back: $("back"), plus: $("plus"), skip: $("skip"), next: $("next"), list: $("list"),
+};
+
+let session, phases, idx = 0, running = false, remaining = 0, endAt = 0, lastWhole = 0, finished = false;
+let startedAt = null, soundOn = true, audio = null, wakeLock = null;
+
+function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+
+function ensureAudio() {
+  if (!audio) { try { audio = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {} }
+  if (audio && audio.state === "suspended") audio.resume();
+}
+function beep(freq, dur) {
+  if (!soundOn || !audio) return;
+  try {
+    const o = audio.createOscillator(), g = audio.createGain();
+    o.frequency.value = freq; o.type = "sine";
+    g.gain.setValueAtTime(0.0001, audio.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.4, audio.currentTime + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime + dur);
+    o.connect(g).connect(audio.destination); o.start(); o.stop(audio.currentTime + dur + 0.05);
+  } catch (e) {}
+}
+function buzz(p) { try { navigator.vibrate && navigator.vibrate(p); } catch (e) {} }
+async function keepAwake() {
+  try { if ("wakeLock" in navigator && !wakeLock) { wakeLock = await navigator.wakeLock.request("screen"); wakeLock.addEventListener("release", () => { wakeLock = null; }); } } catch (e) {}
+}
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && startedAt) keepAwake(); });
+
+function fmt(s) { s = Math.max(0, Math.ceil(s)); const m = Math.floor(s / 60), r = s % 60; return `${m}:${String(r).padStart(2, "0")}`; }
+
+function setSession(id) {
+  session = SESSIONS.find(s => s.id === id) || SESSIONS[0];
+  phases = build(session);
+  els.session.value = session.id;
+  store("timer-session", session.id);
+  startedAt = null; finished = false;
+  renderList();
+  enter(0, false);
+}
+
+function enter(i, autoStart) {
+  idx = Math.max(0, Math.min(i, phases.length - 1));
+  finished = false;
+  const p = phases[idx];
+  remaining = p.secs || 0;
+  running = false;
+  if (p.kind === "rest" || autoStart) start(); else render();
+}
+function start() {
+  ensureAudio(); keepAwake();
+  if (!startedAt) startedAt = Date.now();
+  endAt = Date.now() + remaining * 1000;
+  lastWhole = Math.ceil(remaining);
+  running = true; render();
+}
+function pause() { remaining = Math.max(0, (endAt - Date.now()) / 1000); running = false; render(); }
+
+function advance(fromEnd) {
+  const p = phases[idx];
+  if (fromEnd) { beep(p.kind === "work" ? 660 : 1320, 0.45); buzz([200, 80, 200]); }
+  const ni = idx + 1;
+  if (ni >= phases.length) { running = false; finished = true; render(); return; }
+  const n = phases[ni];
+  if (p.kind === "work") enter(ni, n.kind === "work" && n.timed && n.ei === p.ei);
+  else enter(ni, n.timed && n.ei === p.ei && !p.transition);
+}
+
+function tick() {
+  if (startedAt && !finished) els.elapsed.textContent = fmt((Date.now() - startedAt) / 1000).padStart(5, "0");
+  if (!running) return;
+  remaining = (endAt - Date.now()) / 1000;
+  const whole = Math.ceil(remaining);
+  if (whole < lastWhole && whole <= 3 && whole > 0) beep(880, 0.12);
+  lastWhole = whole;
+  if (remaining <= 0) { running = false; advance(true); return; }
+  els.big.textContent = fmt(remaining);
+  const p = phases[idx];
+  els.barFill.style.width = `${100 * (1 - remaining / p.secs)}%`;
+}
+setInterval(tick, 200);
+
+function nextWorkIndex(from) { for (let i = from + 1; i < phases.length; i++) if (phases[i].kind === "work") return i; return -1; }
+function prevWorkIndex(from) { for (let i = from - 1; i >= 0; i--) if (phases[i].kind === "work") return i; return -1; }
+
+function render() {
+  if (finished) {
+    els.stage.className = "stage done";
+    els.phaseLabel.textContent = "Finished";
+    els.exName.textContent = "Session done";
+    els.setLabel.textContent = startedAt ? `Total time ${fmt((Date.now() - startedAt) / 1000)}` : "";
+    els.big.className = "big text"; els.big.textContent = "Nice work";
+    els.bar.hidden = true; els.dots.innerHTML = "";
+    els.cue.textContent = "Tell your coach how it went: effort, fingers/elbows/shoulders 0–10, anything that felt off.";
+    els.vid.hidden = true;
+    els.primary.textContent = "Start over"; els.primary.className = "primary";
+    els.plus.disabled = true; els.skip.disabled = true; els.back.disabled = false;
+    els.next.textContent = "";
+    els.progress.textContent = `${session.items.length} of ${session.items.length} exercises`;
+    markList(session.items.length);
+    return;
+  }
+  const p = phases[idx];
+  const item = session.items[p.ei];
+  const ex = EX[item.ex];
+  const isRest = p.kind === "rest";
+  els.stage.className = `stage ${isRest ? "rest" : "work"}`;
+  els.progress.textContent = `Exercise ${p.ei + 1} of ${session.items.length}`;
+
+  if (isRest) {
+    const n = phases[idx + 1];
+    const nItem = n ? session.items[n.ei] : null;
+    els.phaseLabel.textContent = p.label;
+    els.exName.textContent = p.transition && nItem ? `Next: ${EX[nItem.ex].name}` : ex.name;
+    els.setLabel.textContent = n ? (n.label ? `Up next: ${n.label}` : "") : "";
+  } else {
+    els.phaseLabel.textContent = p.timed ? (running ? "Hold" : "Get ready") : "Your set";
+    els.exName.textContent = ex.name;
+    els.setLabel.textContent = p.label;
+  }
+
+  if (isRest || p.timed) {
+    els.big.className = "big";
+    els.big.textContent = fmt(running ? Math.max(0, (endAt - Date.now()) / 1000) : remaining);
+    els.bar.hidden = false;
+    els.barFill.style.width = `${100 * (1 - (running ? (endAt - Date.now()) / 1000 : remaining) / p.secs)}%`;
+  } else {
+    els.big.className = "big text";
+    els.big.innerHTML = `${p.target}${p.unit ? `<div class="sub" style="font-family:var(--font-body);font-size:1rem;font-weight:500;margin-top:6px">${p.unit}</div>` : ""}`;
+    els.bar.hidden = true;
+  }
+
+  // set dots for this exercise
+  const works = phases.map((q, i) => ({ q, i })).filter(o => o.q.ei === p.ei && o.q.kind === "work");
+  els.dots.innerHTML = works.length > 1 ? works.map(o => `<span class="${o.i < idx ? "on" : ""} ${o.i === idx ? "now" : ""}"></span>`).join("") : "";
+
+  els.cue.textContent = ex.cue;
+  els.vid.hidden = !ex.vid;
+  if (ex.vid) els.vid.href = V(ex.vid);
+
+  // primary button
+  els.primary.className = `primary ${isRest ? "rest" : ""}`;
+  if (isRest) els.primary.textContent = running ? "Skip rest" : "Start rest";
+  else if (!p.timed) {
+    const n = phases[idx + 1];
+    els.primary.textContent = !n ? "Done, finish session" : n.kind === "rest" ? `Done, rest ${fmt(n.secs)}` : "Done, next";
+  } else if (running) els.primary.textContent = "Pause";
+  else els.primary.textContent = remaining < p.secs ? "Resume" : `Start ${p.secs} s`;
+
+  els.plus.disabled = !isRest;
+  els.back.disabled = prevWorkIndex(idx) < 0 && idx === 0;
+  els.skip.disabled = false;
+
+  const nw = nextWorkIndex(idx);
+  if (nw >= 0) {
+    const q = phases[nw], qi = session.items[q.ei];
+    els.next.textContent = `After this: ${EX[qi.ex].name}${q.label ? ` · ${q.label}` : ""}`;
+  } else els.next.textContent = "Last one.";
+  markList(p.ei);
+}
+
+function renderList() {
+  els.list.innerHTML = session.items.map((it, i) => {
+    const ex = EX[it.ex];
+    const what = it.type === "reps" ? `${it.sets} × ${it.target}` : it.type === "hold" ? `${it.sets} × ${it.secs} s${it.sides ? " each side" : ""}` :
+      it.type === "interval" ? `${it.rounds} × ${it.on}/${it.off} s` : `${it.parts.length} positions`;
+    return `<li data-i="${i}"><button type="button" data-i="${i}"><span>${i + 1}. ${ex.name}</span><span>${what}</span></button></li>`;
+  }).join("");
+}
+function markList(cur) {
+  [...els.list.children].forEach((li, i) => { li.className = i < cur ? "past" : i === cur ? "cur" : ""; });
+}
+
+els.primary.addEventListener("click", () => {
+  ensureAudio();
+  if (finished) { startedAt = null; enter(0, false); return; }
+  const p = phases[idx];
+  if (!startedAt) startedAt = Date.now();
+  if (p.kind === "rest") { if (running) advance(false); else start(); return; }
+  if (!p.timed) { keepAwake(); advance(false); return; }
+  if (running) pause(); else start();
+});
+els.plus.addEventListener("click", () => {
+  if (phases[idx].kind !== "rest") return;
+  if (running) endAt += 15000; else remaining += 15;
+  phases[idx].secs += 15; render();
+});
+els.skip.addEventListener("click", () => {
+  if (finished) return;
+  const nw = nextWorkIndex(idx);
+  if (nw < 0) { running = false; finished = true; render(); } else enter(nw, false);
+});
+els.back.addEventListener("click", () => {
+  if (finished) { enter(prevWorkIndex(phases.length), false); return; }
+  const pw = prevWorkIndex(idx);
+  enter(pw >= 0 ? pw : 0, false);
+});
+els.list.addEventListener("click", ev => {
+  const b = ev.target.closest("button[data-i]"); if (!b) return;
+  const ei = +b.dataset.i;
+  const first = phases.findIndex(q => q.ei === ei && q.kind === "work");
+  if (first >= 0) enter(first, false);
+  els.listWrap?.removeAttribute("open");
+});
+els.session.addEventListener("change", () => setSession(els.session.value));
+els.reset.addEventListener("click", () => setSession(session.id));
+els.sound.addEventListener("click", () => {
+  soundOn = !soundOn; els.sound.textContent = soundOn ? "Sound on" : "Sound off";
+  els.sound.setAttribute("aria-pressed", String(soundOn)); store("timer-sound", soundOn ? "1" : "0");
+  ensureAudio(); if (soundOn) beep(880, 0.1);
+});
+els.listWrap = $("listWrap");
+
+els.session.innerHTML = SESSIONS.map(s => `<option value="${s.id}">${s.name}</option>`).join("");
+if (load("timer-sound") === "0") { soundOn = false; els.sound.textContent = "Sound off"; els.sound.setAttribute("aria-pressed", "false"); }
+setSession(load("timer-session") || "recovery");
+</script>
