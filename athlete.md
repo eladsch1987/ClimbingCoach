@@ -4,7 +4,7 @@
 - Weight: 72 kg (Nov 2026). Goal: ~62 kg; plan for ~64 kg by week 16 and reassess at week 12.
 - Vegetarian. Tracks calories with Cal AI (weigh oils, nuts, cheese, tahini; photo apps under-count).
 - Location: northern Israel. Hot weather: hydrate more.
-- **Injury:** right wrist ECU (extensor carpi ulnaris), recovering as of Nov 2026. Keep right-hand wrist loading light and pain ≤2/10; watch ulnar-side wrist pain on slopers, underclings and wrist-twisting moves.
+- **Injury:** right wrist ECU (extensor carpi ulnaris), injured ~Jul 2026. Doctor said not serious. Barely felt day to day; clicks on twisting (rotating the forearm) and feels less stable than before. Ultrasound + first physio planned week of 2026-11-16. Keep right-hand wrist loading light and pain ≤2/10; watch ulnar-side wrist pain on slopers, underclings and wrist-twisting moves.
 
 ## Climbing background
 - ~5 years of climbing on and off; best level V4–V5 bouldering (never above V5).
