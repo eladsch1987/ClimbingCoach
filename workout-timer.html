@@ -129,7 +129,7 @@ ol.list li.cur button { color: var(--work); font-weight: 700; }
   <div class="row">
     <button id="back" type="button">◀ Back</button>
     <button id="plus" type="button">+15 s</button>
-    <button id="skip" type="button">Skip set ▶</button>
+    <button id="skip" type="button">End set ▶</button>
   </div>
   <p class="next" id="next"></p>
 
@@ -444,6 +444,7 @@ function render() {
   els.plus.disabled = !isRest;
   els.back.disabled = prevWorkIndex(idx) < 0 && idx === 0;
   els.skip.disabled = false;
+  els.skip.textContent = isRest ? "Skip rest ▶" : "End set ▶";
 
   const nw = nextWorkIndex(idx);
   if (nw >= 0) {
@@ -481,8 +482,10 @@ els.plus.addEventListener("click", () => {
 });
 els.skip.addEventListener("click", () => {
   if (finished) return;
-  const nw = nextWorkIndex(idx);
-  if (nw < 0) { running = false; finished = true; render(); } else enter(nw, false);
+  ensureAudio();
+  if (!startedAt) startedAt = Date.now();
+  running = false;
+  advance(false);
 });
 els.back.addEventListener("click", () => {
   if (finished) { enter(prevWorkIndex(phases.length), false); return; }
