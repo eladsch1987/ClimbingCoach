@@ -5,7 +5,7 @@
 - **Current phase:** 1 (Re-entry)
 - **Climbing sessions/week right now:** 1
 - **Phase extensions so far:** none
-- **Notes:** Week 0 = Thu 2026-11-12 → Sun 2026-11-15: baseline tests (max pull-ups, 20 mm BW hang capped at 15 s, morning weight + waist), learn Abrahangs on the new board, one easy climb if available.
+- **Notes:** Week 0 = Thu 2026-11-12 → Sun 2026-11-15: baseline tests (max pull-ups, 20 mm BW hang capped at 15 s, morning weight + waist), learn Abrahangs on the new board, one easy climb if available. Right wrist ECU recovering: reverse wrist curls light on the right (1.25–2.5 kg), no pronation/supination with load on the right until pain-free.
 
 Week number = floor((today − start) / 7) + 1.
 
