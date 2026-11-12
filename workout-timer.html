@@ -179,7 +179,23 @@ const HIPS = { ex: "hips", type: "circuit", parts: [
 const ROPE = { ex: "rope", type: "interval", rounds: 4, on: 30, off: 30, onLabel: "Jump", offLabel: "Rest" };
 
 const SESSIONS = [
-  { id: "recovery", name: "Recovery (no grip) · ~40 min", items: [
+  { id: "recovery", name: "Recovery (no grip) · 30 min", items: [
+    { ex: "rope", type: "interval", rounds: 3, on: 30, off: 30, onLabel: "Jump", offLabel: "Rest" },
+    { ex: "pushup", type: "reps", sets: 3, target: "10–15", unit: "reps", rest: 45 },
+    { ex: "split", type: "reps", sets: 2, target: "10", unit: "reps each leg", rest: 30 },
+    { ex: "pike", type: "reps", sets: 2, target: "6–10", unit: "reps", rest: 45 },
+    { ex: "ohp", type: "reps", sets: 2, target: "10–12", unit: "reps each arm", rest: 30 },
+    { ex: "hollow", type: "hold", sets: 2, secs: 25, rest: 30 },
+    { ex: "extrot", type: "reps", sets: 2, target: "12–15", unit: "reps each arm", rest: 20 },
+    { ex: "revcurl", type: "reps", sets: 2, target: "15", unit: "reps each arm", rest: 20 },
+    { ex: "hips", type: "circuit", parts: [
+      { name: "Frog stretch", secs: 60 },
+      { name: "90/90 switches", reps: "10 slow" },
+      { name: "Couch stretch · left", secs: 45 },
+      { name: "Couch stretch · right", secs: 45 },
+    ]},
+  ]},
+  { id: "recovery-full", name: "Recovery, full (no grip) · ~55 min", items: [
     ROPE,
     { ex: "pushup", type: "reps", sets: 3, target: "10–15", unit: "reps", rest: 60 },
     { ex: "pike", type: "reps", sets: 3, target: "6–10", unit: "reps", rest: 60 },
@@ -193,7 +209,7 @@ const SESSIONS = [
     { ex: "bands", type: "reps", sets: 2, target: "25", unit: "reps (optional)", rest: 30 },
     HIPS,
   ]},
-  { id: "pulltest", name: "Pull-up test + Park A · ~45 min", items: [
+  { id: "pulltest", name: "Pull-up test + Park A · ~40 min", items: [
     ROPE,
     { ex: "scap", type: "reps", sets: 2, target: "8", unit: "reps, 2 s hold", rest: 60 },
     { ex: "pullup", type: "reps", sets: 2, target: "2–3", unit: "easy warm-up reps", rest: 120 },
@@ -204,7 +220,7 @@ const SESSIONS = [
     { ex: "hollow", type: "hold", sets: 3, secs: 30, rest: 45 },
     { ex: "extrot", type: "reps", sets: 2, target: "12–15", unit: "reps each arm", rest: 45 },
   ]},
-  { id: "parkA", name: "Park A (pull) · ~45 min", items: [
+  { id: "parkA", name: "Park A (pull) · ~50 min", items: [
     ROPE,
     { ex: "scap", type: "reps", sets: 3, target: "8–10", unit: "reps, 2 s hold", rest: 60 },
     { ex: "pullup", type: "reps", sets: 5, target: "50–70%", unit: "of your max reps", rest: 150 },
@@ -214,7 +230,7 @@ const SESSIONS = [
     { ex: "hollow", type: "hold", sets: 3, secs: 30, rest: 45 },
     { ex: "extrot", type: "reps", sets: 2, target: "12–15", unit: "reps each arm", rest: 45 },
   ]},
-  { id: "parkB", name: "Park B (push/legs) · ~45 min", items: [
+  { id: "parkB", name: "Park B (push/legs) · ~50 min", items: [
     ROPE,
     { ex: "ringpush", type: "reps", sets: 3, target: "8–12", unit: "reps", rest: 90 },
     { ex: "pike", type: "reps", sets: 3, target: "6–10", unit: "reps", rest: 90 },
