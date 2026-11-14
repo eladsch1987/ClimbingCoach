@@ -198,7 +198,9 @@ const PICS = {
 };
 
 const PHOTOS = { ninety: ["images/ninety.jpg", "images/ninety-switch.jpg"], couch: ["images/couch.jpg"], couchR: ["images/couch-r.jpg"], squat: ["images/squat.jpg"], pancake: ["images/pancake.jpg"] };
-function picHTML(k) { return PHOTOS[k] ? PHOTOS[k].map(src => `<img src="${src}" alt="" loading="lazy">`).join("") : PICS[k]; }
+const ANIM = new Set(["frog","ninety","couch","couchR","squat","pancake","rope","scap","pullup","ringrow","tuck","dips","hollow","extrot"]);
+function animImg(k) { return `<img src="anim/${k}.webp" alt="" class="anim">`; }
+function picHTML(k) { return ANIM.has(k) ? animImg(k) : PHOTOS[k] ? PHOTOS[k].map(src => `<img src="${src}" alt="" loading="lazy">`).join("") : PICS[k]; }
 const HIP_CUES = {"frog": "On forearms and knees. Knees wide, shins out to the sides, ankles in line with knees. Slowly push your hips back until you feel the inner thighs.", "ninety": "Sit with both knees bent 90°: front shin across in front of you, back shin out to the side and behind. Sit tall. Lift both knees and swing them to the other side = 1 switch.", "couch": "Back knee on a cushion close to the wall or couch, back shin up the wall. Front foot forward. Squeeze the back-leg glute, torso upright. Feel the front of the hip and thigh.", "squat": "Feet shoulder-width, toes slightly out, heels down. Sit as low as is comfortable, chest up, elbows gently pushing the knees out. Hold a pole if you need to.", "pancake": "Sit with legs wide and straight, toes up. Sit tall, then walk your hands forward, bending at the hips without rounding your back. Centre, then over the left leg, then the right."};
 const HIPS = { ex: "hips", type: "circuit", parts: [
   { name: "Frog stretch", secs: 60, pic: "frog" },
@@ -479,7 +481,9 @@ function render() {
   const pp = isRest ? phases[idx + 1] : p;
   const ppItem = pp ? session.items[pp.ei] : null;
   const part = ppItem && ppItem.type === "circuit" ? ppItem.parts[pp.set - 1] : null;
-  els.pic.innerHTML = part && part.pic ? picHTML(part.pic) : "";
+  const showEx = ppItem ? ppItem.ex : item.ex;
+  const animHTML = part && part.pic ? picHTML(part.pic) : ANIM.has(showEx) ? animImg(showEx) : "";
+  if (els.pic.dataset.k !== animHTML) { els.pic.innerHTML = animHTML; els.pic.dataset.k = animHTML; }
   if (part && part.pic) els.cue.textContent = HIP_CUES[part.pic.replace("R", "")];
   els.vid.hidden = !ex.vid;
   if (ex.vid) els.vid.href = V(ex.vid);
