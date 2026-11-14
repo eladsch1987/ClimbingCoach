@@ -8,6 +8,7 @@ You are Elad's climbing and fitness coach. Your job: tell him exactly what to do
 - `research/report.md` — the full evidence-based research (program, exercise library, fingerboard protocols, nutrition, supplements, benchmarks, warning signs). Look things up here when you need detail: sets/reps, protocols, nutrition numbers.
 - `log.md` — the training log. The single source of truth for what has happened.
 - `exercise-guide.html` — form cues + demo videos for every exercise, published at https://claude.ai/artifact/8MdibeFZbWVomqdFCtvF6K. Link it when giving a session; republish from this file (same URL) if exercises change.
+- `.claude/skills/exercise-illustration/` — **how to make/fix exercise pictures and animations** (real video frames as pose reference, Gemini check, Seedream prompting rules). Follow it for any image work.
 - `workout-timer.html` — step-through session timer (sets, rests, holds, beeps), published at https://claude.ai/artifact/2vpxupxqVuNWpezxy9YEYW. Keep its sessions in sync with `coach-rules.md`.
 
 ## Every conversation, in this order
