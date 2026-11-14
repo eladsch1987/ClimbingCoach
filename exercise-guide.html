@@ -159,7 +159,7 @@ const PICS = {
 };
 
 const PHOTOS = { ninety: ["images/ninety.jpg", "images/ninety-switch.jpg"], couch: ["images/couch.jpg"], couchR: ["images/couch-r.jpg"], squat: ["images/squat.jpg"], pancake: ["images/pancake.jpg"] };
-const ANIM = new Set(["frog","ninety","couch","couchR","squat","pancake","rope","scap","pullup","ringrow","tuck","dips","hollow","extrot"]);
+const ANIM = new Set(["facepull","frog","ninety","couch","couchR","squat","pancake","rope","scap","pullup","ringrow","tuck","dips","hollow","extrot"]);
 function animImg(k) { return `<img src="anim/${k}.webp" alt="" class="anim">`; }
 function picHTML(k) { return ANIM.has(k) ? animImg(k) : PHOTOS[k] ? PHOTOS[k].map(src => `<img src="${src}" alt="" loading="lazy">`).join("") : PICS[k]; }
 const HIP_CUES = {"frog": "On forearms and knees. Knees wide, shins out to the sides, ankles in line with knees. Slowly push your hips back until you feel the inner thighs.", "ninety": "Sit with both knees bent 90°: front shin across in front of you, back shin out to the side and behind. Sit tall. Lift both knees and swing them to the other side = 1 switch.", "couch": "Back knee on a cushion close to the wall or couch, back shin up the wall. Front foot forward. Squeeze the back-leg glute, torso upright. Feel the front of the hip and thigh.", "squat": "Feet shoulder-width, toes slightly out, heels down. Sit as low as is comfortable, chest up, elbows gently pushing the knees out. Hold a pole if you need to.", "pancake": "Sit with legs wide and straight, toes up. Sit tall, then walk your hands forward, bending at the hips without rounding your back. Centre, then over the left leg, then the right."};
@@ -179,7 +179,7 @@ const SESSIONS = [
   { id: "recovery", name: "Recovery (no grip)", note: "The day after a climb or hard finger session. No hanging and no pulling.",
     order: ["rope","pushup","pike","ohp","split","hollow","sideplank","extrot","ytw","revcurl","bands","hips"] },
   { id: "parkA", name: "Park A (pull)", note: "Pull day. Pull-ups at ~50–70% of your max reps per set, never to failure.",
-    order: ["rope","scap","pullup","ringrow","tuck","dips","hollow","extrot"] },
+    order: ["rope","scap","pullup","ringrow","tuck","dips","hollow","facepull"] },
   { id: "parkB", name: "Park B (push/legs)", note: "Push and legs. Skip lock-offs until you can do 8 clean pull-ups.",
     order: ["rope","ringpush","pike","ohp","lockoff","knees","split","ytw","revcurl","hips"] },
   { id: "abra", name: "Abrahangs (10 min)", note: "At least 6 h away from climbing. Fingers should feel fresher after, not worked.",
@@ -259,6 +259,10 @@ const EX = {
     cues: ["Lie face down, forehead on a towel", "Lift your arms into a Y, then a T, then a W, thumbs up", "Squeeze your shoulder blades down and back; small lift, 2 s hold"],
     mistake: "Arching the lower back to get the arms higher.",
     video: ["ZpZEQ2JCXyc", "Prone YTW"], q: "prone Y T W shoulder exercise" },
+  facepull: { g: "shoulder", name: "Ring face pulls", dose: "2 × 12–15, slow (replaces external rotation at the park)",
+    cues: ["Rings at about chest height, lean back about 60°, palms down, arms straight", "Pull the rings toward your face with elbows HIGH and wide, at shoulder height", "At the end, rotate your hands back beside your ears so your arms make a goalpost", "Lower for 3 s. Stand more upright to make it easier"],
+    mistake: "Elbows dropping down to the ribs. That turns it into a row and skips the shoulder rotation.",
+    video: ["z4vYXBQ-LvI", "Ring Face Pulls for Bulletproof Shoulders"], q: "ring face pull tutorial" },
   scappush: { g: "shoulder", name: "Scapular push-ups", dose: "2 × 10–15",
     cues: ["Push-up position, arms straight", "Let your chest sink between your shoulder blades, then push the floor away", "Only the shoulder blades move"],
     mistake: "Bending the elbows.",

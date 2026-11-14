@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B7A63">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon.png">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Elad's Exercise Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap"><style>
+/* Layout: one narrow reading column; sticky session filter on top; exercises as plain list items, cards only for the coach notes. */
+:root {
+  --bg: #F1F4F3;
+  --surface: #FFFFFF;
+  --fg: #16201C;
+  --muted: #5A6762;
+  --line: #D5DDD9;
+  --accent: #0B7A63;
+  --accent-soft: #DCEFEA;
+  --warn: #A9471A;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101513; --surface: #18201D; --fg: #E4EBE8; --muted: #93A29C; --line: #2A3531;
+    --accent: #43C4A3; --accent-soft: #173a31; --warn: #F08C5E; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101513; --surface: #18201D; --fg: #E4EBE8; --muted: #93A29C; --line: #2A3531;
+  --accent: #43C4A3; --accent-soft: #173a31; --warn: #F08C5E; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.55;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap {
+  max-width: 720px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 64px;
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; text-wrap: balance; margin: 0; letter-spacing: 0.01em; }
+h1 { font-size: 2.4rem; line-height: 1.05; text-transform: uppercase; }
+h2 { font-size: 1.5rem; text-transform: uppercase; color: var(--accent); }
+h3 { font-size: 1.3rem; line-height: 1.15; }
+p { margin: 0; }
+.lede { color: var(--muted); max-width: 60ch; margin-top: 8px; }
+header { display: grid; gap: 4px; margin-bottom: 18px; }
+.eyebrow { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
+
+.filters {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--bg); padding-block: 10px; margin-inline: -4px;
+  display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
+  border-bottom: 1px solid var(--line);
+}
+.filters::-webkit-scrollbar { display: none; }
+.chip {
+  flex: none; font: 600 0.85rem var(--font-body); padding: 7px 12px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer;
+}
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.chip:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.note {
+  margin-top: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  padding: 16px; display: grid; gap: 10px;
+}
+.note h2 { font-size: 1.3rem; }
+.note ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+.sessionnote { color: var(--muted); margin-top: 14px; font-size: 0.92rem; }
+
+.group { margin-top: 28px; display: grid; gap: 4px; }
+.list { list-style: none; margin: 0; padding: 0; }
+.ex { padding-block: 16px; border-bottom: 1px solid var(--line); display: grid; gap: 8px; }
+.ex-head { display: flex; gap: 10px; align-items: baseline; justify-content: space-between; flex-wrap: wrap; }
+.step { font-family: var(--font-display); font-size: 1.3rem; color: var(--accent); margin-right: 6px; }
+.dose {
+  font-size: 0.82rem; font-weight: 600; color: var(--accent); background: var(--accent-soft);
+  padding: 2px 8px; border-radius: 6px; font-variant-numeric: tabular-nums;
+}
+.ex ul { margin: 0; padding-left: 1.1em; display: grid; gap: 3px; }
+.mistake { color: var(--warn); font-size: 0.92rem; }
+.mistake b { font-weight: 600; }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px; }
+.links { display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.92rem; }
+.links a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.links a:hover { text-decoration: underline; }
+.links a.alt { color: var(--muted); font-weight: 500; }
+.sub { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.sub li { display: flex; gap: 8px; flex-wrap: wrap; align-items: baseline; }
+.sub .pic { width: 100%; display: grid; gap: 6px; margin-bottom: 8px; }
+.sub .pic svg { width: 100%; max-width: 340px; height: auto; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; }
+.sub .pic img { width: 100%; max-width: 340px; height: auto; border-radius: 10px; display: block; }
+.animbox img { width: 100%; max-width: 420px; height: auto; border-radius: 10px; display: block; border: 1px solid var(--line); }
+.sub .pic p { font-size: 0.9rem; color: var(--fg); }
+.sub a { color: var(--accent); font-size: 0.88rem; text-decoration: none; font-weight: 600; }
+footer { margin-top: 32px; color: var(--muted); font-size: 0.85rem; display: grid; gap: 6px; }
+@media (prefers-reduced-motion: no-preference) { .chip { transition: background .15s, color .15s; } }
+</style>
+</head>
+<body>
+<nav style="display:flex;gap:16px;justify-content:center;padding:10px 16px;font:600 14px Inter,system-ui,sans-serif;background:var(--bg,#f1f4f3)"><a href="index.html" style="color:var(--work,var(--accent,#0B7A63))">Timer</a><a href="guide.html" style="color:var(--work,var(--accent,#0B7A63))">Exercise guide</a></nav>
+
+
+
+
+
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Climbing comeback · 16-week plan</span>
+    <h1>Exercise guide</h1>
+    <p class="lede">How to do every exercise in your plan. Pick a session to see its exercises in order. Each one has a demo video, plus a YouTube search link in case the video isn't great.</p>
+  </header>
+
+  <nav class="filters" id="filters" aria-label="Filter by session"></nav>
+  <p class="sessionnote" id="sessionnote"></p>
+
+  <section class="note" id="rope-note">
+    <h2>Jump rope: build up, don't suffer</h2>
+    <p>Three minutes straight is hard for anyone new to the rope. Your calves and Achilles also need time to adapt to barefoot jumping. So use intervals and build up:</p>
+    <ul>
+      <li><b>Weeks 0–1:</b> 30 s jump / 30 s rest × 4 (2 min of jumping). If 30 s is too much, do 20 s on / 40 s off.</li>
+      <li><b>Each week after:</b> add 10 s to each jump block. Aim for 3 min straight around week 5–6.</li>
+      <li><b>Tripping is normal.</b> Just restart. It doesn't count against you.</li>
+      <li><b>Rope length:</b> stand on the middle of the rope; the handles should reach your armpits.</li>
+      <li><b>Technique:</b> jump only 1–2 cm, land softly on the balls of your feet, knees soft, elbows close to your ribs, and turn the rope with your wrists, not your arms.</li>
+      <li><b>Barefoot:</b> on rubber, wood or grass, not concrete. If your calves are still sore the next day or your Achilles is stiff in the morning, wear shoes or halve the volume.</li>
+      <li><b>To rest your legs without stopping:</b> switch to the alternate-foot "jog step".</li>
+    </ul>
+  </section>
+
+  <div id="content"></div>
+
+  <footer>
+    <p>Videos were found by search and haven't been watched in full. If one looks wrong or the link is dead, use the "More videos" search link.</p>
+    <p>Pain rules: stop at more than 2/10 pain in fingers, elbows or shoulders. A "pop", swelling or bruising in a finger means stop and see a hand physio.</p>
+  </footer>
+</div>
+
+<script>
+const yt = id => `https://www.youtube.com/watch?v=${id}`;
+const search = q => `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`;
+
+// Simple stick-figure pictures for the hip mobility positions.
+function fig(view, lines, heads, ground, notes, mirror) {
+  const g = (ground || []).map(l => `<line x1="${l[0]}" y1="${l[1]}" x2="${l[2]}" y2="${l[3]}" stroke="var(--line)" stroke-width="4" stroke-linecap="round"/>`).join("");
+  const b = lines.map(l => `<line x1="${l[0]}" y1="${l[1]}" x2="${l[2]}" y2="${l[3]}" stroke="var(--fg)" stroke-width="6" stroke-linecap="round"/>`).join("");
+  const h = heads.map(c => `<circle cx="${c[0]}" cy="${c[1]}" r="${c[2]}" fill="var(--fg)"/>`).join("");
+  const n = (notes || []).map(t => `<text x="${t[0]}" y="${t[1]}" font-size="11" fill="var(--muted)" font-family="Inter, system-ui, sans-serif" text-anchor="${t[3] || "middle"}">${t[2]}</text>`).join("");
+  const body = mirror ? `<g transform="translate(240,0) scale(-1,1)">${g}${b}${h}</g>` : `${g}${b}${h}`;
+  return `<svg viewBox="0 0 240 160" role="img" aria-label="${view}">${body}${n}<text x="8" y="154" font-size="10" fill="var(--muted)" font-family="Inter, system-ui, sans-serif">${view}</text></svg>`;
+}
+const FROG = [[105,48,102,18],[135,48,138,18],[105,48,135,48],[120,48,120,85],[108,85,132,85],[108,85,55,85],[132,85,185,85],[55,85,55,128],[185,85,185,128],[55,128,44,128],[185,128,196,128]];
+const NINETY = [[130,75,130,32],[130,32,82,32],[110,75,62,75],[62,75,62,122],[108,78,132,78]];
+const COUCH = [[55,132,44,84],[55,132,95,85],[95,85,136,90],[136,90,136,132],[136,132,152,132],[95,85,95,40],[95,48,128,86]];
+const SQUAT = [[110,133,132,133],[110,133,132,95],[132,95,96,114],[96,114,110,60],[110,66,128,90],[128,90,120,76]];
+const PANCAKE = [[112,96,50,36],[128,96,190,36],[120,96,120,58],[112,64,108,20],[128,64,132,20],[50,36,42,30],[190,36,198,30]];
+const PICS = {
+  frog: fig("Seen from above", FROG, [[120,28,11]], null, [[8,108,"knees","start"],[120,146,"push hips back"]]),
+  ninety: fig("Seen from above", NINETY, [[120,74,12]], null, [[106,22,"front leg"],[8,100,"back leg","start"],[180,100,"then swing both"],[180,113,"knees to the"],[180,126,"other side"]]),
+  couch: fig("From the side", COUCH, [[95,27,11]], [[10,136,232,136],[38,136,38,30]], [[4,22,"wall / couch","start"],[175,70,"squeeze the"],[175,83,"back glute"]]),
+  couchR: fig("From the side · other leg", COUCH, [[95,27,11]], [[10,136,232,136],[38,136,38,30]], [[236,22,"wall / couch","end"]], true),
+  squat: fig("From the side", SQUAT, [[114,47,11]], [[10,136,232,136]], [[185,60,"chest up"],[185,120,"heels down"]]),
+  pancake: fig("Seen from above", PANCAKE, [[120,46,11]], null, [[120,146,"hinge from the hips, back long"]]),
+};
+
+const PHOTOS = { ninety: ["images/ninety.jpg", "images/ninety-switch.jpg"], couch: ["images/couch.jpg"], couchR: ["images/couch-r.jpg"], squat: ["images/squat.jpg"], pancake: ["images/pancake.jpg"] };
+const ANIM = new Set(["facepull","frog","ninety","couch","couchR","squat","pancake","rope","scap","pullup","ringrow","tuck","dips","hollow","extrot"]);
+function animImg(k) { return `<img src="anim/${k}.webp" alt="" class="anim">`; }
+function picHTML(k) { return ANIM.has(k) ? animImg(k) : PHOTOS[k] ? PHOTOS[k].map(src => `<img src="${src}" alt="" loading="lazy">`).join("") : PICS[k]; }
+const HIP_CUES = {"frog": "On forearms and knees. Knees wide, shins out to the sides, ankles in line with knees. Slowly push your hips back until you feel the inner thighs.", "ninety": "Sit with both knees bent 90°: front shin across in front of you, back shin out to the side and behind. Sit tall. Lift both knees and swing them to the other side = 1 switch.", "couch": "Back knee on a cushion close to the wall or couch, back shin up the wall. Front foot forward. Squeeze the back-leg glute, torso upright. Feel the front of the hip and thigh.", "squat": "Feet shoulder-width, toes slightly out, heels down. Sit as low as is comfortable, chest up, elbows gently pushing the knees out. Hold a pole if you need to.", "pancake": "Sit with legs wide and straight, toes up. Sit tall, then walk your hands forward, bending at the hips without rounding your back. Centre, then over the left leg, then the right."};
+const GROUPS = [
+  { id: "warmup", name: "Warm-up" },
+  { id: "fingers", name: "Fingers" },
+  { id: "pull", name: "Pull" },
+  { id: "push", name: "Push" },
+  { id: "core", name: "Core" },
+  { id: "shoulder", name: "Shoulder health" },
+  { id: "forearm", name: "Wrist & forearm" },
+  { id: "legs", name: "Legs & mobility" },
+];
+
+const SESSIONS = [
+  { id: "all", name: "All exercises" },
+  { id: "recovery", name: "Recovery (no grip)", note: "The day after a climb or hard finger session. No hanging and no pulling.",
+    order: ["rope","pushup","pike","ohp","split","hollow","sideplank","extrot","ytw","revcurl","bands","hips"] },
+  { id: "parkA", name: "Park A (pull)", note: "Pull day. Pull-ups at ~50–70% of your max reps per set, never to failure.",
+    order: ["rope","scap","pullup","ringrow","tuck","dips","hollow","facepull"] },
+  { id: "parkB", name: "Park B (push/legs)", note: "Push and legs. Skip lock-offs until you can do 8 clean pull-ups.",
+    order: ["rope","ringpush","pike","ohp","lockoff","knees","split","ytw","revcurl","hips"] },
+  { id: "abra", name: "Abrahangs (10 min)", note: "At least 6 h away from climbing. Fingers should feel fresher after, not worked.",
+    order: ["glides","grips","abra"] },
+  { id: "climbwu", name: "Climb warm-up", note: "Do this, then 8–12 easy problems from V0 up to V3 with silent feet, before anything hard.",
+    order: ["rope","glides","extrot","scap"] },
+  { id: "tests", name: "Tests", note: "Week 0, 4, 8, 12, 16. Test fresh, never the day after a climb.",
+    order: ["pullup","bwhang"] },
+];
+
+const EX = {
+  rope: { g: "warmup", name: "Jump rope", dose: "intervals, see top",
+    cues: ["Small, quiet bounces on the balls of your feet", "Elbows tucked, hands just in front of your hips", "Turn with the wrists; shoulders relaxed"],
+    mistake: "Jumping high or kicking your heels back. That tires you out fast and causes trips.",
+    video: ["7GZ3uEDJqXA", "How To Jump Rope For Beginners: 6 Steps To Stop Tripping"], q: "jump rope basic bounce beginner tutorial" },
+  glides: { g: "warmup", name: "Tendon glides", dose: "5–10 rounds",
+    cues: ["Go through 5 positions slowly: straight hand → hook fist → full fist → tabletop → flat fist", "Hold each for ~2 s; it should feel like gentle flossing, not a stretch", "Do this before every climb and every board session"],
+    mistake: "Rushing it. Slow is the point.",
+    video: ["_7Uikppmd_o", "Hand Strengthening for Rock Climbing: Tendon Glides"], q: "tendon glides climbing warm up" },
+  scap: { g: "pull", name: "Scapular pull-ups", dose: "2–3 × 8–10, 2 s hold",
+    cues: ["Dead hang, arms straight the whole time", "Pull your shoulder blades down and together so your body rises a few cm", "Hold 2 s at the top, lower slowly"],
+    mistake: "Bending the elbows. Then it's a mini pull-up, not a shoulder-blade drill.",
+    video: ["-ZIpSoTRsuE", "Scapular Pull Ups (Beginner to Advanced Progressions)"], q: "scapular pull ups tutorial" },
+  pullup: { g: "pull", name: "Pull-ups (strict)", dose: "Park A: 5 sets of ~50–70% of max",
+    cues: ["Start from a dead hang with shoulders engaged (do a mini scap pull first)", "Pull your chest toward the bar until your chin is clearly over it", "Lower under control all the way to straight arms", "Test: one all-out set after warm-up. Only clean reps count"],
+    mistake: "Half reps or kipping. They feel productive but make the test number meaningless.",
+    video: ["rmdn5X_KLkY", "The PERFECT Pull-Up (Full Guide)"], q: "strict pull up proper form tutorial" },
+  ringrow: { g: "pull", name: "Ring rows", dose: "3 × 10, 3 s lowering",
+    cues: ["Body straight like a plank, heels on the ground", "Pull the rings to your lower ribs, squeeze your shoulder blades", "Lower for 3 s", "Harder: walk your feet forward or raise them on a bench"],
+    mistake: "Letting the hips sag, or shrugging the shoulders up to the ears.",
+    video: ["h8Nj6fEP0cg", "Quick Ring Row Tutorial"], q: "ring rows proper form" },
+  tuck: { g: "pull", name: "Tuck front lever", dose: "5 × 8 s",
+    cues: ["Hang with straight arms, knees pulled to the chest", "Push the bar down toward your hips and lean back until your back is roughly horizontal", "Squeeze hard for the whole hold; stop each hold while form is still good"],
+    mistake: "Bent arms. Keep them locked; the bend moves the work to your elbows.",
+    video: ["RMo1Ki1-tb8", "Beginner Calisthenics: Tucked Front Lever [Tutorial & Workout Plan]"], q: "tuck front lever tutorial beginner" },
+  lockoff: { g: "pull", name: "Lock-offs", dose: "3 × 3 holds of 3–5 s (once you have 8+ pull-ups)",
+    cues: ["Pull up and hold at the top, then at 90° elbows, then at 120°", "Shoulders down, body still, no swinging", "Two arms only for now"],
+    mistake: "Starting these too early. Wait until 8 clean pull-ups.",
+    video: ["YmPv-YZZK4U", "2-Arm Lock-Off: Proper Form (short)", "shorts"], q: "two arm lock off climbing training" },
+  knees: { g: "core", name: "Hanging knee raises", dose: "3 × 8",
+    cues: ["Dead hang, shoulders engaged", "Curl your knees up toward your chest by tilting your pelvis, not just lifting your thighs", "Lower slowly with no swing"],
+    mistake: "Swinging. Pause at the bottom of each rep to kill momentum.",
+    video: ["0BmrlKCfTPU", "Hanging Knee Raise - Proper Form & Technique"], q: "hanging knee raise proper form" },
+  dips: { g: "push", name: "Parallel-bar dips", dose: "start with support holds 3 × 20 s, then 3 × 5–8",
+    cues: ["Support hold first: arms locked, shoulders pushed down away from the ears", "Lean slightly forward and lower only as far as feels good for your shoulders", "Press back up to full lockout"],
+    mistake: "Going too deep. If the front of your shoulder pinches, shorten the range or skip dips.",
+    video: ["U2qlLldx3jM", "Dips Without Shoulder Pain"], q: "parallel bar dips proper form beginner" },
+  pushup: { g: "push", name: "Push-ups (on handles)", dose: "3 × 10–15",
+    cues: ["Straight line from head to heels; squeeze your glutes", "Elbows at ~45° from the body, not flared out", "Chest all the way down, full lockout at the top", "At the top, push the floor away so your upper back rounds slightly"],
+    mistake: "Sagging hips and flared elbows.",
+    video: ["k2YnU7UFAaE", "STOP These Push Up Mistakes! How To Do A Push Up Correctly"], q: "push up proper form common mistakes" },
+  ringpush: { g: "push", name: "Ring push-ups", dose: "3 × 8–12",
+    cues: ["Rings a few cm off the floor, shoulder width", "Keep the rings close to your body and stop them wobbling", "At the top, lock out and turn the rings slightly outward"],
+    mistake: "Letting the rings drift wide. That strains the shoulders.",
+    video: ["V0K5SRAXwC0", "Ring Push Up Tutorial: A 5 Step Progression for Push Ups as an Antagonist Exercise"], q: "ring push up tutorial" },
+  pike: { g: "push", name: "Pike push-ups", dose: "3 × 6–10",
+    cues: ["Hips high, body like an upside-down V", "Lower the top of your head toward a point in front of your hands", "Elbows angle back, not out to the sides"],
+    mistake: "Turning it into a normal push-up by letting the hips drop.",
+    video: ["pHR5yG6xBps", "Pike Push Up Tutorial For Beginners (With Progressions)"], q: "pike push up tutorial beginner" },
+  ohp: { g: "push", name: "One-arm dumbbell overhead press", dose: "3 × 8–10 each arm, 8 kg",
+    cues: ["Stand tall, squeeze your glutes and brace", "Dumbbell at the shoulder, elbow slightly in front", "Press straight up until the arm is by your ear; lower slowly", "Don't lean away from the weight"],
+    mistake: "Leaning sideways or arching the lower back to finish the rep.",
+    video: ["rXZWWoJPucM", "Single-Arm Dumbbell Overhead Press"], q: "single arm dumbbell overhead press form" },
+  hollow: { g: "core", name: "Hollow body hold", dose: "3 × 20–30 s",
+    cues: ["Lower back pressed flat into the mat. This is the whole exercise", "Start easy: knees bent, arms by your sides", "Harder: legs straighter and lower, arms overhead"],
+    mistake: "Lower back lifting off the mat. Make it easier until it stays down.",
+    video: ["HAfUt2Cco74", "HOLLOW BODY HOLD Progressions (Beginner to Advanced)"], q: "hollow body hold progressions" },
+  sideplank: { g: "core", name: "Side plank", dose: "2 × 30 s each side",
+    cues: ["Elbow under the shoulder", "Straight line from head to feet; push the hips up and slightly forward", "Easier: bottom knee on the floor"],
+    mistake: "Hips sagging or sticking back.",
+    video: ["0M-erHBl48U", "Side Plank Tutorial - Proper Form + 5 Progressions"], q: "side plank proper form" },
+  extrot: { g: "shoulder", name: "Side-lying external rotation", dose: "2 × 12–15 each arm, 2.5 kg",
+    cues: ["Lie on your side, top elbow bent 90° and pinned to your ribs (a rolled towel under it helps)", "Rotate the forearm up toward the ceiling, keeping the elbow still", "Lower for 3 s"],
+    mistake: "The elbow lifting away from the body, or going too heavy. This is a light, slow exercise.",
+    video: ["20v3G-odF5c", "Sidelying Shoulder External Rotation with Dumbbell Exercise"], q: "side lying external rotation dumbbell" },
+  ytw: { g: "shoulder", name: "Prone Y-T-W", dose: "2 × 8 of each letter",
+    cues: ["Lie face down, forehead on a towel", "Lift your arms into a Y, then a T, then a W, thumbs up", "Squeeze your shoulder blades down and back; small lift, 2 s hold"],
+    mistake: "Arching the lower back to get the arms higher.",
+    video: ["ZpZEQ2JCXyc", "Prone YTW"], q: "prone Y T W shoulder exercise" },
+  facepull: { g: "shoulder", name: "Ring face pulls", dose: "2 × 12–15, slow (replaces external rotation at the park)",
+    cues: ["Rings at about chest height, lean back about 60°, palms down, arms straight", "Pull the rings toward your face with elbows HIGH and wide, at shoulder height", "At the end, rotate your hands back beside your ears so your arms make a goalpost", "Lower for 3 s. Stand more upright to make it easier"],
+    mistake: "Elbows dropping down to the ribs. That turns it into a row and skips the shoulder rotation.",
+    video: ["z4vYXBQ-LvI", "Ring Face Pulls for Bulletproof Shoulders"], q: "ring face pull tutorial" },
+  scappush: { g: "shoulder", name: "Scapular push-ups", dose: "2 × 10–15",
+    cues: ["Push-up position, arms straight", "Let your chest sink between your shoulder blades, then push the floor away", "Only the shoulder blades move"],
+    mistake: "Bending the elbows.",
+    video: ["59BPdBnDjLY", "How To: Scapular Push Ups"], q: "scapular push ups tutorial" },
+  revcurl: { g: "forearm", name: "Reverse wrist curls", dose: "2 × 12–15, light (right hand 1.25 kg)",
+    cues: ["Sit on a chair, forearm resting on your thigh, palm down, wrist just past the knee", "Lift the back of the hand up, lower slowly for 3 s", "Light weight, full range"],
+    mistake: "Going too heavy and lifting with the elbow.",
+    video: ["0fU51irU-Q0", "How to do a Reverse Wrist Curl?"], q: "reverse wrist curl dumbbell" },
+  bands: { g: "forearm", name: "Finger-extensor bands", dose: "2 × 25",
+    cues: ["Rubber band around all five fingertips", "Open your hand wide against the band, close slowly", "Keeps the opening muscles balanced with all the gripping"],
+    mistake: "None really. Just don't skip it.",
+    video: ["Kx3Xli2nGdA", "Hand Strengthening for Rock Climbers: Banded Finger Extension"], q: "finger extensor rubber band climbers" },
+  pronsup: { g: "forearm", name: "Pronation / supination", dose: "2 × 12 each way (optional)",
+    cues: ["Hold the 5 kg dumbbell at one end, like a hammer", "Elbow bent 90° and against your side or on a table", "Slowly rotate palm down, then palm up"],
+    mistake: "Moving the elbow or shoulder.",
+    video: ["OVuQ4rJfFEE", "Dumbbell Wrist Supination & Pronation - Forearm Strength & Rehab"], q: "dumbbell pronation supination" },
+  split: { g: "legs", name: "Split squats → Bulgarian split squats", dose: "3 × 10 each leg",
+    cues: ["Start with the back foot on the floor (split squat); progress to back foot on a bench", "Lower the back knee straight down toward the floor", "Front heel stays down; slight forward lean is fine", "Add the dumbbells when 3 × 10 is easy"],
+    mistake: "Stance too short, so the front heel lifts.",
+    video: ["-IpkZv8tZYM", "DB Bulgarian Split Squat (Exercise Library)"], q: "bulgarian split squat proper form" },
+  hips: { g: "legs", name: "Hip mobility circuit", dose: "10 min",
+    cues: ["Relaxed breathing; ease into each position, no forcing", "Good for climbing: high steps, heel hooks, getting hips close to the wall"],
+    mistake: "Bouncing into stretches.",
+    parts: [
+      ["Frog stretch", "60 s", "Bw3MfGx9iIM", "Frog Stretch Routine", "frog"],
+      ["Pancake (centre / left / right)", "30–60 s each", "gk4FjX1Jjb4", "Pancake tutorial with Tom Merrick", "pancake"],
+      ["90/90 switches", "10 slow switches", "1NAxUbceNao", "90/90 Hip Mobility, 10-min follow-along", "ninety"],
+      ["Deep squat hold", "60 s", null, "deep squat hold mobility", "squat"],
+      ["Couch stretch", "60 s each side", "-rsIS-wl-ig", "How to do the Couch Stretch for Tight Hip Flexors", "couch"],
+    ],
+    video: ["g391rm8Whaw", "Fix Tight Hips in 10 Minutes (follow-along)"], q: "hip mobility routine climbers" },
+  grips: { g: "fingers", name: "Grip positions", dose: "learn before Abrahangs",
+    cues: ["Half crimp: index to ring fingers bent ~90° at the middle joint, thumb off the edge", "Open hand (4 fingers): fingers draped over the edge, middle joint only slightly bent", "3-finger drag: like open hand but with the pinky off", "Never full crimp (thumb wrapped over the fingers) for the first 12 weeks"],
+    mistake: "A half crimp slowly collapsing into a full crimp as you tire.",
+    video: ["VOI2Xcbe45I", "Half Crimp and Open Hand Form Beta for Hangboarding"], q: "half crimp open hand hangboard form" },
+  abra: { g: "fingers", name: "Abrahangs (no-hangs)", dose: "10 × 10 s, ~50 s rest",
+    cues: ["20 mm edge. Your feet stay on the floor the whole time", "Pull down gently until effort is 2–4 out of 10, a load you could hold for a minute", "10 s on, ~50 s off, 10 reps. Rotate grips: half crimp → open hand → 3-finger drag", "Optional: stand on a bathroom scale and unload ~20–25 kg (scale reads ~47–52 kg) to keep it light", "4–6 times a week, at least 6 h from climbing"],
+    mistake: "Pulling hard. If it feels like training, it's too heavy. The dose is in the frequency.",
+    video: ["smkkNzBOxNY", "Natalie Gilmore and Keith Baar break down the power of Abrahangs (the why)"], q: "abrahangs no hangs feet on floor" },
+  bwhang: { g: "fingers", name: "20 mm bodyweight hang test", dose: "1–2 attempts, capped at 15 s",
+    cues: ["Do it after a rest day, after tendon glides and 3–4 easy feet-assisted hangs", "20 mm edge, half crimp, both arms, shoulders engaged", "Hang and count seconds. Stop at 15 s, or the moment the grip starts to change"],
+    mistake: "Hanging to failure. You're measuring, not training.",
+    video: ["Kwrzgg3jkFQ", "Lattice Training: Testing Finger Strength (setup reference)"], q: "20mm hang test half crimp" },
+};
+
+const filtersEl = document.getElementById("filters");
+const contentEl = document.getElementById("content");
+const noteEl = document.getElementById("sessionnote");
+const ropeNote = document.getElementById("rope-note");
+
+function videoUrl(v) { return v[2] === "shorts" ? `https://www.youtube.com/shorts/${v[0]}` : yt(v[0]); }
+
+function sessionsFor(key) {
+  return SESSIONS.filter(s => s.order && s.order.includes(key)).map(s => s.name.replace(/ \(.*\)/, ""));
+}
+
+function exHTML(key, step) {
+  const e = EX[key];
+  const parts = e.parts ? `<ul class="sub">${e.parts.map(p =>
+    `<li><span>${p[0]} · <b>${p[1]}</b></span>${p[2]
+      ? `<a href="${yt(p[2])}" target="_blank" rel="noopener">Video ↗</a>`
+      : `<a href="${search(p[3])}" target="_blank" rel="noopener">Search ↗</a>`}${p[4] ? `<div class="pic">${picHTML(p[4])}<p>${HIP_CUES[p[4]]}</p></div>` : ""}</li>`).join("")}</ul>` : "";
+  const tags = sessionsFor(key).map(t => `<span class="tag">${t}</span>`).join("");
+  return `<li class="ex">
+    <div class="ex-head"><h3>${step ? `<span class="step">${step}</span>` : ""}${e.name}</h3><span class="dose">${e.dose}</span></div>
+    ${ANIM.has(key) ? `<div class="animbox">${animImg(key)}</div>` : ""}
+    <ul>${e.cues.map(c => `<li>${c}</li>`).join("")}</ul>
+    ${parts}
+    <p class="mistake"><b>Avoid:</b> ${e.mistake}</p>
+    <div class="links">
+      <a href="${videoUrl(e.video)}" target="_blank" rel="noopener">▶ ${e.video[1]}</a>
+      <a class="alt" href="${search(e.q)}" target="_blank" rel="noopener">More videos ↗</a>
+    </div>
+    ${tags ? `<div class="tags">${tags}</div>` : ""}
+  </li>`;
+}
+
+function render(id) {
+  const s = SESSIONS.find(x => x.id === id) || SESSIONS[0];
+  [...filtersEl.children].forEach(b => b.setAttribute("aria-pressed", b.dataset.id === s.id ? "true" : "false"));
+  noteEl.textContent = s.note || "Every exercise in the plan, grouped by type.";
+  ropeNote.hidden = !(s.id === "all" || (s.order && s.order.includes("rope")));
+  if (s.id === "all") {
+    contentEl.innerHTML = GROUPS.map(g => {
+      const keys = Object.keys(EX).filter(k => EX[k].g === g.id);
+      return keys.length ? `<section class="group"><h2>${g.name}</h2><ul class="list">${keys.map(k => exHTML(k)).join("")}</ul></section>` : "";
+    }).join("");
+  } else {
+    contentEl.innerHTML = `<section class="group"><h2>${s.name}</h2><ol class="list">${s.order.map((k, i) => exHTML(k, i + 1)).join("")}</ol></section>`;
+  }
+  try { localStorage.setItem("guide-session", s.id); } catch (e) {}
+}
+
+filtersEl.innerHTML = SESSIONS.map(s => `<button class="chip" type="button" id="chip-${s.id}" data-id="${s.id}" aria-pressed="false">${s.name}</button>`).join("");
+filtersEl.addEventListener("click", ev => { const b = ev.target.closest(".chip"); if (b) render(b.dataset.id); });
+
+let start = "all";
+try { start = localStorage.getItem("guide-session") || "all"; } catch (e) {}
+render(start);
+</script>
+
+</body>
+</html>

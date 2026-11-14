@@ -316,5 +316,39 @@
   "submitId": "308c3f9b-bee1-46d7-9c4f-84669e9b55a0",
   "state": "succeeded",
   "resourceId": "ca1f0e8b-1242-4d8a-b0fa-7834c5d85cfb"
+ },
+ "refFPstart": {
+  "resourceId": "ce21a924-76e9-4b30-a9b8-411df13954fb"
+ },
+ "refFPend": {
+  "resourceId": "02bc1599-dd47-48a3-82ea-94af6cec404f"
+ },
+ "fpStartA": {
+  "nodeId": "node_nywdwc5vab",
+  "saved": true,
+  "submitId": "f7fd95bf-b610-4428-a2a5-e7b5a5a9f74e",
+  "state": "succeeded",
+  "resourceId": "f61a8e79-9f62-4e23-a20f-af89a052b267"
+ },
+ "fpStartB": {
+  "nodeId": "node_54k04jafss",
+  "saved": true,
+  "submitId": "7dc6a796-7303-462c-9018-382040ca8479",
+  "state": "succeeded",
+  "resourceId": "c6c1ca36-d30a-41b1-9d6d-2d8f668dd089"
+ },
+ "fpEndA": {
+  "nodeId": "node_ejxnh64baj",
+  "saved": true,
+  "submitId": "fbedb8dd-a950-40ba-ab43-a5a8473e3d6d",
+  "state": "succeeded",
+  "resourceId": "e7195849-fe9b-4156-8ca7-cacac1745e03"
+ },
+ "fpEndB": {
+  "nodeId": "node_mjbkbgkvat",
+  "saved": true,
+  "submitId": "b3ef4048-91fe-4cb2-a1d8-b1222f19fb78",
+  "state": "succeeded",
+  "resourceId": "0fe66725-1366-439f-a78e-f8d09b333c4a"
  }
 }

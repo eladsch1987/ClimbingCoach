@@ -164,6 +164,7 @@ const EX = {
   revcurl:  { name: "Reverse wrist curls", vid: "0fU51irU-Q0", cue: "Sit on a chair, forearm on thigh, palm down. Left 2.5 kg; RIGHT 1.25 kg (ECU), stop at 2/10 pain. Both arms = 1 set." },
   bands:    { name: "Finger-extensor bands", vid: "Kx3Xli2nGdA", cue: "Band around all fingertips. Open wide, close slowly. Skip if no band." },
   hips:     { name: "Hip mobility", vid: "g391rm8Whaw", cue: "Ease in, breathe, no bouncing." },
+  facepull: { name: "Ring face pulls", vid: "z4vYXBQ-LvI", cue: "Lean back, palms down. Pull to your face with elbows HIGH, then rotate hands back beside your ears (goalpost). 3 s down." },
   scap:     { name: "Scapular pull-ups", vid: "-ZIpSoTRsuE", cue: "Arms straight. Pull shoulder blades down, hold 2 s at the top." },
   pullup:   { name: "Pull-ups", vid: "rmdn5X_KLkY", cue: "Dead hang to chin over bar. Stop each set with 2+ reps left." },
   ringrow:  { name: "Ring rows", vid: "h8Nj6fEP0cg", cue: "Body straight, rings to lower ribs, 3 s down." },
@@ -201,7 +202,7 @@ const PICS = {
 };
 
 const PHOTOS = { ninety: ["images/ninety.jpg", "images/ninety-switch.jpg"], couch: ["images/couch.jpg"], couchR: ["images/couch-r.jpg"], squat: ["images/squat.jpg"], pancake: ["images/pancake.jpg"] };
-const ANIM = new Set(["frog","ninety","couch","couchR","squat","pancake","rope","scap","pullup","ringrow","tuck","dips","hollow","extrot"]);
+const ANIM = new Set(["facepull","frog","ninety","couch","couchR","squat","pancake","rope","scap","pullup","ringrow","tuck","dips","hollow","extrot"]);
 function animImg(k) { return `<img src="anim/${k}.webp" alt="" class="anim">`; }
 function picHTML(k) { return ANIM.has(k) ? animImg(k) : PHOTOS[k] ? PHOTOS[k].map(src => `<img src="${src}" alt="" loading="lazy">`).join("") : PICS[k]; }
 const HIP_CUES = {"frog": "On forearms and knees. Knees wide, shins out to the sides, ankles in line with knees. Slowly push your hips back until you feel the inner thighs.", "ninety": "Sit with both knees bent 90°: front shin across in front of you, back shin out to the side and behind. Sit tall. Lift both knees and swing them to the other side = 1 switch.", "couch": "Back knee on a cushion close to the wall or couch, back shin up the wall. Front foot forward. Squeeze the back-leg glute, torso upright. Feel the front of the hip and thigh.", "squat": "Feet shoulder-width, toes slightly out, heels down. Sit as low as is comfortable, chest up, elbows gently pushing the knees out. Hold a pole if you need to.", "pancake": "Sit with legs wide and straight, toes up. Sit tall, then walk your hands forward, bending at the hips without rounding your back. Centre, then over the left leg, then the right."};
@@ -254,7 +255,7 @@ const SESSIONS = [
     { ex: "tuck", type: "hold", sets: 5, secs: 8, rest: 60 },
     { ex: "dips", type: "hold", sets: 3, secs: 20, rest: 60 },
     { ex: "hollow", type: "hold", sets: 3, secs: 30, rest: 45 },
-    { ex: "extrot", type: "reps", sets: 2, target: "12–15", unit: "reps each arm", rest: 45 },
+    { ex: "facepull", type: "reps", sets: 2, target: "12–15", unit: "reps, slow", rest: 45 },
   ]},
   { id: "parkA", name: "Park A (pull) · ~50 min", items: [
     ROPE,
@@ -264,7 +265,7 @@ const SESSIONS = [
     { ex: "tuck", type: "hold", sets: 5, secs: 8, rest: 60 },
     { ex: "dips", type: "hold", sets: 3, secs: 20, rest: 60 },
     { ex: "hollow", type: "hold", sets: 3, secs: 30, rest: 45 },
-    { ex: "extrot", type: "reps", sets: 2, target: "12–15", unit: "reps each arm", rest: 45 },
+    { ex: "facepull", type: "reps", sets: 2, target: "12–15", unit: "reps, slow", rest: 45 },
   ]},
   { id: "parkB", name: "Park B (push/legs) · ~50 min", items: [
     ROPE,
