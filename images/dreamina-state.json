@@ -1,0 +1,40 @@
+{
+ "frog": {
+  "nodeId": "node_ekcb50faw2",
+  "ok": true,
+  "submitId": "cd1950d1-d2a8-4285-89a9-bc7aa98c8b7e",
+  "failedSubmitId": "8eb33961-4c12-4e1a-93b0-1287827cd46f",
+  "resourceId": "d5a914e8-efe7-4961-b575-85ee947cc08d"
+ },
+ "ninety": {
+  "nodeId": "node_gbhs31f9pr",
+  "ok": true,
+  "submitId": "5dc5a474-c177-4c0e-a8cd-15bdb6dafc7a",
+  "resourceId": "a4f933fe-c903-4516-8c4c-de1312c3e98c"
+ },
+ "ninety-switch": {
+  "nodeId": "node_b6btypb0bg",
+  "ok": true,
+  "submitId": "50e7c2fd-5840-4b61-934e-347f99449a63",
+  "resourceId": "bd29bcb7-fe75-4661-b40a-7770c81bf6e3"
+ },
+ "couch": {
+  "nodeId": "node_f4w217rts5",
+  "ok": true,
+  "submitId": "816af34b-d384-4e3e-8941-d9d5c2eb88eb",
+  "resourceId": "e51f5def-a2c1-4384-9172-068b47a59ce0"
+ },
+ "squat": {
+  "nodeId": "node_zk1k04ydwy",
+  "ok": true,
+  "submitId": "1bcec0d4-ce92-44e1-b22c-9f7655f2a2d2",
+  "failedSubmitId": "454365e3-ffd0-43f6-a415-916b43a738cd",
+  "resourceId": "d41e8e15-fca2-424d-acca-eba5e05c27d1"
+ },
+ "pancake": {
+  "nodeId": "node_d40yr96vwn",
+  "ok": true,
+  "submitId": "ca9f6dde-d4ae-46ef-9cd3-9e65e048f66a",
+  "resourceId": "205f24cc-e182-41dc-a7b3-23af625bd6b2"
+ }
+}

@@ -75,6 +75,8 @@ select { flex: 1; min-width: 0; }
 .dots span.now { box-shadow: 0 0 0 3px var(--phase-soft); }
 .cue { font-size: 0.95rem; }
 .pic:empty { display: none; }
+.pic { display: grid; gap: 8px; }
+.pic img { width: 100%; max-width: 340px; height: auto; display: block; margin: 0 auto; border-radius: 10px; }
 .pic svg { width: 100%; max-width: 340px; height: auto; display: block; margin: 0 auto; background: var(--bg); border-radius: 10px; }
 .vid { color: var(--work); font-weight: 600; text-decoration: none; font-size: 0.92rem; }
 .next { color: var(--muted); font-size: 0.88rem; }
@@ -195,6 +197,8 @@ const PICS = {
   pancake: fig("Seen from above", PANCAKE, [[120,46,11]], null, [[120,146,"hinge from the hips, back long"]]),
 };
 
+const PHOTOS = { ninety: ["images/ninety.jpg", "images/ninety-switch.jpg"], couch: ["images/couch.jpg"], couchR: ["images/couch-r.jpg"], squat: ["images/squat.jpg"], pancake: ["images/pancake.jpg"] };
+function picHTML(k) { return PHOTOS[k] ? PHOTOS[k].map(src => `<img src="${src}" alt="" loading="lazy">`).join("") : PICS[k]; }
 const HIP_CUES = {"frog": "On forearms and knees. Knees wide, shins out to the sides, ankles in line with knees. Slowly push your hips back until you feel the inner thighs.", "ninety": "Sit with both knees bent 90°: front shin across in front of you, back shin out to the side and behind. Sit tall. Lift both knees and swing them to the other side = 1 switch.", "couch": "Back knee on a cushion close to the wall or couch, back shin up the wall. Front foot forward. Squeeze the back-leg glute, torso upright. Feel the front of the hip and thigh.", "squat": "Feet shoulder-width, toes slightly out, heels down. Sit as low as is comfortable, chest up, elbows gently pushing the knees out. Hold a pole if you need to.", "pancake": "Sit with legs wide and straight, toes up. Sit tall, then walk your hands forward, bending at the hips without rounding your back. Centre, then over the left leg, then the right."};
 const HIPS = { ex: "hips", type: "circuit", parts: [
   { name: "Frog stretch", secs: 60, pic: "frog" },
@@ -475,7 +479,7 @@ function render() {
   const pp = isRest ? phases[idx + 1] : p;
   const ppItem = pp ? session.items[pp.ei] : null;
   const part = ppItem && ppItem.type === "circuit" ? ppItem.parts[pp.set - 1] : null;
-  els.pic.innerHTML = part && part.pic ? PICS[part.pic] : "";
+  els.pic.innerHTML = part && part.pic ? picHTML(part.pic) : "";
   if (part && part.pic) els.cue.textContent = HIP_CUES[part.pic.replace("R", "")];
   els.vid.hidden = !ex.vid;
   if (ex.vid) els.vid.href = V(ex.vid);
