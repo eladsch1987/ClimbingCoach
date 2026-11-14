@@ -274,5 +274,19 @@
   "submitId": "f51c0c6a-1abf-41a8-9d3e-9706fefec150",
   "state": "succeeded",
   "resourceId": "611d7ab5-79ce-4c1c-8a6a-bd6fa7c4f1da"
+ },
+ "ropeBehind1": {
+  "nodeId": "node_km44e30hen",
+  "saved": true,
+  "submitId": "3c93e12a-19f5-4b5f-8db4-c7caae3a7672",
+  "state": "succeeded",
+  "resourceId": "a444dcac-bdf2-41d1-a1af-72955631f0ae"
+ },
+ "ropeBehind2": {
+  "nodeId": "node_s47kf7efen",
+  "saved": true,
+  "submitId": "6e208009-d3e5-4018-ad81-075239ff2787",
+  "state": "succeeded",
+  "resourceId": "36a3965c-a861-40a9-882f-3ec28c5d9ec0"
  }
 }
