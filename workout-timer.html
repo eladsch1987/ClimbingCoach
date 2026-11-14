@@ -116,7 +116,7 @@ ol.list li.cur button { color: var(--work); font-weight: 700; }
     <label for="session">Session</label>
     <select id="session"></select>
     <button class="small" id="sound" type="button" aria-pressed="true">Sound on</button>
-    <button class="small" id="voice" type="button" aria-pressed="true">Voice on</button>
+    <button class="small" id="voice" type="button" aria-pressed="false">Auto voice off</button>
     <button class="small" id="reset" type="button">Restart</button>
   </div>
   <div class="meta"><span id="progress">Exercise 1 of 1</span><span id="elapsed">00:00</span></div>
@@ -392,10 +392,11 @@ function enter(i, autoStart) {
   remaining = p.secs || 0;
   running = false;
   if (p.kind === "rest" || autoStart) start(); else render();
+  if (!cueAudio.paused && cueKey(idx) !== lastCue && !(p.kind === "rest")) stopCue();
   cueFor(idx, false);
 }
 // Spoken cues (Curtis, ElevenLabs). Played during the rest before an exercise, or when it starts.
-let voiceOn = true, lastCue = null;
+let voiceOn = false, lastCue = null;
 const cueAudio = new Audio();
 function cueKey(i) {
   const q = phases[i]; if (!q) return null;
@@ -403,8 +404,11 @@ function cueKey(i) {
   if (it.type === "circuit") { const part = it.parts[q.set - 1]; return part && part.pic ? "hip_" + part.pic.replace("R", "") : "hips"; }
   return it.ex;
 }
+function setCueBtn() { const b = document.getElementById("cue-btn"); if (b) b.textContent = cueAudio.paused ? "🔊 Hear how" : "■ Stop voice"; }
+cueAudio.addEventListener("play", setCueBtn); cueAudio.addEventListener("pause", setCueBtn); cueAudio.addEventListener("ended", setCueBtn);
+function stopCue() { cueAudio.pause(); }
 function playCue(k, force) {
-  if (!k || !voiceOn || (!force && k === lastCue)) return;
+  if (!k || (!force && (!voiceOn || k === lastCue))) return;
   cueAudio.src = `audio/cues/${k}.mp3`;
   cueAudio.play().then(() => { lastCue = k; }).catch(() => {});
 }
@@ -581,9 +585,9 @@ els.list.addEventListener("click", ev => {
 });
 els.session.addEventListener("change", () => setSession(els.session.value));
 els.reset.addEventListener("click", () => setSession(session.id));
-document.getElementById("cue-btn").addEventListener("click", () => { if (finished) return; const q = phases[idx]; playCue(q.kind === "rest" ? cueKey(idx + 1) : cueKey(idx), true); });
+document.getElementById("cue-btn").addEventListener("click", () => { if (!cueAudio.paused) { stopCue(); return; } if (finished) return; const q = phases[idx]; playCue(q.kind === "rest" ? cueKey(idx + 1) : cueKey(idx), true); });
 document.getElementById("voice").addEventListener("click", (ev) => {
-  voiceOn = !voiceOn; ev.target.textContent = voiceOn ? "Voice on" : "Voice off"; ev.target.setAttribute("aria-pressed", String(voiceOn));
+  voiceOn = !voiceOn; ev.target.textContent = voiceOn ? "Auto voice on" : "Auto voice off"; ev.target.setAttribute("aria-pressed", String(voiceOn));
   store("timer-voice", voiceOn ? "1" : "0"); if (!voiceOn) cueAudio.pause();
 });
 els.sound.addEventListener("click", () => {
@@ -594,7 +598,7 @@ els.sound.addEventListener("click", () => {
 els.listWrap = $("listWrap");
 
 els.session.innerHTML = SESSIONS.map(s => `<option value="${s.id}">${s.name}</option>`).join("");
-if (load("timer-voice") === "0") { voiceOn = false; const vb = document.getElementById("voice"); vb.textContent = "Voice off"; vb.setAttribute("aria-pressed", "false"); }
+if (load("timer-voice") === "1") { voiceOn = true; const vb = document.getElementById("voice"); vb.textContent = "Auto voice on"; vb.setAttribute("aria-pressed", "true"); }
 if (load("timer-sound") === "0") { soundOn = false; els.sound.textContent = "Sound off"; els.sound.setAttribute("aria-pressed", "false"); }
 setSession(load("timer-session") || "recovery");
 </script>
