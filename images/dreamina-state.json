@@ -233,5 +233,12 @@
   "submitId": "c1a7bacd-d81b-4bd7-aa28-b8ca46845652",
   "state": "succeeded",
   "resourceId": "b71a7377-9d95-42b2-9712-030f3df13523"
+ },
+ "ropeB4": {
+  "nodeId": "node_arf06xtqqt",
+  "saved": true,
+  "submitId": "e3341550-1cc0-47be-9677-86299de0ca2d",
+  "state": "succeeded",
+  "resourceId": "b8affb84-2516-4736-9395-70252ab0e994"
  }
 }

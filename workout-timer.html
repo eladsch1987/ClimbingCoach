@@ -80,6 +80,8 @@ select { flex: 1; min-width: 0; }
 .pic svg { width: 100%; max-width: 340px; height: auto; display: block; margin: 0 auto; background: var(--bg); border-radius: 10px; }
 .vid { color: var(--work); font-weight: 600; text-decoration: none; font-size: 0.92rem; }
 .next { color: var(--muted); font-size: 0.88rem; }
+.vidrow { display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; }
+.cuebtn { font: 600 0.92rem var(--font-body); color: var(--work); background: var(--work-soft); border: none; border-radius: 999px; padding: 6px 12px; cursor: pointer; }
 
 .primary {
   width: 100%; font: 700 1.35rem var(--font-display); letter-spacing: 0.04em; text-transform: uppercase;
@@ -114,6 +116,7 @@ ol.list li.cur button { color: var(--work); font-weight: 700; }
     <label for="session">Session</label>
     <select id="session"></select>
     <button class="small" id="sound" type="button" aria-pressed="true">Sound on</button>
+    <button class="small" id="voice" type="button" aria-pressed="true">Voice on</button>
     <button class="small" id="reset" type="button">Restart</button>
   </div>
   <div class="meta"><span id="progress">Exercise 1 of 1</span><span id="elapsed">00:00</span></div>
@@ -127,7 +130,7 @@ ol.list li.cur button { color: var(--work); font-weight: 700; }
     <div class="pic" id="pic"></div>
     <div class="dots" id="dots"></div>
     <p class="cue" id="cue"></p>
-    <a class="vid" id="vid" href="#" target="_blank" rel="noopener">▶ How to do it</a>
+    <div class="vidrow"><button class="cuebtn" id="cue-btn" type="button">🔊 Hear how</button><a class="vid" id="vid" href="#" target="_blank" rel="noopener">▶ Video (YouTube)</a></div>
   </section>
 
   <button class="primary" id="primary" type="button">Start</button>
@@ -389,6 +392,26 @@ function enter(i, autoStart) {
   remaining = p.secs || 0;
   running = false;
   if (p.kind === "rest" || autoStart) start(); else render();
+  cueFor(idx, false);
+}
+// Spoken cues (Curtis, ElevenLabs). Played during the rest before an exercise, or when it starts.
+let voiceOn = true, lastCue = null;
+const cueAudio = new Audio();
+function cueKey(i) {
+  const q = phases[i]; if (!q) return null;
+  const it = session.items[q.ei];
+  if (it.type === "circuit") { const part = it.parts[q.set - 1]; return part && part.pic ? "hip_" + part.pic.replace("R", "") : "hips"; }
+  return it.ex;
+}
+function playCue(k, force) {
+  if (!k || !voiceOn || (!force && k === lastCue)) return;
+  cueAudio.src = `audio/cues/${k}.mp3`;
+  cueAudio.play().then(() => { lastCue = k; }).catch(() => {});
+}
+function cueFor(i, force) {
+  const q = phases[i]; if (!q) return;
+  if (q.kind === "rest") { const n = phases[i + 1]; if (n && (q.transition || session.items[n.ei].type === "circuit")) playCue(cueKey(i + 1), force); return; }
+  playCue(cueKey(i), force);
 }
 function start() {
   ensureAudio(); keepAwake();
@@ -524,6 +547,7 @@ function markList(cur) {
 
 els.primary.addEventListener("click", () => {
   ensureAudio();
+  if (!finished) cueFor(idx, false);
   if (finished) { startedAt = null; enter(0, false); return; }
   const p = phases[idx];
   if (!startedAt) startedAt = Date.now();
@@ -557,6 +581,11 @@ els.list.addEventListener("click", ev => {
 });
 els.session.addEventListener("change", () => setSession(els.session.value));
 els.reset.addEventListener("click", () => setSession(session.id));
+document.getElementById("cue-btn").addEventListener("click", () => { if (finished) return; const q = phases[idx]; playCue(q.kind === "rest" ? cueKey(idx + 1) : cueKey(idx), true); });
+document.getElementById("voice").addEventListener("click", (ev) => {
+  voiceOn = !voiceOn; ev.target.textContent = voiceOn ? "Voice on" : "Voice off"; ev.target.setAttribute("aria-pressed", String(voiceOn));
+  store("timer-voice", voiceOn ? "1" : "0"); if (!voiceOn) cueAudio.pause();
+});
 els.sound.addEventListener("click", () => {
   soundOn = !soundOn; els.sound.textContent = soundOn ? "Sound on" : "Sound off";
   els.sound.setAttribute("aria-pressed", String(soundOn)); store("timer-sound", soundOn ? "1" : "0");
@@ -565,6 +594,7 @@ els.sound.addEventListener("click", () => {
 els.listWrap = $("listWrap");
 
 els.session.innerHTML = SESSIONS.map(s => `<option value="${s.id}">${s.name}</option>`).join("");
+if (load("timer-voice") === "0") { voiceOn = false; const vb = document.getElementById("voice"); vb.textContent = "Voice off"; vb.setAttribute("aria-pressed", "false"); }
 if (load("timer-sound") === "0") { soundOn = false; els.sound.textContent = "Sound off"; els.sound.setAttribute("aria-pressed", "false"); }
 setSession(load("timer-session") || "recovery");
 </script>
