@@ -288,5 +288,33 @@
   "submitId": "6e208009-d3e5-4018-ad81-075239ff2787",
   "state": "succeeded",
   "resourceId": "36a3965c-a861-40a9-882f-3ec28c5d9ec0"
+ },
+ "ropeFront1": {
+  "nodeId": "node_e5nbprf7z3",
+  "saved": true,
+  "submitId": "96a94b57-a349-4da0-b9a3-f5ce240e4a9c",
+  "state": "succeeded",
+  "resourceId": "2b396130-0f53-44c4-8d07-e581597d9728"
+ },
+ "ropeFront2": {
+  "nodeId": "node_tvyqt4m4yj",
+  "saved": true,
+  "submitId": "e8a917ce-8f98-4362-8e7b-8a1809a6d37d",
+  "state": "succeeded",
+  "resourceId": "a38f97bd-e01b-4332-9561-0f8a5d71f657"
+ },
+ "rrTop3a": {
+  "nodeId": "node_cmrzgnb809",
+  "saved": true,
+  "submitId": "efb48df9-9829-4521-b022-11c0ddb4cc65",
+  "state": "succeeded",
+  "resourceId": "5e01e81d-ef43-4f2c-a447-6d67c2fca0dd"
+ },
+ "rrTop3b": {
+  "nodeId": "node_6k6g64fnr8",
+  "saved": true,
+  "submitId": "308c3f9b-bee1-46d7-9c4f-84669e9b55a0",
+  "state": "succeeded",
+  "resourceId": "ca1f0e8b-1242-4d8a-b0fa-7834c5d85cfb"
  }
 }
