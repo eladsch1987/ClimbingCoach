@@ -509,7 +509,8 @@ function render() {
   const ppItem = pp ? session.items[pp.ei] : null;
   const part = ppItem && ppItem.type === "circuit" ? ppItem.parts[pp.set - 1] : null;
   const showEx = ppItem ? ppItem.ex : item.ex;
-  const animHTML = part && part.pic ? picHTML(part.pic) : ANIM.has(showEx) ? animImg(showEx) : "";
+  const restPic = isRest && !p.transition && p.label === "Rest" ? `<img src="anim/rest.jpg" alt="" class="anim">` : "";
+  const animHTML = restPic || (part && part.pic ? picHTML(part.pic) : ANIM.has(showEx) ? animImg(showEx) : "");
   if (els.pic.dataset.k !== animHTML) { els.pic.innerHTML = animHTML; els.pic.dataset.k = animHTML; }
   if (part && part.pic) els.cue.textContent = HIP_CUES[part.pic.replace("R", "")];
   els.vid.hidden = !ex.vid;
