@@ -10,7 +10,7 @@ Goal: a beginner must be able to copy the body position from the picture. **A wr
 ## Non-negotiable workflow (per exercise)
 
 1. **Get the truth from a real video first. Never prompt a pose from memory.**
-   - Pick 1–3 YouTube tutorials filmed from the side (exercise libraries like OPEX are ideal).
+   - Pick 1–3 YouTube tutorials filmed from the side. **Preferred source: FitnessFAQs (https://www.youtube.com/@FitnessFAQs) — the user trusts his technique; search his channel first** (e.g. `gh`-free: WebSearch with `allowed_domains: ["youtube.com"]` and "FitnessFAQs <exercise>"). Exercise libraries like OPEX are a good second choice for clean side views.
    - Ask Gemini to watch it (free tier only, `tools/gemini_ask.py`, OpenAI-compatible endpoint, model `gemini-3.5-flash-lite`; `gemini-3.8-flash` may be overloaded). Ask for: timestamps of each end position, body angle to the floor, joint angles, where hands/feet/elbows are, and the common mistakes the picture must NOT show. Save the answer to `images/ref-notes-<exercise>.md`.
    - Get real frames: `https://i.ytimg.com/vi/<id>/maxres1.jpg|maxres2|maxres3|hq1-3|maxresdefault.jpg` (auto frames at ~25/50/75%). This works from the cloud; video download (yt-dlp) and youtube.com pages are blocked by bot checks here. Contact-sheet them, look, and choose one frame per position.
 2. **Import the chosen frames by URL**, not file: `dreamina-canvas resource upload --source-url <i.ytimg url> --project-id <canvas>` (local file upload fails with DNS errors here).
