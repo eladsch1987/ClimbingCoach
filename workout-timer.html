@@ -43,7 +43,7 @@ select, .small {
   font: 600 0.95rem var(--font-body); color: var(--fg); background: var(--surface);
   border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px;
 }
-select { flex: 1; min-width: 0; }
+select { flex: 1 1 100%; min-width: 0; }
 .small { cursor: pointer; flex: none; }
 .meta { display: flex; justify-content: space-between; color: var(--muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
 
@@ -75,6 +75,7 @@ select { flex: 1; min-width: 0; }
 .dots span.now { box-shadow: 0 0 0 3px var(--phase-soft); }
 .cue { font-size: 0.95rem; }
 .pic:empty { display: none; }
+.gripbox svg { width: 100%; max-width: 360px; height: auto; display: block; margin: 0 auto; background: var(--bg); border-radius: 10px; }
 .pic { display: grid; gap: 8px; }
 .pic img { width: 100%; max-width: 340px; height: auto; display: block; margin: 0 auto; border-radius: 10px; }
 .pic svg { width: 100%; max-width: 340px; height: auto; display: block; margin: 0 auto; background: var(--bg); border-radius: 10px; }
@@ -202,6 +203,28 @@ const PICS = {
 };
 
 const PHOTOS = { ninety: ["images/ninety.jpg", "images/ninety-switch.jpg"], couch: ["images/couch.jpg"], couchR: ["images/couch-r.jpg"], squat: ["images/squat.jpg"], pancake: ["images/pancake.jpg"] };
+// Side-view finger diagrams for fingerboard grips (exact joint geometry).
+function gripSVG(kind) {
+  const board = '<rect x="0" y="70" width="120" height="44" rx="3" fill="#C9A06A"/><rect x="0" y="70" width="120" height="6" fill="#B88A55"/><line x1="0" y1="0" x2="0" y2="200" stroke="#9AA5A0" stroke-width="6"/>';
+  const seg = pts => { const d = "M" + pts.map(p => p.join(",")).join(" L"); return `<path d="${d}" fill="none" stroke="#8C5A3C" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/><path d="${d}" fill="none" stroke="#E7AE88" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>`; };
+  const dot = (x, y, c) => `<circle cx="${x}" cy="${y}" r="5" fill="${c}"/>`;
+  const txt = (x, y, s, c, a) => `<text x="${x}" y="${y}" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="${c || "currentColor"}" text-anchor="${a || "start"}">${s}</text>`;
+  let body = "", notes = "";
+  if (kind === "half") {
+    body = seg([[70,62],[94,62],[127,62],[127,116],[131,172],[134,200]]) + seg([[134,138],[154,168]]);
+    notes = dot(127,62,"#0B7A63") + txt(148,58,"middle joint ≈ 90°","#0B7A63") + txt(148,74,"tip joint straight") + txt(160,182,"thumb OFF");
+  } else if (kind === "open" || kind === "drag") {
+    body = seg([[76,62],[104,62],[134,80],[140,133],[142,184],[144,200]]) + seg([[143,150],[162,176]]);
+    notes = dot(134,80,"#0B7A63") + dot(104,62,"#0B7A63") + txt(150,70,"fingers drape over", "#0B7A63") + txt(150,86,"middle joint LOW,") + txt(150,100,"gentle bend") + txt(166,190,"thumb OFF");
+    if (kind === "drag") notes += txt(150,122,"pinky OFF the edge","#0B7A63");
+  } else if (kind === "full") {
+    body = seg([[70,62],[94,62],[115,38],[132,88],[138,150],[142,200]]) + seg([[140,112],[124,64],[104,50]]);
+    notes = dot(115,38,"#C0392B") + txt(140,30,"middle joint HIGH","#C0392B") + txt(140,46,"tip joint bent back") + txt(150,118,"thumb over index") + '<path d="M250 150 l26 26 M276 150 l-26 26" stroke="#C0392B" stroke-width="6" stroke-linecap="round"/>';
+  }
+  return `<svg viewBox="0 0 300 200" role="img" aria-label="${kind} grip, side view" style="color:var(--fg)">${board}${body}${notes}${txt(6,190,"20 mm edge · side view","var(--muted)")}</svg>`;
+}
+const GRIP_OF = { "Half crimp": "half", "Open hand": "open", "3-finger drag": "drag" };
+
 const ANIM = new Set(["facepull","frog","ninety","couch","couchR","squat","pancake","rope","scap","pullup","ringrow","tuck","dips","hollow","extrot"]);
 function animImg(k) { return `<img src="anim/${k}.webp" alt="" class="anim">`; }
 function picHTML(k) { return ANIM.has(k) ? animImg(k) : PHOTOS[k] ? PHOTOS[k].map(src => `<img src="${src}" alt="" loading="lazy">`).join("") : PICS[k]; }
@@ -511,7 +534,9 @@ function render() {
   const part = ppItem && ppItem.type === "circuit" ? ppItem.parts[pp.set - 1] : null;
   const showEx = ppItem ? ppItem.ex : item.ex;
   const restPic = isRest && !p.transition && p.label === "Rest" ? `<img src="anim/rest.jpg" alt="" class="anim">` : "";
-  const animHTML = restPic || (part && part.pic ? picHTML(part.pic) : ANIM.has(showEx) ? animImg(showEx) : "");
+  const gPhase = isRest ? phases[idx + 1] : p; const gItem = gPhase ? session.items[gPhase.ei] : null;
+  const gripKey = gItem && gItem.ex === "abra" ? GRIP_OF[(gPhase.label || "").split(" · ")[0]] : null;
+  const animHTML = gripKey ? `<div class="gripbox">${gripSVG(gripKey)}</div>` : restPic || (part && part.pic ? picHTML(part.pic) : ANIM.has(showEx) ? animImg(showEx) : "");
   if (els.pic.dataset.k !== animHTML) { els.pic.innerHTML = animHTML; els.pic.dataset.k = animHTML; }
   if (part && part.pic) els.cue.textContent = HIP_CUES[part.pic.replace("R", "")];
   els.vid.hidden = !ex.vid;

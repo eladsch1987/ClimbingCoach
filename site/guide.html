@@ -99,6 +99,10 @@ header { display: grid; gap: 4px; margin-bottom: 18px; }
 .sub .pic svg { width: 100%; max-width: 340px; height: auto; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; }
 .sub .pic img { width: 100%; max-width: 340px; height: auto; border-radius: 10px; display: block; }
 .animbox img { width: 100%; max-width: 420px; height: auto; border-radius: 10px; display: block; border: 1px solid var(--line); }
+.gripgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+.gripgrid figure { margin: 0; display: grid; gap: 4px; }
+.gripgrid svg { width: 100%; height: auto; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; }
+.gripgrid figcaption { font-size: 0.85rem; font-weight: 600; text-align: center; }
 .sub .pic p { font-size: 0.9rem; color: var(--fg); }
 .sub a { color: var(--accent); font-size: 0.88rem; text-decoration: none; font-weight: 600; }
 footer { margin-top: 32px; color: var(--muted); font-size: 0.85rem; display: grid; gap: 6px; }
@@ -173,6 +177,28 @@ const PICS = {
 };
 
 const PHOTOS = { ninety: ["images/ninety.jpg", "images/ninety-switch.jpg"], couch: ["images/couch.jpg"], couchR: ["images/couch-r.jpg"], squat: ["images/squat.jpg"], pancake: ["images/pancake.jpg"] };
+// Side-view finger diagrams for fingerboard grips (exact joint geometry).
+function gripSVG(kind) {
+  const board = '<rect x="0" y="70" width="120" height="44" rx="3" fill="#C9A06A"/><rect x="0" y="70" width="120" height="6" fill="#B88A55"/><line x1="0" y1="0" x2="0" y2="200" stroke="#9AA5A0" stroke-width="6"/>';
+  const seg = pts => { const d = "M" + pts.map(p => p.join(",")).join(" L"); return `<path d="${d}" fill="none" stroke="#8C5A3C" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/><path d="${d}" fill="none" stroke="#E7AE88" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>`; };
+  const dot = (x, y, c) => `<circle cx="${x}" cy="${y}" r="5" fill="${c}"/>`;
+  const txt = (x, y, s, c, a) => `<text x="${x}" y="${y}" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="${c || "currentColor"}" text-anchor="${a || "start"}">${s}</text>`;
+  let body = "", notes = "";
+  if (kind === "half") {
+    body = seg([[70,62],[94,62],[127,62],[127,116],[131,172],[134,200]]) + seg([[134,138],[154,168]]);
+    notes = dot(127,62,"#0B7A63") + txt(148,58,"middle joint ≈ 90°","#0B7A63") + txt(148,74,"tip joint straight") + txt(160,182,"thumb OFF");
+  } else if (kind === "open" || kind === "drag") {
+    body = seg([[76,62],[104,62],[134,80],[140,133],[142,184],[144,200]]) + seg([[143,150],[162,176]]);
+    notes = dot(134,80,"#0B7A63") + dot(104,62,"#0B7A63") + txt(150,70,"fingers drape over", "#0B7A63") + txt(150,86,"middle joint LOW,") + txt(150,100,"gentle bend") + txt(166,190,"thumb OFF");
+    if (kind === "drag") notes += txt(150,122,"pinky OFF the edge","#0B7A63");
+  } else if (kind === "full") {
+    body = seg([[70,62],[94,62],[115,38],[132,88],[138,150],[142,200]]) + seg([[140,112],[124,64],[104,50]]);
+    notes = dot(115,38,"#C0392B") + txt(140,30,"middle joint HIGH","#C0392B") + txt(140,46,"tip joint bent back") + txt(150,118,"thumb over index") + '<path d="M250 150 l26 26 M276 150 l-26 26" stroke="#C0392B" stroke-width="6" stroke-linecap="round"/>';
+  }
+  return `<svg viewBox="0 0 300 200" role="img" aria-label="${kind} grip, side view" style="color:var(--fg)">${board}${body}${notes}${txt(6,190,"20 mm edge · side view","var(--muted)")}</svg>`;
+}
+const GRIP_OF = { "Half crimp": "half", "Open hand": "open", "3-finger drag": "drag" };
+
 const ANIM = new Set(["facepull","frog","ninety","couch","couchR","squat","pancake","rope","scap","pullup","ringrow","tuck","dips","hollow","extrot"]);
 function animImg(k) { return `<img src="anim/${k}.webp" alt="" class="anim">`; }
 function picHTML(k) { return ANIM.has(k) ? animImg(k) : PHOTOS[k] ? PHOTOS[k].map(src => `<img src="${src}" alt="" loading="lazy">`).join("") : PICS[k]; }
@@ -343,6 +369,7 @@ function exHTML(key, step) {
   return `<li class="ex">
     <div class="ex-head"><h3>${step ? `<span class="step">${step}</span>` : ""}${e.name}</h3><span class="dose">${e.dose}</span></div>
     ${ANIM.has(key) ? `<div class="animbox">${animImg(key)}</div>` : ""}
+    ${key === "grips" ? `<div class="gripgrid">${["half","open","drag","full"].map(k => `<figure>${gripSVG(k)}<figcaption>${{half:"Half crimp",open:"Open hand",drag:"3-finger drag",full:"Full crimp: avoid"}[k]}</figcaption></figure>`).join("")}</div>` : ""}
     <ul>${e.cues.map(c => `<li>${c}</li>`).join("")}</ul>
     ${parts}
     <p class="mistake"><b>Avoid:</b> ${e.mistake}</p>

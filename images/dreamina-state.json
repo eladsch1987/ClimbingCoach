@@ -350,5 +350,67 @@
   "submitId": "b3ef4048-91fe-4cb2-a1d8-b1222f19fb78",
   "state": "succeeded",
   "resourceId": "0fe66725-1366-439f-a78e-f8d09b333c4a"
+ },
+ "refHalf": {
+  "resourceId": "c14aad78-8920-428b-8c75-8f0509bd0699"
+ },
+ "refOpen": {
+  "resourceId": "6e4b155d-407a-442f-a58d-28f7e394e221"
+ },
+ "gripHalf1": {
+  "nodeId": "node_gnqjzy2t70",
+  "saved": true,
+  "submitId": "0a3e3349-2b5a-4d1f-a07b-e6e5a2475333",
+  "state": "succeeded",
+  "resourceId": "dff4a5e4-6b09-4183-addc-bae0e0423740"
+ },
+ "gripHalf2": {
+  "nodeId": "node_7yk62gcshv",
+  "saved": true,
+  "submitId": "e9c766ed-48cb-45fb-a3b1-cbbf17bb0726",
+  "state": "succeeded",
+  "resourceId": "581220f9-c463-424c-b1f4-47e34cefe11a"
+ },
+ "gripOpen1": {
+  "nodeId": "node_ke798238px",
+  "saved": true,
+  "submitId": "138a5981-66c3-4987-b281-3b67fbf2b8a2",
+  "state": "succeeded",
+  "resourceId": "c76514f8-3de6-42b8-97cd-7d303d95979f"
+ },
+ "gripOpen2": {
+  "nodeId": "node_nta5hv6hkz",
+  "saved": true,
+  "submitId": "b4644905-0f2a-41c7-9de6-a55d1ad646c4",
+  "state": "succeeded",
+  "resourceId": "56e2341d-b3de-4ecd-a02c-af1fcc48ea6b"
+ },
+ "gripDrag1": {
+  "nodeId": "node_dv36j6wv8k",
+  "saved": true,
+  "submitId": "ac7c6c87-f5b9-447c-9a09-46f622366c05",
+  "state": "succeeded",
+  "resourceId": "fa9e6d13-20ed-46a7-9076-a5ba9dc501b7"
+ },
+ "gripDrag2": {
+  "nodeId": "node_z8202mjnh6",
+  "saved": true,
+  "submitId": "9201d01b-7d48-45a5-9f28-c4717c91622f",
+  "state": "succeeded",
+  "resourceId": "05d8c8a9-50ab-4b60-bc80-1574032a39b7"
+ },
+ "gripFull1": {
+  "nodeId": "node_293wrnqsdf",
+  "saved": true,
+  "submitId": "a01510b9-ba30-4965-8689-a1e552e6b8bb",
+  "state": "succeeded",
+  "resourceId": "72f39ace-728a-48f6-9009-b8c9c625e45d"
+ },
+ "gripFull2": {
+  "nodeId": "node_cwkf29xa0j",
+  "saved": true,
+  "submitId": "07268ce6-1587-4ed2-b23a-08d89a18e694",
+  "state": "succeeded",
+  "resourceId": "59c21fe5-2d4c-434a-969c-71d76a84f4ab"
  }
 }
