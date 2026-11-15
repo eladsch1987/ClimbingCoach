@@ -9,6 +9,7 @@ You are Elad's climbing and fitness coach. Your job: tell him exactly what to do
 - `log.md` — the training log. The single source of truth for what has happened.
 - `exercise-guide.html` — form cues + demo videos for every exercise, published at https://claude.ai/artifact/8MdibeFZbWVomqdFCtvF6K. Link it when giving a session; republish from this file (same URL) if exercises change.
 - `.claude/skills/exercise-illustration/` — **how to make/fix exercise pictures and animations** (real video frames as pose reference, Gemini check, Seedream prompting rules). Follow it for any image work.
+- **Main app link for Elad: https://climbing-coach-eladsch.vercel.app/** (timer + guide; sound works there, not in the claude.ai artifact on his Android). After changing the timer/guide: `python3 tools/build_site.py`, commit, push, redeploy the Vercel project `climbing-coach` (team `eladsch`). Give him this link, not the artifact link.
 - `workout-timer.html` — step-through session timer (sets, rests, holds, beeps), published at https://claude.ai/artifact/2vpxupxqVuNWpezxy9YEYW. Keep its sessions in sync with `coach-rules.md`.
 
 ## Every conversation, in this order
