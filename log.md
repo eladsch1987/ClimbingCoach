@@ -10,7 +10,7 @@ Effort: easy / moderate / hard. Fingers/elbows/shoulders: 0–10 pain or "ok". N
 | 2026-11-14 | 0 | Pull-up test + Park A (park) | moderate | 1 | ok; R wrist (ECU) no pain | — | 73 (after breakfast, not baseline) | Max strict pull-ups: 7. Face pulls instead of ext. rotation |
 | 2026-11-15 | 0 | Abrahangs (first time, morning) | easy | — | — | — | — | Went well. Beeps don't play in the claude.ai artifact on Android, but work on the Vercel app → use Vercel |
 | 2026-11-16 | 1 | 20 mm BW hang test (half crimp) | moderate | — | — | — | — | 15 s, test cap reached (not to failure). Park B not reported yet |
-| 2026-11-18 | 1 | Park B (push/legs), park | moderate | great | R wrist (ECU) tight 3–4/10 after | — | 73 (says still 73) | Ring face pulls instead of reverse wrist curls. Felt longer than 50 min (app now estimates ~53; time picker added) |
+| 2026-11-18 | 1 | Park B (push/legs), park | moderate | great | R wrist (ECU) tight 3–4/10 after | — | 73 (says still 73) | Ring face pulls instead of reverse wrist curls. Creatine 7–8 g/day for ~1.5 wk (told to drop to 5 g); feels stronger. Felt longer than 50 min (app now estimates ~53; time picker added) |
 
 ## Benchmarks
 | Date | Max pull-ups | 20 mm BW hang (s) | 20 mm max hang (% BW) | Weighted pull-up 2RM | Front lever | Hardest send |
