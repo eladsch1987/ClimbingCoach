@@ -7,7 +7,7 @@ def ask(prompt, url=None, images=None, models=("gemini-3.8-flash","gemini-3.5-fl
         content.append({"type":"image_url","image_url":{"url":"data:image/jpeg;base64,"+b}})
     for m in models:
         for t in range(2):
-            r=subprocess.run(["curl","-sS","https://generativelanguage.googleapis.com/v1beta/openai/chat/completions","-H","Authorization: Bearer proxy-injected","-H","Content-Type: application/json","-d",json.dumps({"model":m,"messages":[{"role":"user","content":content}]})],capture_output=True,text=True)
+            r=subprocess.run(["curl","-sS","https://generativelanguage.googleapis.com/v1beta/openai/chat/completions","-H","Authorization: Bearer proxy-injected","-H","Content-Type: application/json","-d","@-"],input=json.dumps({"model":m,"messages":[{"role":"user","content":content}]}),capture_output=True,text=True)
             try:
                 d=json.loads(r.stdout)
                 if isinstance(d,dict) and "choices" in d: return m, d["choices"][0]["message"]["content"]

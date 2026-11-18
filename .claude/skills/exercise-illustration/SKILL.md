@@ -51,3 +51,11 @@ One athletic man, late 30s, short dark hair, plain grey t-shirt, dark shorts; fl
 ## Audio cues (separate)
 
 Voice cues are ElevenLabs **API** (not the connector — too costly), voice Curtis `l7mlSJVCAXDwFX44amqm`, `eleven_multilingual_v2`, key is proxy-injected (`xi-api-key: proxy-injected`). Texts in `audio/cues.json`, files `audio/cues/<key>.mp3`. Voice plays only when the user taps "Hear how".
+
+## Learned 2026-11-18 (batch of 10)
+
+- `tools/dream.py` drives batches: `create(title,prompt,refs)` → `run(titles)` (quotes, confirms, runs in chunks of 13; the CLI allows max 20 node IDs per call) → `wait_dl(titles,outdir)`. State goes to `images/dreamina-state.json`.
+- Gemini can't watch YouTube from here (native endpoint 401s with the proxy token). Send it the i.ytimg frames as images instead; `tools/gemini_ask.py` now pipes the body via stdin (large images overflowed argv).
+- Gemini verification has false negatives (e.g. said a raised back heel was flat). Zoom in yourself before rejecting; reject when both you and Gemini agree, or when it's a real anatomy/position error.
+- Hard for Seedream: small wrist moves (reverse wrist curl: the dumbbell flips to a hammer grip instead of the wrist extending), forearm rotation (pronation/supination), hands with rubber bands, the asymmetric "W" arms. Skip or use a diagram rather than re-rolling.
+- Edits of a position that moves the body relative to fixed equipment (ring push-up bottom) need "the rings stay EXACTLY where they are" or the equipment moves with him.

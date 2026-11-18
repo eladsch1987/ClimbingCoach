@@ -412,5 +412,571 @@
   "submitId": "07268ce6-1587-4ed2-b23a-08d89a18e694",
   "state": "succeeded",
   "resourceId": "59c21fe5-2d4c-434a-969c-71d76a84f4ab"
+ },
+ "pushupT_A": {
+  "nodeId": "node_yjna835vq7",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_0xyd5y24vr}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:52989a55-8ad1-4d22-b9e0-ac96a24227c8}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces RIGHT. Top of a push-up on two low black push-up handles: arms completely straight, hands under the shoulders gripping the handles, body one rigid straight line from heels to head, hips level (not sagging, not piked), on the balls of the feet, head neutral looking at the floor slightly ahead. Full body visible. No text.",
+  "submitId": "5c7736fd-0131-4649-8b1c-ab8057f7d2a3",
+  "resourceId": "26bcf444-3e31-4569-bfb3-016c34a33469",
+  "state": "succeeded"
+ },
+ "pushupT_B": {
+  "nodeId": "node_j3dw7ad422",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_0xyd5y24vr}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:52989a55-8ad1-4d22-b9e0-ac96a24227c8}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces RIGHT. Top of a push-up on two low black push-up handles: arms completely straight, hands under the shoulders gripping the handles, body one rigid straight line from heels to head, hips level (not sagging, not piked), on the balls of the feet, head neutral looking at the floor slightly ahead. Full body visible. No text.",
+  "submitId": "acbb0efb-a08b-4935-ad2e-21d45a5515ab",
+  "resourceId": "a19702d1-a3a5-4c71-965e-dc08077098d4",
+  "state": "succeeded"
+ },
+ "ringpushT_A": {
+  "nodeId": "node_08eywhn83a",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_jfvym8dg90}}: use only for the man, his clothes, the outdoor park with grey metal bars and the flat vector style. Image 2 {{res:82cbbeb4-b65b-42ac-96e3-6410f1c2205d}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces RIGHT. Top of a ring push-up: the two gymnastic rings hang from straps only a few centimetres above the ground, he holds them under his shoulders with arms completely straight, rings close to his body, body one rigid straight line from heels to head, on the balls of his feet, head neutral. Full body visible. No text.",
+  "submitId": "8a2ed690-fb27-4a08-bd11-a650ddbb493c",
+  "resourceId": "fc17e278-a46e-48b9-a7d2-3ffcb75a7fbe",
+  "state": "succeeded"
+ },
+ "ringpushT_B": {
+  "nodeId": "node_wynva9pd09",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_jfvym8dg90}}: use only for the man, his clothes, the outdoor park with grey metal bars and the flat vector style. Image 2 {{res:82cbbeb4-b65b-42ac-96e3-6410f1c2205d}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces RIGHT. Top of a ring push-up: the two gymnastic rings hang from straps only a few centimetres above the ground, he holds them under his shoulders with arms completely straight, rings close to his body, body one rigid straight line from heels to head, on the balls of his feet, head neutral. Full body visible. No text.",
+  "submitId": "a95028eb-8aa7-4582-b161-6fca0f24ee01",
+  "resourceId": "9f51d589-b211-4ce6-86e4-a7b42387da6c",
+  "state": "succeeded"
+ },
+ "pikeB_A": {
+  "nodeId": "node_y7c08q957v",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_h7hyexd2y2}}: use only for the man, his clothes, the outdoor park with grey metal bars and the flat vector style. Image 2 {{res:6e922398-54a1-414d-9c1a-9691f4af39b5}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces RIGHT. Bottom of a pike push-up on the ground: hips high so the body forms an upside-down V, legs straight, on his toes, hands flat on the ground shoulder-width, elbows bent about 90 degrees pointing back toward his feet, the top of his head almost touching the ground slightly IN FRONT of his hands, forming a triangle with the hands. Full body visible. No text.",
+  "submitId": "035a487d-0812-4852-a777-8bfdb3d14478",
+  "resourceId": "76da1155-ba4a-4b06-9a71-8718b1c6af75",
+  "state": "succeeded"
+ },
+ "pikeB_B": {
+  "nodeId": "node_ns1x0s0n4c",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_h7hyexd2y2}}: use only for the man, his clothes, the outdoor park with grey metal bars and the flat vector style. Image 2 {{res:6e922398-54a1-414d-9c1a-9691f4af39b5}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces RIGHT. Bottom of a pike push-up on the ground: hips high so the body forms an upside-down V, legs straight, on his toes, hands flat on the ground shoulder-width, elbows bent about 90 degrees pointing back toward his feet, the top of his head almost touching the ground slightly IN FRONT of his hands, forming a triangle with the hands. Full body visible. No text.",
+  "submitId": "3d4d5b63-5dbb-4742-aac0-8f6195a63b01",
+  "resourceId": "d9a8ba1b-fcee-4649-b259-55bbf2ca0b57",
+  "state": "succeeded"
+ },
+ "ohpT_A": {
+  "nodeId": "node_zcergvk740",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_r53z91wy40}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:8568a787-37f4-4712-b13e-bd27dd166dbb}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Front view, he stands tall facing the viewer, feet hip-width, glutes squeezed. One-arm dumbbell overhead press, top position: his right arm is completely straight overhead holding one dumbbell, upper arm next to his ear, wrist straight; his left arm relaxed by his side. Torso upright, not leaning sideways. Full body visible. No text.",
+  "submitId": "ad2a8310-3523-4fa4-a2c6-6487caa1bd91",
+  "resourceId": "26febb8a-0d1f-4edb-8e0d-af90064bf5fa",
+  "state": "succeeded"
+ },
+ "ohpT_B": {
+  "nodeId": "node_w6g5xzhcqg",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_r53z91wy40}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:8568a787-37f4-4712-b13e-bd27dd166dbb}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Front view, he stands tall facing the viewer, feet hip-width, glutes squeezed. One-arm dumbbell overhead press, top position: his right arm is completely straight overhead holding one dumbbell, upper arm next to his ear, wrist straight; his left arm relaxed by his side. Torso upright, not leaning sideways. Full body visible. No text.",
+  "submitId": "4c105b41-4a2e-4a26-9dea-cba41d2297a7",
+  "resourceId": "bed15837-cff3-4fac-b05e-ed9ac8caf153",
+  "state": "succeeded"
+ },
+ "splitT_A": {
+  "nodeId": "node_nyw28xb0k5",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_h7hyexd2y2}}: use only for the man, his clothes, the outdoor park with grey metal bars and the flat vector style. Image 2 {{res:e48b559c-de8c-4893-afd0-97d9c3c3086c}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces RIGHT. Top of a split squat with BOTH feet on the ground: long staggered stance, front foot flat with the whole sole on the ground, back foot behind on the ball of the foot with the heel up, both legs nearly straight, torso upright, hands on his hips, no dumbbells. Full body visible. No bench. No text.",
+  "submitId": "fde9bdf4-7409-4cc4-adcb-6b7f3eacec1f",
+  "resourceId": "9d7296eb-d9ac-46ba-aa50-b1d11b68fdaf",
+  "state": "succeeded"
+ },
+ "splitT_B": {
+  "nodeId": "node_mprtt3xrwn",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_h7hyexd2y2}}: use only for the man, his clothes, the outdoor park with grey metal bars and the flat vector style. Image 2 {{res:e48b559c-de8c-4893-afd0-97d9c3c3086c}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces RIGHT. Top of a split squat with BOTH feet on the ground: long staggered stance, front foot flat with the whole sole on the ground, back foot behind on the ball of the foot with the heel up, both legs nearly straight, torso upright, hands on his hips, no dumbbells. Full body visible. No bench. No text.",
+  "submitId": "82eb7ae8-c926-471d-ae9b-e94c9bde846d",
+  "resourceId": "55013be5-acb8-400b-ac94-bf3643d451b0",
+  "state": "succeeded"
+ },
+ "sideplankU_A": {
+  "nodeId": "node_f32wsjq45s",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_0xyd5y24vr}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:bf72613c-1322-47e4-8ebe-5e48d9a5db75}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view of a forearm side plank on the mat, his head on the LEFT and his feet on the RIGHT, he faces the viewer: bottom elbow directly under the shoulder with the forearm flat on the mat, feet stacked, body one straight line from head to feet with the hips lifted high off the mat, top hand resting on his top hip. Full body visible. No text.",
+  "submitId": "e381d413-4d30-4da7-97ef-8fb63aee3b54",
+  "resourceId": "ba112a6e-929b-445a-b018-6efee9c7ac26",
+  "state": "succeeded"
+ },
+ "sideplankU_B": {
+  "nodeId": "node_qzs4bfxtwg",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_0xyd5y24vr}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:bf72613c-1322-47e4-8ebe-5e48d9a5db75}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view of a forearm side plank on the mat, his head on the LEFT and his feet on the RIGHT, he faces the viewer: bottom elbow directly under the shoulder with the forearm flat on the mat, feet stacked, body one straight line from head to feet with the hips lifted high off the mat, top hand resting on his top hip. Full body visible. No text.",
+  "submitId": "189b7ee8-4848-474e-8317-75b6be570ee7",
+  "resourceId": "92088500-2143-4de8-9e1d-ff7753d561cb",
+  "state": "succeeded"
+ },
+ "ytwY_A": {
+  "nodeId": "node_3sjwfhr1w5",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_0xyd5y24vr}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:3b49f3ba-3b77-4a33-ae7c-a241b1032ec9}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Three-quarter view from in front and slightly above. He lies face down on the mat, forehead just above the mat, legs straight on the mat. Prone Y raise: both arms straight and lifted a few centimetres off the mat, reaching forward and out at about 45 degrees from his head forming a Y shape, thumbs pointing up, shoulder blades squeezed down and back. Full body visible. No text.",
+  "submitId": "5d327476-172a-4f1c-b050-b57b9343ce49",
+  "resourceId": "c779b308-b45f-4621-8757-9e9ef9feab93",
+  "state": "succeeded"
+ },
+ "ytwY_B": {
+  "nodeId": "node_f63tqxvzkz",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_0xyd5y24vr}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:3b49f3ba-3b77-4a33-ae7c-a241b1032ec9}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Three-quarter view from in front and slightly above. He lies face down on the mat, forehead just above the mat, legs straight on the mat. Prone Y raise: both arms straight and lifted a few centimetres off the mat, reaching forward and out at about 45 degrees from his head forming a Y shape, thumbs pointing up, shoulder blades squeezed down and back. Full body visible. No text.",
+  "submitId": "b6241276-4283-40c4-af95-6983dfdae078",
+  "resourceId": "6ac7b9eb-ddd2-4f8e-8033-beb16e06c283",
+  "state": "succeeded"
+ },
+ "revcurlD_A": {
+  "nodeId": "node_gansst04h2",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_r53z91wy40}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:dc0a1efb-68ee-437e-8e83-9d461fc78cab}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces LEFT. He sits on a low flat bench, feet flat, leaning slightly forward. His right forearm rests along the top of his right thigh, palm facing DOWN, holding one small dumbbell, wrist just past the knee. Start position: the hand and dumbbell are relaxed and bent DOWN below the forearm. His left hand rests on his left knee. Full body visible. No text.",
+  "submitId": "1f7129eb-72fd-4ae1-8873-de1141860c35",
+  "resourceId": "372a6ddb-e715-4f94-ac2e-dea2717afa99",
+  "state": "succeeded"
+ },
+ "revcurlD_B": {
+  "nodeId": "node_vf0m03kmqk",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_r53z91wy40}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:dc0a1efb-68ee-437e-8e83-9d461fc78cab}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces LEFT. He sits on a low flat bench, feet flat, leaning slightly forward. His right forearm rests along the top of his right thigh, palm facing DOWN, holding one small dumbbell, wrist just past the knee. Start position: the hand and dumbbell are relaxed and bent DOWN below the forearm. His left hand rests on his left knee. Full body visible. No text.",
+  "submitId": "0bc84c17-0f63-4bd1-9bd0-0e773b703646",
+  "resourceId": "e1155986-31d2-4b32-9aad-1c4e6ef21a7e",
+  "state": "succeeded"
+ },
+ "bandsC_A": {
+  "nodeId": "node_fm0fbmpede",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_0xyd5y24vr}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:1462b97c-8538-45a6-9308-24d6698b6c9c}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Close-up of his right hand only, palm facing the viewer, fingers pointing up, plain off-white background. A thin red rubber band loops around all five fingertips. Start position: fingers and thumb gathered together loosely, fingertips close together, band slack. Exactly five fingers, anatomically correct hand. No text.",
+  "submitId": "ca2abe43-e0a7-43a8-88fc-04d839e2b172",
+  "resourceId": "e52dc806-f1b6-46a1-bf60-2a161bb393c0",
+  "state": "succeeded"
+ },
+ "bandsC_B": {
+  "nodeId": "node_5g02tdqwjt",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_0xyd5y24vr}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:1462b97c-8538-45a6-9308-24d6698b6c9c}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Close-up of his right hand only, palm facing the viewer, fingers pointing up, plain off-white background. A thin red rubber band loops around all five fingertips. Start position: fingers and thumb gathered together loosely, fingertips close together, band slack. Exactly five fingers, anatomically correct hand. No text.",
+  "submitId": "f64bfd92-de87-4ed9-8eae-363239841f70",
+  "resourceId": "a8a2eb51-f53c-4aed-9d05-3a549ec7f9a9",
+  "state": "succeeded"
+ },
+ "pronsupD_A": {
+  "nodeId": "node_5xgpzaev5n",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_r53z91wy40}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:ad553aaf-0a71-4cbf-985f-46856b96b980}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Front view. He sits on a chair facing the viewer beside a small table. His right forearm rests flat on the table pointing toward the viewer, elbow bent 90 degrees, wrist and hand off the edge. He holds one small dumbbell by one end like a hammer. Start position: palm facing DOWN, so the dumbbell points horizontally toward his left. Left hand on his thigh. Upper body visible. No text.",
+  "submitId": "545aff38-6e51-433a-a660-533ba6bf8e98",
+  "resourceId": "7a105e8f-0217-4378-81ef-4122d8186dd5",
+  "state": "succeeded"
+ },
+ "pronsupD_B": {
+  "nodeId": "node_ry3t86yxa0",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_r53z91wy40}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:ad553aaf-0a71-4cbf-985f-46856b96b980}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Front view. He sits on a chair facing the viewer beside a small table. His right forearm rests flat on the table pointing toward the viewer, elbow bent 90 degrees, wrist and hand off the edge. He holds one small dumbbell by one end like a hammer. Start position: palm facing DOWN, so the dumbbell points horizontally toward his left. Left hand on his thigh. Upper body visible. No text.",
+  "submitId": "2f78f0bc-3bfb-4430-a3c0-a71fb1f4fb4d",
+  "resourceId": "6181c517-39d2-4ead-95ce-7a156dfb77d0",
+  "state": "succeeded"
+ },
+ "lockoffT_A": {
+  "nodeId": "node_avepknchvj",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_h7hyexd2y2}}: use only for the man, his clothes, the outdoor park with grey metal bars and the flat vector style. Image 2 {{res:3bf66b2c-a7e5-4da0-b6d4-ba63e33f2341}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces RIGHT. Two-arm lock-off at the top of a pull-up on a horizontal metal bar: overhand grip shoulder-width, elbows fully bent and tucked down by his ribs, chin above the bar, chest close to the bar, shoulders pulled down away from the ears, legs straight hanging below with feet together, body still and vertical. Full body visible. No text.",
+  "submitId": "9e1f0843-c65a-4418-ae89-92fe5c561128",
+  "resourceId": "2d064c26-d2be-41f8-846f-765e5058cf6e",
+  "state": "succeeded"
+ },
+ "lockoffT_B": {
+  "nodeId": "node_t0mkhv3qc1",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_h7hyexd2y2}}: use only for the man, his clothes, the outdoor park with grey metal bars and the flat vector style. Image 2 {{res:3bf66b2c-a7e5-4da0-b6d4-ba63e33f2341}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces RIGHT. Two-arm lock-off at the top of a pull-up on a horizontal metal bar: overhand grip shoulder-width, elbows fully bent and tucked down by his ribs, chin above the bar, chest close to the bar, shoulders pulled down away from the ears, legs straight hanging below with feet together, body still and vertical. Full body visible. No text.",
+  "submitId": "8cceb3c3-fb53-473a-85ae-46cbe530a084",
+  "resourceId": "37efa96f-8ee2-4eef-b5a5-9f362b54a316",
+  "state": "succeeded"
+ },
+ "kneesU_A": {
+  "nodeId": "node_z52cbtnmna",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_h7hyexd2y2}}: use only for the man, his clothes, the outdoor park with grey metal bars and the flat vector style. Image 2 {{res:9cba1643-5dee-41e3-a589-2486e2bcc8ab}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces RIGHT. Hanging knee raise, top position: he hangs from a horizontal metal bar with straight arms, shoulders engaged, knees bent and curled up toward his chest, thighs above horizontal, pelvis tilted up, feet together off the ground. Full body visible. No text.",
+  "submitId": "177db689-95c6-4ac7-b4a1-f6d47b69ac13",
+  "resourceId": "9da6ce88-5ff9-4a84-9175-2f86a4adf919",
+  "state": "succeeded"
+ },
+ "kneesU_B": {
+  "nodeId": "node_akah4dv69f",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_h7hyexd2y2}}: use only for the man, his clothes, the outdoor park with grey metal bars and the flat vector style. Image 2 {{res:9cba1643-5dee-41e3-a589-2486e2bcc8ab}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces RIGHT. Hanging knee raise, top position: he hangs from a horizontal metal bar with straight arms, shoulders engaged, knees bent and curled up toward his chest, thighs above horizontal, pelvis tilted up, feet together off the ground. Full body visible. No text.",
+  "submitId": "687c6e79-01df-456e-b721-e4a5d575e8b2",
+  "resourceId": "8e3371ae-bc17-4643-86f0-a62e60175e25",
+  "state": "succeeded"
+ },
+ "scapD_A": {
+  "nodeId": "node_y974pjt0d1",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_0xyd5y24vr}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:52989a55-8ad1-4d22-b9e0-ac96a24227c8}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces RIGHT. Scapular push-up, bottom position, on the floor with hands flat on the mat (no handles): arms completely straight and locked, hands under the shoulders, body one straight line from heels to head on the balls of the feet. His chest sinks slightly between his shoulder blades, which are squeezed together. Elbows stay straight. Full body visible. No text.",
+  "submitId": "028405d9-902f-4e64-8ac7-fdd04eb1e17f",
+  "resourceId": "58941524-ad0d-4ebe-b214-8e6a37e0f2df",
+  "state": "succeeded"
+ },
+ "scapD_B": {
+  "nodeId": "node_a3gfg7g5j0",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_0xyd5y24vr}}: use only for the man, his clothes, the plain off-white background with a grey exercise mat and the flat vector style. Image 2 {{res:52989a55-8ad1-4d22-b9e0-ac96a24227c8}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Pure side view, he faces RIGHT. Scapular push-up, bottom position, on the floor with hands flat on the mat (no handles): arms completely straight and locked, hands under the shoulders, body one straight line from heels to head on the balls of the feet. His chest sinks slightly between his shoulder blades, which are squeezed together. Elbows stay straight. Full body visible. No text.",
+  "submitId": "1e3c2ae2-d5c3-46de-8d0e-9724780934b1",
+  "resourceId": "844829d7-f30a-47f4-acf3-f063023d202c",
+  "state": "succeeded"
+ },
+ "pushupB_A": {
+  "nodeId": "node_7952tzcz78",
+  "prompt": "Edit {{node:node_yjna835vq7}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his hands on the handles and his toes on exactly the same spots. Change only his height: he lowers into the BOTTOM of the push-up, elbows bent about 90 degrees and angled back at about 45 degrees from his body (not flared out), chest just above the level of the handles, body still one rigid straight line from heels to head, hips not sagging. No text.",
+  "submitId": "8e2ad307-216d-4736-aaed-ee3926be148f",
+  "resourceId": "ca75fe4e-a2c7-4250-9c68-a1d8554b527f",
+  "state": "succeeded"
+ },
+ "pushupB_B": {
+  "nodeId": "node_qxc84ae9dv",
+  "prompt": "Edit {{node:node_yjna835vq7}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his hands on the handles and his toes on exactly the same spots. Change only his height: he lowers into the BOTTOM of the push-up, elbows bent about 90 degrees and angled back at about 45 degrees from his body (not flared out), chest just above the level of the handles, body still one rigid straight line from heels to head, hips not sagging. No text.",
+  "submitId": "803e63a5-4a72-4440-af40-ff5c6742c7fb",
+  "resourceId": "610c9a16-f81c-4872-a18a-c561fe3c85af",
+  "state": "succeeded"
+ },
+ "ringpushB_A": {
+  "nodeId": "node_8ed55ch4sx",
+  "prompt": "Edit {{node:node_wynva9pd09}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep the rings, straps and his toes on exactly the same spots. Change only his height: he lowers into the BOTTOM of the ring push-up, elbows bent about 90 degrees and tucked close to his ribs, chest down level with the rings, rings still close to his body, body still one rigid straight line from heels to head. No text.",
+  "submitId": "1107569c-205b-4a81-b5db-a813fbf0d9bd",
+  "resourceId": "8d98e154-205a-4bea-961e-0f1f488119d3",
+  "state": "succeeded"
+ },
+ "ringpushB_B": {
+  "nodeId": "node_05ser261xw",
+  "prompt": "Edit {{node:node_wynva9pd09}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep the rings, straps and his toes on exactly the same spots. Change only his height: he lowers into the BOTTOM of the ring push-up, elbows bent about 90 degrees and tucked close to his ribs, chest down level with the rings, rings still close to his body, body still one rigid straight line from heels to head. No text.",
+  "submitId": "2ed56397-8d2a-4c36-b7f9-4b6bf912fbd2",
+  "resourceId": "eb064e66-53e8-4397-bb79-e97697a569df",
+  "state": "succeeded"
+ },
+ "pikeT_A": {
+  "nodeId": "node_sg0e170xyn",
+  "prompt": "Edit {{node:node_y7c08q957v}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his hands and toes on exactly the same spots. Change only his arms and upper body: he pushes up to the TOP of the pike push-up, arms completely straight, head between the arms, hips high so the body forms a sharp upside-down V, legs straight. No text.",
+  "submitId": "5930594f-e21c-4de1-811d-91a66144152f",
+  "resourceId": "1b7e7560-ff64-4ad3-b6a3-d67be3cd40ce",
+  "state": "succeeded"
+ },
+ "pikeT_B": {
+  "nodeId": "node_vwagk3473q",
+  "prompt": "Edit {{node:node_y7c08q957v}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his hands and toes on exactly the same spots. Change only his arms and upper body: he pushes up to the TOP of the pike push-up, arms completely straight, head between the arms, hips high so the body forms a sharp upside-down V, legs straight. No text.",
+  "submitId": "0b1499c2-3e72-4512-b06b-8e9a85214ce2",
+  "resourceId": "1ecb6dbe-753f-4eba-b28a-c199bf13e154",
+  "state": "succeeded"
+ },
+ "ohpD_A": {
+  "nodeId": "node_771hx8ffzj",
+  "prompt": "Edit {{node:node_zcergvk740}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his feet, torso and left arm unchanged. Change only his right arm: the dumbbell is lowered to the START position at his right shoulder, right elbow bent and pointing down and slightly forward, forearm vertical under the dumbbell. No text.",
+  "submitId": "d5939d31-4780-46e7-b607-bbc3ebacfee7",
+  "resourceId": "7b56862b-8746-439a-b164-224044dc4719",
+  "state": "succeeded"
+ },
+ "ohpD_B": {
+  "nodeId": "node_y16y12t69c",
+  "prompt": "Edit {{node:node_zcergvk740}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his feet, torso and left arm unchanged. Change only his right arm: the dumbbell is lowered to the START position at his right shoulder, right elbow bent and pointing down and slightly forward, forearm vertical under the dumbbell. No text.",
+  "submitId": "284ad6ff-12b3-4215-bc8d-c2fda5a23479",
+  "resourceId": "0b976b01-71fd-484e-ac2b-0c55fdc6f1bc",
+  "state": "succeeded"
+ },
+ "splitB_A": {
+  "nodeId": "node_h8dp3fzcm6",
+  "prompt": "Edit {{node:node_nyw28xb0k5}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep both feet on exactly the same spots on the ground. Change only his height: he lowers into the BOTTOM of the split squat, back knee straight down almost touching the ground, front knee bent about 90 degrees above the front ankle, front heel flat on the ground, torso upright, hands on hips. No text.",
+  "submitId": "df33008a-9038-4571-8eda-9c7ec5cefc10",
+  "resourceId": "f579dd7f-1a08-4fd9-898d-70920cd40927",
+  "state": "succeeded"
+ },
+ "splitB_B": {
+  "nodeId": "node_yrn7crwvwe",
+  "prompt": "Edit {{node:node_nyw28xb0k5}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep both feet on exactly the same spots on the ground. Change only his height: he lowers into the BOTTOM of the split squat, back knee straight down almost touching the ground, front knee bent about 90 degrees above the front ankle, front heel flat on the ground, torso upright, hands on hips. No text.",
+  "submitId": "e891cd50-20b1-458c-a668-a2ddbc39fd3d",
+  "resourceId": "74c70f2c-c669-402c-8b77-a256d9d280c8",
+  "state": "succeeded"
+ },
+ "sideplankD_A": {
+  "nodeId": "node_k7jvvxkahm",
+  "prompt": "Edit {{node:node_f32wsjq45s}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his elbow, forearm and feet on exactly the same spots. Change only his hips: they are lowered to rest on the mat (the start, before lifting). Top hand still on the top hip. No text.",
+  "submitId": "478b5f7f-0da7-485c-b303-0adb1730018a",
+  "resourceId": "b994af33-f3c3-4c3e-9d8c-235d31139923",
+  "state": "succeeded"
+ },
+ "sideplankD_B": {
+  "nodeId": "node_cgkb1ypn80",
+  "prompt": "Edit {{node:node_f32wsjq45s}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his elbow, forearm and feet on exactly the same spots. Change only his hips: they are lowered to rest on the mat (the start, before lifting). Top hand still on the top hip. No text.",
+  "submitId": "f2625d16-8468-4819-aa27-d81609f3fd1a",
+  "resourceId": "9e2aa36d-af7d-4324-aecc-b78919117aab",
+  "state": "succeeded"
+ },
+ "ytwYY_A": {
+  "nodeId": "node_tn1bammqjk",
+  "prompt": "Edit {{node:node_3sjwfhr1w5}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his body, head and legs on the mat unchanged. Change only his arms: both arms straight and reaching forward past his head at about 45 degrees out to each side, forming a Y shape with his body, lifted a few centimetres off the mat, thumbs pointing up. No text.",
+  "submitId": "9a1c2e12-ab2a-4990-a58d-933c19598428",
+  "resourceId": "c00b4229-d2cd-4e0d-9d89-79085bb3783f",
+  "state": "succeeded"
+ },
+ "ytwYY_B": {
+  "nodeId": "node_f74d6nhqsk",
+  "prompt": "Edit {{node:node_3sjwfhr1w5}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his body, head and legs on the mat unchanged. Change only his arms: both arms straight and reaching forward past his head at about 45 degrees out to each side, forming a Y shape with his body, lifted a few centimetres off the mat, thumbs pointing up. No text.",
+  "submitId": "9068088b-f5cd-4066-b31d-1dafe544f118",
+  "resourceId": "7c85354b-9f79-4f84-b637-d5f4df4bbdfc",
+  "state": "succeeded"
+ },
+ "revcurlU_A": {
+  "nodeId": "node_tw5mtcnrms",
+  "prompt": "Edit {{node:node_vf0m03kmqk}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his right forearm on his thigh and the rest of his body unchanged. Change only his right wrist: the back of the hand is lifted UP so the hand and dumbbell point up above the line of the forearm (wrist extended), palm still facing down. No text.",
+  "submitId": "a0514ba9-abd3-4b37-9514-c3876efc53e0",
+  "resourceId": "388a8612-4f8c-4a5f-92ee-495d6bc3b643",
+  "state": "succeeded"
+ },
+ "revcurlU_B": {
+  "nodeId": "node_6q4t6etdv5",
+  "prompt": "Edit {{node:node_vf0m03kmqk}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his right forearm on his thigh and the rest of his body unchanged. Change only his right wrist: the back of the hand is lifted UP so the hand and dumbbell point up above the line of the forearm (wrist extended), palm still facing down. No text.",
+  "submitId": "ae29d70a-7e7f-4003-a0fe-8e14bced9463",
+  "resourceId": "a50a6380-8e5f-4ae4-af20-67e8212808d8",
+  "state": "succeeded"
+ },
+ "bandsX_A": {
+  "nodeId": "node_bqtbwn49sn",
+  "prompt": "Edit {{node:node_fm0fbmpede}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged. Change only the fingers: all five fingertips and the thumb tip are gathered close together into a loose cone, with the red rubber band still looped around all the fingertips, now slack. Exactly five fingers, anatomically correct hand. No text.",
+  "submitId": "486683a3-6268-4e51-a603-83b1fb7a1a01",
+  "resourceId": "6c18c906-5e47-451b-a441-3fcf73f24135",
+  "state": "succeeded"
+ },
+ "bandsX_B": {
+  "nodeId": "node_hz0q86kx03",
+  "prompt": "Edit {{node:node_fm0fbmpede}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged. Change only the fingers: all five fingertips and the thumb tip are gathered close together into a loose cone, with the red rubber band still looped around all the fingertips, now slack. Exactly five fingers, anatomically correct hand. No text.",
+  "submitId": "0e87dd28-b85e-464e-9b63-3a921b6bb20f",
+  "resourceId": "ed788447-1757-4e58-8641-75d41f20f550",
+  "state": "succeeded"
+ },
+ "pronsupPD_A": {
+  "nodeId": "node_d7rbvgnqhz",
+  "prompt": "Edit {{node:node_5xgpzaev5n}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his forearm on the table and the rest of his body unchanged. Change only his right hand: it rotates so the palm faces DOWN toward the table, and the dumbbell tips over sideways to point horizontally toward his LEFT. No text.",
+  "submitId": "c0853420-fd6c-4c21-8cfa-a3131b605891",
+  "resourceId": "d241c565-eca1-4510-a0d5-1f20602832f0",
+  "state": "succeeded"
+ },
+ "pronsupPD_B": {
+  "nodeId": "node_1t3gmmcb47",
+  "prompt": "Edit {{node:node_5xgpzaev5n}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his forearm on the table and the rest of his body unchanged. Change only his right hand: it rotates so the palm faces DOWN toward the table, and the dumbbell tips over sideways to point horizontally toward his LEFT. No text.",
+  "submitId": "9c4b641a-d3e2-40bb-9c34-5cd98476a39f",
+  "resourceId": "1c3231be-29f5-4233-92ff-b15b11b1444d",
+  "state": "succeeded"
+ },
+ "lockoff90_A": {
+  "nodeId": "node_df1crks8h8",
+  "prompt": "Edit {{node:node_avepknchvj}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his grip on the bar unchanged. Change only his height: he lowers into a lock-off at 90 degrees, elbows bent at a right angle, upper arms horizontal, the bar level with his forehead, shoulders still pulled down, legs straight below. No text.",
+  "submitId": "18ed40ef-5a51-4659-8c49-13251ed76844",
+  "resourceId": "46f84a46-3b79-40a2-8f4f-629aabe6c7c9",
+  "state": "succeeded"
+ },
+ "lockoff90_B": {
+  "nodeId": "node_y0xcsy3sdx",
+  "prompt": "Edit {{node:node_avepknchvj}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his grip on the bar unchanged. Change only his height: he lowers into a lock-off at 90 degrees, elbows bent at a right angle, upper arms horizontal, the bar level with his forehead, shoulders still pulled down, legs straight below. No text.",
+  "submitId": "3308fc29-9108-41c5-b560-41dc92204b18",
+  "resourceId": "96dfec11-1661-4e2d-9683-50e87884eb89",
+  "state": "succeeded"
+ },
+ "kneesD_A": {
+  "nodeId": "node_2cz75n3681",
+  "prompt": "Edit {{node:node_z52cbtnmna}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his hands on the bar unchanged. Change only his legs: they hang straight down in a still dead hang, feet together off the ground, arms straight, shoulders engaged. No text.",
+  "submitId": "5c8895ee-34a9-46a1-8847-bca65c262b5d",
+  "resourceId": "3aa51758-bfd3-4e8b-b24c-50e952909e37",
+  "state": "succeeded"
+ },
+ "kneesD_B": {
+  "nodeId": "node_9g06x7xyd9",
+  "prompt": "Edit {{node:node_z52cbtnmna}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his hands on the bar unchanged. Change only his legs: they hang straight down in a still dead hang, feet together off the ground, arms straight, shoulders engaged. No text.",
+  "submitId": "366a88fb-00b7-4845-a7e8-423d8799cba8",
+  "resourceId": "d3c9538f-4f83-4b56-bd81-f487a1b44c4d",
+  "state": "succeeded"
+ },
+ "scapU_A": {
+  "nodeId": "node_esn48kyvtq",
+  "prompt": "Edit {{node:node_y974pjt0d1}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his hands and toes on exactly the same spots and his arms completely straight. Change only his upper back: he pushes the floor away so his upper back rounds UP slightly between the shoulders, shoulder blades spread apart. No text.",
+  "submitId": "4850c06d-a428-4c87-912e-2074d949012e",
+  "resourceId": "a72db39d-dfa2-4c00-a118-ec63463b2caa",
+  "state": "succeeded"
+ },
+ "scapU_B": {
+  "nodeId": "node_z8sncn8rs2",
+  "prompt": "Edit {{node:node_y974pjt0d1}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his hands and toes on exactly the same spots and his arms completely straight. Change only his upper back: he pushes the floor away so his upper back rounds UP slightly between the shoulders, shoulder blades spread apart. No text.",
+  "submitId": "eca90b35-154b-4d5b-8368-368a65d667fc",
+  "resourceId": "6d31fb5e-04f2-4b4c-b9cb-666d63c905f5",
+  "state": "succeeded"
+ },
+ "ytwW_A": {
+  "nodeId": "node_44hwkf1khe",
+  "prompt": "Edit {{node:node_3sjwfhr1w5}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his body, head and legs on the mat unchanged. Change only his arms: elbows bent about 90 degrees and pulled down toward his ribs, upper arms out to the sides and slightly lifted off the mat, forearms pointing forward beside his head, forming a W shape, shoulder blades squeezed together. No text.",
+  "submitId": "52f66884-6069-4fe6-b2af-0b07665b4f44",
+  "resourceId": "18232c29-0935-45d3-9fb2-552a79e9e112",
+  "state": "succeeded"
+ },
+ "ytwW_B": {
+  "nodeId": "node_sy8r9xc0jb",
+  "prompt": "Edit {{node:node_3sjwfhr1w5}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his body, head and legs on the mat unchanged. Change only his arms: elbows bent about 90 degrees and pulled down toward his ribs, upper arms out to the sides and slightly lifted off the mat, forearms pointing forward beside his head, forming a W shape, shoulder blades squeezed together. No text.",
+  "submitId": "3959846f-d334-4c0e-b0b4-3e1f4fd56ebd",
+  "resourceId": "cb22f6cf-9e28-4da9-9677-7fde18e725a7",
+  "state": "succeeded"
+ },
+ "pronsupPU_A": {
+  "nodeId": "node_d727fx34w6",
+  "prompt": "Edit {{node:node_5xgpzaev5n}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his forearm on the table and the rest of his body unchanged. Change only his right hand: it rotates so the palm faces UP toward the ceiling, and the dumbbell tips over sideways to point horizontally toward his RIGHT. No text.",
+  "submitId": "88ab2302-3f3d-43c3-9f29-9c60a8fc783c",
+  "resourceId": "aacc1af8-56ec-49bf-adb2-c8141ccd24d8",
+  "state": "succeeded"
+ },
+ "pronsupPU_B": {
+  "nodeId": "node_w4hzep2b34",
+  "prompt": "Edit {{node:node_5xgpzaev5n}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his forearm on the table and the rest of his body unchanged. Change only his right hand: it rotates so the palm faces UP toward the ceiling, and the dumbbell tips over sideways to point horizontally toward his RIGHT. No text.",
+  "submitId": "b2af9421-cced-494c-aae0-1ee5c8e89161",
+  "resourceId": "f5268d40-3e8c-4e15-b185-3659f12d7905",
+  "state": "succeeded"
+ },
+ "ringpushT2_A": {
+  "nodeId": "node_bhz75nvtjh",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_jfvym8dg90}}: use only for the man, his clothes, the outdoor park, the straps, the gymnastic rings and the flat vector style. Image 2 {{node:node_yjna835vq7}}: use only for the exact body position and camera angle. Pure side view, he faces RIGHT. Top of a ring push-up exactly like the push-up in Image 2, but his hands hold two gymnastic rings that hang on long straps from a high bar, the rings only a few centimetres above the ground, directly under his shoulders. Arms completely straight and locked, body one rigid straight line from heels to head, nearly parallel to the ground, on the balls of his feet. Full body visible. No text.",
+  "submitId": "47b989c2-caff-470a-80ef-17538ed08f1f",
+  "resourceId": "7f77bb15-370c-445e-8d8a-154aa54fa3a0",
+  "state": "succeeded"
+ },
+ "ringpushT2_B": {
+  "nodeId": "node_6rf35s9skm",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_jfvym8dg90}}: use only for the man, his clothes, the outdoor park, the straps, the gymnastic rings and the flat vector style. Image 2 {{node:node_yjna835vq7}}: use only for the exact body position and camera angle. Pure side view, he faces RIGHT. Top of a ring push-up exactly like the push-up in Image 2, but his hands hold two gymnastic rings that hang on long straps from a high bar, the rings only a few centimetres above the ground, directly under his shoulders. Arms completely straight and locked, body one rigid straight line from heels to head, nearly parallel to the ground, on the balls of his feet. Full body visible. No text.",
+  "submitId": "dcf9d351-5b3e-4c9c-bd2a-709dccc901d2",
+  "resourceId": "fbe43556-ccb5-4447-9dbd-af3da8d05a07",
+  "state": "succeeded"
+ },
+ "revcurlD2_A": {
+  "nodeId": "node_sdkcb5e9jr",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_r53z91wy40}}: use only for the man, his clothes, the plain off-white background and the flat vector style. Image 2 {{res:dc0a1efb-68ee-437e-8e83-9d461fc78cab}}: use only for the seated body position and camera angle. Do not copy its gym, person or text. Pure side view, he faces LEFT. He sits on a low flat bench, feet flat, leaning slightly forward. His right forearm lies flat along the top of his right thigh; his wrist and hand stick out just past the knee. He grips the handle of one small round dumbbell with an overhand grip: palm facing the FLOOR, knuckles facing up, the dumbbell horizontal and parallel to the floor, pointing sideways across his body. Start position: the hand is bent DOWN at the wrist below the line of the forearm. His left hand rests on his left knee. Full body visible. No text.",
+  "submitId": "5dbd2439-0b62-43f3-8928-224b1e630a6d",
+  "resourceId": "0dd24244-2c21-4c5d-a5e5-ca5a48db2cc0",
+  "state": "succeeded"
+ },
+ "revcurlD2_B": {
+  "nodeId": "node_r839nkjgt9",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_r53z91wy40}}: use only for the man, his clothes, the plain off-white background and the flat vector style. Image 2 {{res:dc0a1efb-68ee-437e-8e83-9d461fc78cab}}: use only for the seated body position and camera angle. Do not copy its gym, person or text. Pure side view, he faces LEFT. He sits on a low flat bench, feet flat, leaning slightly forward. His right forearm lies flat along the top of his right thigh; his wrist and hand stick out just past the knee. He grips the handle of one small round dumbbell with an overhand grip: palm facing the FLOOR, knuckles facing up, the dumbbell horizontal and parallel to the floor, pointing sideways across his body. Start position: the hand is bent DOWN at the wrist below the line of the forearm. His left hand rests on his left knee. Full body visible. No text.",
+  "submitId": "4ed18140-8e96-4bea-9d39-726c75c8eec3",
+  "resourceId": "b716c2a6-6bad-40da-8b46-b9535d0bdebb",
+  "state": "succeeded"
+ },
+ "bandsX2_A": {
+  "nodeId": "node_ggn8w9m9h9",
+  "prompt": "Edit {{node:node_5g02tdqwjt}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged. Change only the fingers: all five fingertips and the thumb tip are gathered close together into a loose cone, with the red rubber band still looped around all the fingertips, now slack. Exactly five digits: four fingers and one thumb, anatomically correct hand. No text.",
+  "submitId": "a4ecfabb-5d8b-4a39-ae5a-ef1042401a0a",
+  "resourceId": "512fb8f6-c9c8-4e7d-a9d0-0cbe6b4edd6f",
+  "state": "succeeded"
+ },
+ "bandsX2_B": {
+  "nodeId": "node_2gvaajjkpd",
+  "prompt": "Edit {{node:node_5g02tdqwjt}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged. Change only the fingers: all five fingertips and the thumb tip are gathered close together into a loose cone, with the red rubber band still looped around all the fingertips, now slack. Exactly five digits: four fingers and one thumb, anatomically correct hand. No text.",
+  "submitId": "48de3a2d-640e-46ba-8d13-128ff55c8ff8",
+  "resourceId": "0de92f20-49ac-4b89-9844-bc7da3895c8c",
+  "state": "succeeded"
+ },
+ "ringpushB2_A": {
+  "nodeId": "node_3fxhygcy08",
+  "prompt": "Edit {{node:node_6rf35s9skm}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep the rings, straps and his toes on exactly the same spots. Change only his height: he lowers into the BOTTOM of the ring push-up, elbows bent about 90 degrees and tucked close to his ribs pointing back, chest down at the level of the rings, rings still close beside his chest, body still one rigid straight line from heels to head. No text.",
+  "submitId": "f34be1eb-1e78-4f81-9358-7799a5528a5d",
+  "resourceId": "c344f0c1-443d-477e-b98c-3f21a77618d4",
+  "state": "succeeded"
+ },
+ "ringpushB2_B": {
+  "nodeId": "node_pqkp4h7ed4",
+  "prompt": "Edit {{node:node_6rf35s9skm}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep the rings, straps and his toes on exactly the same spots. Change only his height: he lowers into the BOTTOM of the ring push-up, elbows bent about 90 degrees and tucked close to his ribs pointing back, chest down at the level of the rings, rings still close beside his chest, body still one rigid straight line from heels to head. No text.",
+  "submitId": "a3c3a606-8077-4890-adea-48e1bac07aae",
+  "resourceId": "6ac081f8-d687-4c60-ae41-16d28bca6ac3",
+  "state": "succeeded"
+ },
+ "revcurlU2_A": {
+  "nodeId": "node_g889py8sdz",
+  "prompt": "Edit {{node:node_sdkcb5e9jr}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his right forearm resting on his thigh and the rest of his body unchanged. Change only his right wrist: the back of the hand bends UP so the knuckles and dumbbell rise clearly ABOVE the line of the forearm (wrist extended about 40 degrees), palm still facing the floor. No text.",
+  "submitId": "019b54cf-f269-4b2d-9a45-c33090178f83",
+  "resourceId": "a6216b0c-351d-45c6-993c-4a5349cc1917",
+  "state": "succeeded"
+ },
+ "revcurlU2_B": {
+  "nodeId": "node_kvk7ngeg5a",
+  "prompt": "Edit {{node:node_sdkcb5e9jr}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his right forearm resting on his thigh and the rest of his body unchanged. Change only his right wrist: the back of the hand bends UP so the knuckles and dumbbell rise clearly ABOVE the line of the forearm (wrist extended about 40 degrees), palm still facing the floor. No text.",
+  "submitId": "3f2b66d6-2e3e-4cf5-a30e-7cdd3bc8b4ad",
+  "resourceId": "c450b7d0-c4b6-4bb6-8be5-aee152bd26cb",
+  "state": "succeeded"
+ },
+ "revcurlDn2_A": {
+  "nodeId": "node_kd52mcmrrd",
+  "prompt": "Edit {{node:node_sdkcb5e9jr}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his right forearm resting on his thigh and the rest of his body unchanged. Change only his right wrist: it relaxes and bends DOWN so the hand and dumbbell drop clearly BELOW the line of the forearm (wrist flexed about 40 degrees), palm still facing the floor. No text.",
+  "submitId": "32b8009e-e74d-42f3-be22-e9f1c99a534a",
+  "resourceId": "fad3ba97-e128-4cbe-b7fd-43ba172f7b02",
+  "state": "succeeded"
+ },
+ "revcurlDn2_B": {
+  "nodeId": "node_t60awgfnxd",
+  "prompt": "Edit {{node:node_sdkcb5e9jr}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his right forearm resting on his thigh and the rest of his body unchanged. Change only his right wrist: it relaxes and bends DOWN so the hand and dumbbell drop clearly BELOW the line of the forearm (wrist flexed about 40 degrees), palm still facing the floor. No text.",
+  "submitId": "8d16939b-229d-49ce-bcd8-db4faf580045",
+  "resourceId": "95fd29c3-5d7f-4169-ab0b-70fe76398ef8",
+  "state": "succeeded"
+ },
+ "ringpushB3_A": {
+  "nodeId": "node_csar664x68",
+  "prompt": "Edit {{node:node_6rf35s9skm}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged. The two rings and straps must stay EXACTLY where they are, the rings still only a few centimetres above the ground, and his toes stay on the same spot. Change only his body: he bends his elbows to about 90 degrees, elbows tucked back beside his ribs, and lowers his whole straight body DOWN so his chest is just above the rings and close to the ground, body still one rigid straight line from heels to head, hips not sagging. No text.",
+  "submitId": "2655d168-ad17-4c5b-aad7-ac02cbe6fd3e",
+  "resourceId": "3d49f18a-7e00-44f3-80bd-f8146c65d392",
+  "state": "succeeded"
+ },
+ "ringpushB3_B": {
+  "nodeId": "node_3zpwah3wvs",
+  "prompt": "Edit {{node:node_6rf35s9skm}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged. The two rings and straps must stay EXACTLY where they are, the rings still only a few centimetres above the ground, and his toes stay on the same spot. Change only his body: he bends his elbows to about 90 degrees, elbows tucked back beside his ribs, and lowers his whole straight body DOWN so his chest is just above the rings and close to the ground, body still one rigid straight line from heels to head, hips not sagging. No text.",
+  "submitId": "9a070341-00b6-42b1-9fdc-b3036c14c5ea",
+  "resourceId": "9fceca06-7f12-4c2b-8b80-7972c6303453",
+  "state": "succeeded"
+ },
+ "lockoff90b_A": {
+  "nodeId": "node_nppq2fzgev",
+  "prompt": "Edit {{node:node_avepknchvj}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his hands on the bar in exactly the same place. Change only his height: his whole body hangs clearly LOWER than before, so the bar is now level with the TOP of his forehead and his eyes are BELOW the bar. His elbows are bent at a right angle, 90 degrees, upper arms horizontal and forearms vertical. Shoulders pulled down, legs straight below. No text.",
+  "submitId": "a70676b9-e1a7-4614-ab1e-33bb599fec6f",
+  "resourceId": "7ddb2078-64f2-47b3-b8a6-3a04b0efa3c7",
+  "state": "succeeded"
+ },
+ "lockoff90b_B": {
+  "nodeId": "node_020gcg0t5z",
+  "prompt": "Edit {{node:node_avepknchvj}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his hands on the bar in exactly the same place. Change only his height: his whole body hangs clearly LOWER than before, so the bar is now level with the TOP of his forehead and his eyes are BELOW the bar. His elbows are bent at a right angle, 90 degrees, upper arms horizontal and forearms vertical. Shoulders pulled down, legs straight below. No text.",
+  "submitId": "0e34bf2f-1392-4d13-82b2-75dcd1b86c5d",
+  "resourceId": "909ff5d7-fe0e-4dc2-ac0c-a1eb25c0314a",
+  "state": "succeeded"
+ },
+ "revcurlU3_A": {
+  "nodeId": "node_4nv3fa3nv6",
+  "prompt": "Edit {{node:node_t60awgfnxd}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his right forearm resting on his thigh, his elbow and the rest of his body unchanged. Change only his right hand: the wrist bends UPWARD so the back of the hand and the knuckles point up toward the ceiling and the dumbbell is lifted clearly HIGHER than the forearm, about 45 degrees above the line of the forearm. Palm still facing the floor. No text.",
+  "submitId": "bb902af0-f1c0-4585-ae93-a626554cf2a3",
+  "resourceId": "cc746cb6-dd61-4b66-98a7-c2e815f3168e",
+  "state": "succeeded"
+ },
+ "revcurlU3_B": {
+  "nodeId": "node_xb8avsnae9",
+  "prompt": "Edit {{node:node_t60awgfnxd}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his right forearm resting on his thigh, his elbow and the rest of his body unchanged. Change only his right hand: the wrist bends UPWARD so the back of the hand and the knuckles point up toward the ceiling and the dumbbell is lifted clearly HIGHER than the forearm, about 45 degrees above the line of the forearm. Palm still facing the floor. No text.",
+  "submitId": "8784f909-6459-47d5-9a70-d42291dded9d",
+  "resourceId": "410fb4b1-df67-4c2d-ae3d-08e97e450991",
+  "state": "succeeded"
+ },
+ "_anim_2026-11-18": {
+  "pushup": [
+   "pushupT_A",
+   "pushupB_A"
+  ],
+  "ringpush": [
+   "ringpushT2_B",
+   "ringpushB3_A"
+  ],
+  "pike": [
+   "pikeT_A",
+   "pikeB_A"
+  ],
+  "ohp": [
+   "ohpD_A",
+   "ohpT_A"
+  ],
+  "split": [
+   "splitT_A",
+   "splitB_A"
+  ],
+  "sideplank": [
+   "sideplankD_A",
+   "sideplankU_A"
+  ],
+  "ytw": [
+   "ytwY2_B",
+   "ytwY_A"
+  ],
+  "scappush": [
+   "scapD2_A",
+   "scapU2_B"
+  ],
+  "lockoff": [
+   "lockoffT_A",
+   "lockoff90b_A"
+  ],
+  "knees": [
+   "kneesD_B",
+   "kneesU_A"
+  ],
+  "skipped": {
+   "revcurl": "3 attempts: wrist extension never rendered (dumbbell flips to hammer grip)",
+   "bands": "hand/band anatomy failed Gemini check",
+   "pronsup": "palm direction ambiguous after 2 attempts; exercise barred on right wrist for now",
+   "ytw W frame": "asymmetric arms twice"
+  }
  }
 }
