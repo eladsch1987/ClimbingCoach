@@ -5,7 +5,7 @@
 - **Current phase:** 1 (Re-entry)
 - **Climbing sessions/week right now:** 1
 - **Phase extensions so far:** none
-- **Notes:** Week 0 = Thu 2026-11-12 → Sun 2026-11-15: baseline tests (max pull-ups, 20 mm BW hang capped at 15 s, morning weight + waist), learn Abrahangs on the new board, one easy climb if available. Right wrist ECU recovering: reverse wrist curls light on the right (1.25–2.5 kg), no pronation/supination with load on the right until pain-free.
+- **Notes:** Week 0 = Thu 2026-11-12 → Sun 2026-11-15: baseline tests (max pull-ups, 20 mm BW hang capped at 15 s, morning weight + waist), learn Abrahangs on the new board, one easy climb if available. Right wrist ECU: ultrasound 16 Nov = mild ECU tenosynovitis (no tear, no effusion). Rules until physio: wrist pain ≤2/10, push-ups on fists/handles (neutral wrist) instead of flat-palm/pike when it's >2, no loaded twisting, avoid right-hand underclings/slopers/wide pinches. Earlier note: reverse wrist curls light on the right (1.25–2.5 kg), no pronation/supination with load on the right until pain-free.
 
 Week number = floor((today − start) / 7) + 1.
 
