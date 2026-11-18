@@ -46,7 +46,7 @@ No full crimp on the board, no two-finger pockets or monos, no edges <15 mm, no 
 - **Climb – projecting:** warm-up → 3–5 problems at max, 3–5 min rest, ≤5–6 quality attempts each → flash block → cool-down.
 - **Climb – once-a-week mixed:** warm-up → 25 min projecting → 15 min flashing → 15 min volume.
 - **Park A (pull):** jump rope 3 min → scap pulls → pull-ups 5 sets (~50–70% of max reps) → ring rows 3×10 → tuck front lever 5×8 s → dips 3 sets → hollow hold 3×30 s → external rotations.
-- **Park B (push/legs):** jump rope → ring push-ups 3 sets → pike push-ups 3 sets → DB overhead press 3 sets → lock-offs 3×3 holds (only once 8+ pull-ups) → hanging leg raises 3×8 → split squats 3×10 → Y-T-W + reverse wrist curls → hip mobility.
+- **Park B (push/legs):** jump rope → ring push-ups 3 sets → pike push-ups 3 sets → DB overhead press 3 sets → lock-offs 3×3 holds (only once 8+ pull-ups) → hanging leg raises 3×8 → split squats 3×10 → Y-T-W + ring face pulls (at the park; reverse wrist curls on home days) → hip mobility.
 - **Recovery/antagonist (no grip):** jump rope easy → push-ups / pike push-ups / overhead press → split squats → hollow + side plank → external rotations, Y-T-W → reverse wrist curls, finger-extensor bands → 10-min hip mobility.
 - **Abrahangs (10 min):** feet on floor, 10 × ~10 s hangs at effort 2–4/10, alternating half crimp / open hand / 3-finger drag, 20 mm edge.
 - **Rest:** walk + optional 10-min mobility.
