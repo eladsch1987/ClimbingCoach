@@ -130,6 +130,7 @@ ol.list li.cur button { color: var(--work); font-weight: 700; }
   <div class="top">
     <label for="session">Session</label>
     <select id="session"></select>
+    <select id="dur" aria-label="Time available"></select>
     <button class="small" id="sound" type="button" aria-pressed="true">Sound on</button>
     <button class="small" id="voice" type="button" aria-pressed="false">Auto voice off</button>
     <button class="small" id="reset" type="button">Restart</button>
@@ -376,12 +377,55 @@ function build(session) {
   return out;
 }
 
+// ---- Session length: estimate + fit to the time you have ----
+// Work time per set for rep-based sets (we don't time those): rough real-world averages.
+function setSecs(it) {
+  if (it.ex === "pulltest") return 60;
+  if (it.ex === "easyclimb") return 600;
+  if (it.ex === "ytw") return 75;
+  return /each/.test(it.unit || "") ? 60 : 40;
+}
+const OVERHEAD = 45; // walking to the next station, setting up rings/weights
+function estimate(phs, items) {
+  let t = 0;
+  phs.forEach(p => { t += p.secs != null && p.secs > 0 ? p.secs : (items[p.ei].type === "circuit" ? 60 : setSecs(items[p.ei])); });
+  return t + OVERHEAD * items.length;
+}
+function estMin(items) { return Math.round(estimate(build({ items }), items) / 60); }
+const ACC = new Set(["knees", "ytw", "hollow", "sideplank", "extrot", "revcurl", "bands", "dips", "facepull"]); // trimmed first
+const FIXED = new Set(["abra", "pulltest", "glides", "easyclimb"]); // never changed
+const r15 = x => Math.max(30, Math.round(x / 15) * 15);
+// Steps are applied in order until the session fits. Strength sets go last; rests never under 30 s.
+const TRIM_STEPS = [
+  it => { if (it.type === "interval" && it.ex === "rope") it.rounds = Math.min(it.rounds, 2); if (it.type === "circuit") it.parts.forEach(p => { if (p.secs > 45) p.secs = 45; }); },
+  it => { if (it.rest) it.rest = r15(it.rest * 0.75); },
+  it => { if (ACC.has(it.ex) && it.sets > 1) it.sets -= 1; },
+  it => { if (!ACC.has(it.ex) && it.sets >= 3) it.sets = Math.max(2, Math.ceil(it.sets * 0.6)); },
+  it => { if (it.type === "circuit") it.parts.forEach(p => { if (p.secs) p.secs = 30; }); if (it.rest) it.rest = Math.min(it.rest, 60); },
+  it => { if (ACC.has(it.ex)) it.drop = true; },
+  it => { if (it.type === "circuit" && it.parts.length > 3) it.parts = it.parts.slice(0, 3); if (it.sets > 1 && !ACC.has(it.ex)) it.sets -= 1; },
+];
+function fitSession(base, mins) {
+  let items = JSON.parse(JSON.stringify(base.items));
+  if (!mins) return items;
+  // One exercise at a time, from the end of the session backwards, so the first (main) exercises keep the most.
+  for (const step of TRIM_STEPS) {
+    for (let i = items.length - 1; i >= 0; i--) {
+      if (estMin(items) <= mins) return items;
+      if (FIXED.has(items[i].ex)) continue;
+      step(items[i]);
+      if (items[i].drop) items.splice(i, 1);
+    }
+  }
+  return items;
+}
+
 const $ = id => document.getElementById(id);
 const els = {
   session: $("session"), sound: $("sound"), reset: $("reset"), progress: $("progress"), elapsed: $("elapsed"),
   stage: $("stage"), phaseLabel: $("phaseLabel"), exName: $("exName"), setLabel: $("setLabel"), big: $("big"),
   bar: $("bar"), pic: $("pic"), barFill: $("barFill"), dots: $("dots"), cue: $("cue"), vid: $("vid"),
-  primary: $("primary"), back: $("back"), plus: $("plus"), skip: $("skip"), next: $("next"), list: $("list"),
+  dur: $("dur"), primary: $("primary"), back: $("back"), plus: $("plus"), skip: $("skip"), next: $("next"), list: $("list"),
 };
 
 let session, phases, idx = 0, running = false, remaining = 0, endAt = 0, lastWhole = 0, finished = false;
@@ -448,14 +492,49 @@ document.addEventListener("visibilitychange", () => { if (document.visibilitySta
 
 function fmt(s) { s = Math.max(0, Math.ceil(s)); const m = Math.floor(s / 60), r = s % 60; return `${m}:${String(r).padStart(2, "0")}`; }
 
-function setSession(id) {
-  session = SESSIONS.find(s => s.id === id) || SESSIONS[0];
+let baseSession = null, fitMins = 0;
+const baseName = s => s.name.replace(/\s*·\s*~?\d+\s*min$/, "");
+function sessionOptions() {
+  els.session.innerHTML = SESSIONS.map(s => `<option value="${s.id}">${baseName(s)} · ~${estMin(s.items)} min</option>`).join("");
+}
+function durOptions() {
+  const full = estMin(baseSession.items);
+  const opts = [`<option value="0">Time: full · ~${full} min</option>`];
+  [60, 50, 45, 40, 35, 30, 25, 20, 15].filter(m => m < full - 2).forEach(m => {
+    const got = estMin(fitSession(baseSession, m));
+    if (got <= m + 3) opts.push(`<option value="${m}">Time: ${m} min${got < m - 2 ? ` (~${got})` : ""}</option>`);
+  });
+  els.dur.innerHTML = opts.join("");
+  els.dur.value = String(fitMins);
+  if (els.dur.value !== String(fitMins)) { fitMins = 0; els.dur.value = "0"; }
+  els.dur.hidden = opts.length < 2;
+}
+function applyFit(keepPlace) {
+  const oldItems = session && session.id === baseSession.id ? session.items : null, old = phases && phases[idx], oldPhases = phases, oldIdx = idx;
+  session = { ...baseSession, items: fitSession(baseSession, fitMins) };
   phases = build(session);
-  els.session.value = session.id;
-  store("timer-session", session.id);
-  startedAt = null; finished = false;
-  renderList();
-  enter(0, false);
+  durOptions(); renderList();
+  if (!keepPlace || !oldItems || !old) { startedAt = null; finished = false; enter(0, false); return; }
+  // Stay where you are: same exercise and set if it still exists, else the next exercise that does.
+  let oi = old.ei, set = old.kind === "work" ? old.set : 1;
+  if (old.kind === "rest" && old.transition) { oi = old.ei + 1; set = 1; }
+  else if (old.kind === "rest") { const prev = oldPhases.slice(0, oldIdx).reverse().find(p => p.kind === "work"); set = prev ? prev.set + 1 : 1; }
+  for (; oi < oldItems.length; oi++, set = 1) {
+    const ni = session.items.findIndex(it => it.ex === oldItems[oi].ex);
+    if (ni < 0) continue;
+    let pi = phases.findIndex(p => p.ei === ni && p.kind === "work" && p.set >= Math.min(set, session.items[ni].sets || set));
+    if (pi < 0) pi = phases.findIndex(p => p.ei === ni && p.kind === "work");
+    finished = false; enter(Math.max(0, pi), false); return;
+  }
+  enter(phases.length - 1, false);
+}
+function setSession(id) {
+  baseSession = SESSIONS.find(s => s.id === id) || SESSIONS[0];
+  fitMins = Number(load("timer-dur-" + baseSession.id)) || 0;
+  els.session.value = baseSession.id;
+  store("timer-session", baseSession.id);
+  session = null; phases = null;
+  applyFit(false);
 }
 
 function enter(i, autoStart) {
@@ -670,6 +749,7 @@ els.list.addEventListener("click", ev => {
   els.listWrap?.removeAttribute("open");
 });
 els.session.addEventListener("change", () => setSession(els.session.value));
+els.dur.addEventListener("change", () => { fitMins = Number(els.dur.value) || 0; store("timer-dur-" + baseSession.id, String(fitMins)); applyFit(true); });
 els.reset.addEventListener("click", () => setSession(session.id));
 document.getElementById("cue-btn").addEventListener("click", () => { if (cuePlaying) { stopCue(); return; } if (finished) return; const q = phases[idx]; playCue(q.kind === "rest" ? cueKey(idx + 1) : cueKey(idx), true); });
 document.getElementById("voice").addEventListener("click", (ev) => {
@@ -683,7 +763,7 @@ els.sound.addEventListener("click", () => {
 });
 els.listWrap = $("listWrap");
 
-els.session.innerHTML = SESSIONS.map(s => `<option value="${s.id}">${s.name}</option>`).join("");
+sessionOptions();
 if (load("timer-voice") === "1") { voiceOn = true; const vb = document.getElementById("voice"); vb.textContent = "Auto voice on"; vb.setAttribute("aria-pressed", "true"); }
 if (load("timer-sound") === "0") { soundOn = false; els.sound.textContent = "Sound off"; els.sound.setAttribute("aria-pressed", "false"); }
 setSession(load("timer-session") || "recovery");
