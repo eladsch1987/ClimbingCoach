@@ -451,25 +451,35 @@ function enter(i, autoStart) {
   remaining = p.secs || 0;
   running = false;
   if (p.kind === "rest" || autoStart) start(); else render();
-  if (!cueAudio.paused && cueKey(idx) !== lastCue && !(p.kind === "rest")) stopCue();
+  if (cuePlaying && cueKey(idx) !== lastCue && !(p.kind === "rest")) stopCue();
   cueFor(idx, false);
 }
 // Spoken cues (Curtis, ElevenLabs). Played during the rest before an exercise, or when it starts.
 let voiceOn = false, lastCue = null;
 const cueAudio = new Audio();
+// Each cue is split into <5 s parts (tools/split_cues.py). Android Chrome gives clips under 5 s only
+// temporary audio focus, so Spotify/YouTube Music dip or pause and come back on their own afterwards.
+const CUE_PARTS = {"abra": 4, "bands": 3, "dips": 3, "easyclimb": 3, "extrot": 4, "facepull": 5, "glides": 3, "hip_couch": 3, "hip_frog": 4, "hip_ninety": 3, "hip_pancake": 3, "hip_squat": 3, "hips": 3, "hollow": 3, "knees": 3, "ohp": 4, "pike": 3, "pulltest": 3, "pullup": 4, "pushup": 3, "revcurl": 4, "ringpush": 3, "ringrow": 4, "rope": 3, "scap": 4, "sideplank": 3, "split": 4, "tuck": 3, "ytw": 4};
+let cueQueue = [], cuePlaying = false;
 function cueKey(i) {
   const q = phases[i]; if (!q) return null;
   const it = session.items[q.ei];
   if (it.type === "circuit") { const part = it.parts[q.set - 1]; return part && part.pic ? "hip_" + part.pic.replace("R", "") : "hips"; }
   return it.ex;
 }
-function setCueBtn() { const b = document.getElementById("cue-btn"); if (b) b.textContent = cueAudio.paused ? "🔊 Hear how" : "■ Stop voice"; }
-cueAudio.addEventListener("play", setCueBtn); cueAudio.addEventListener("pause", setCueBtn); cueAudio.addEventListener("ended", setCueBtn);
-function stopCue() { cueAudio.pause(); }
+function setCueBtn() { const b = document.getElementById("cue-btn"); if (b) b.textContent = cuePlaying ? "■ Stop voice" : "🔊 Hear how"; }
+cueAudio.addEventListener("ended", () => {
+  if (cuePlaying && cueQueue.length) { cueAudio.src = cueQueue.shift(); cueAudio.play().catch(stopCue); }
+  else { cuePlaying = false; setCueBtn(); }
+});
+function stopCue() { cueQueue = []; cuePlaying = false; cueAudio.pause(); setCueBtn(); }
 function playCue(k, force) {
   if (!k || (!force && (!voiceOn || k === lastCue))) return;
-  cueAudio.src = `audio/cues/${k}.mp3`;
-  cueAudio.play().then(() => { lastCue = k; }).catch(() => {});
+  const n = CUE_PARTS[k];
+  const list = n ? Array.from({ length: n }, (_, i) => `audio/cues/parts/${k}_${i + 1}.mp3`) : [`audio/cues/${k}.mp3`];
+  list.slice(1).forEach(u => { const a = new Audio(); a.preload = "auto"; a.src = u; });
+  cueQueue = list.slice(1); cuePlaying = true; cueAudio.src = list[0]; setCueBtn();
+  cueAudio.play().then(() => { lastCue = k; }).catch(() => { cuePlaying = false; setCueBtn(); });
 }
 function cueFor(i, force) {
   const q = phases[i]; if (!q) return;
@@ -647,10 +657,10 @@ els.list.addEventListener("click", ev => {
 });
 els.session.addEventListener("change", () => setSession(els.session.value));
 els.reset.addEventListener("click", () => setSession(session.id));
-document.getElementById("cue-btn").addEventListener("click", () => { if (!cueAudio.paused) { stopCue(); return; } if (finished) return; const q = phases[idx]; playCue(q.kind === "rest" ? cueKey(idx + 1) : cueKey(idx), true); });
+document.getElementById("cue-btn").addEventListener("click", () => { if (cuePlaying) { stopCue(); return; } if (finished) return; const q = phases[idx]; playCue(q.kind === "rest" ? cueKey(idx + 1) : cueKey(idx), true); });
 document.getElementById("voice").addEventListener("click", (ev) => {
   voiceOn = !voiceOn; ev.target.textContent = voiceOn ? "Auto voice on" : "Auto voice off"; ev.target.setAttribute("aria-pressed", String(voiceOn));
-  store("timer-voice", voiceOn ? "1" : "0"); if (!voiceOn) cueAudio.pause();
+  store("timer-voice", voiceOn ? "1" : "0"); if (!voiceOn) stopCue();
 });
 els.sound.addEventListener("click", () => {
   soundOn = !soundOn; els.sound.textContent = soundOn ? "Sound on" : "Sound off";
