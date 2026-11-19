@@ -11,6 +11,7 @@ Effort: easy / moderate / hard. Fingers/elbows/shoulders: 0–10 pain or "ok". N
 | 2026-11-15 | 0 | Abrahangs (first time, morning) | easy | — | — | — | — | Went well. Beeps don't play in the claude.ai artifact on Android, but work on the Vercel app → use Vercel |
 | 2026-11-16 | 1 | 20 mm BW hang test (half crimp) | moderate | — | — | — | — | 15 s, test cap reached (not to failure). Park B not reported yet |
 | 2026-11-18 | 1 | Park B (push/legs), park | moderate | great | R wrist (ECU) tight 3–4/10 after | — | 73 (says still 73) | Ring face pulls instead of reverse wrist curls. Creatine: says 7–8 g/day (capsules are 0.5 g each — asked if he meant capsules); feels stronger. Food: 1,956 kcal, 128 g protein (Cal AI). Felt longer than 50 min (app now estimates ~53; time picker added) |
+| 2026-11-19 | 1 | (morning check-in; climb planned) | — | ok | R wrist ok; shoulders + legs sore (DOMS from Park B) | — | 72.3 (morning, fasted) | First proper morning weigh-in |
 
 ## Benchmarks
 | Date | Max pull-ups | 20 mm BW hang (s) | 20 mm max hang (% BW) | Weighted pull-up 2RM | Front lever | Hardest send |
