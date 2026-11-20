@@ -1,15 +1,14 @@
 ---
-saved-at: 2026-11-15T08:59:32Z
-saved-at-sha: 2072d1f
+saved-at: 2026-11-20T21:10:36Z
+saved-at-sha: 06d3fbf
 saved-at-branch: claude/festive-johnson-53hwwe
 saved-from-cwd: /home/user/ClimbingCoach
 ---
 
-- **Pick up:** keep coaching Elad per `CLAUDE.md`. Week 1 starts Mon 2026-11-16. Today (Sun 15) is a rest day; he did his first Abrahangs this morning. Open item: he says he hasn't lost weight after ~4 days. Answer his pending reply (average Cal AI intake? started creatine?), get **daily morning weigh-ins** (after toilet, before food) into `log.md`, and judge on the 7-day average at the week-2 check (Sun 22), per `coach-rules.md`. Only the 73 kg after-breakfast reading exists; it's not a baseline.
-- **Week 1 plan given to him:** Mon 20 mm BW hang test (cap 15 s, after warm-up) + Park B · Tue Abrahangs + shoulders + hips · Wed Abrahangs or climb · Thu climb (bouldering + optional auto-belay ropes, volume V2–V3, few V4) · Fri recovery · Sat Park A · Sun rest. Confirm his climb day (Wed or Thu). Log the hang test in Benchmarks.
-- **Read first:** `CLAUDE.md`, `log.md`, `coach-rules.md` (State), `athlete.md` (right-wrist ECU injury; ultrasound + physio planned this week — ask for results).
-- **App:** give him **https://climbing-coach-eladsch.vercel.app/** (sound works there, not in the claude.ai artifact on his Android). After timer/guide edits: `python3 tools/build_site.py`, commit, push, redeploy Vercel project `climbing-coach` (team `eladsch`) via `mcp__Vercel__create_deployment` with the git SHA. Deployment protection stays ON (he's fine with it).
-- **Images:** follow `.claude/skills/exercise-illustration/` (real YouTube frames from `i.ytimg.com` as pose refs, FitnessFAQs preferred, Gemini free-tier check, edit frame 1 → frame 2). Do NOT redo existing animations unless he asks. Grip pictures are hand-drawn SVG diagrams on purpose (Seedream drew hands wrong); he asked "why not Seedream?" — offered a diagram-as-reference Seedream retry (~50 credits), awaiting his answer.
-- **Keys:** ElevenLabs and Gemini keys are proxy-injected (`xi-api-key: proxy-injected`, `Authorization: Bearer proxy-injected` on Gemini's OpenAI-compatible endpoint). Use the ElevenLabs API, never the connector (too costly). Gemini: free tier only. Dreamina needs `dreamina-canvas` installed + login in each new container.
-- **Branches:** work was merged into `main` on 2026-11-15 at his request; keep `main` up to date (he OK'd pushing there). Vercel production should deploy from `main`.
-- **Open questions:** Daily 07:40 check-in scheduled task — offered, never set up.
+- **Pick up:** keep coaching Elad per `CLAUDE.md`. Week 1 (started Mon 2026-11-16). Next: **Sat 21 Park A** (full; pull-ups 5×4 ≈60% of max 7; monkey bars only if wrist <2), **Sun 22 rest + first weekly check**: 7-day average of morning weights (72.3 on 19 and 20 Nov) + waist at navel. Ask how Park A went; log it.
+- **Read first:** `log.md`, `coach-rules.md` (State: ECU rules), `athlete.md` (ultrasound 16 Nov = mild ECU tenosynovitis; physio still to book: ask, and ask him to have it checked dynamically for subluxation/clicking).
+- **Open questions:** creatine: label is 0.5 g/capsule; he said "7–8 g/day". Unanswered whether he meant capsules (→ 3.5–4 g, fine) or grams; target 5 g = 10 capsules. Protein: aiming 120 g this week (hit 128 g on 18 Nov), 140 g from week 2. Calories ~2,000 training / ~1,750 rest; Cal AI under-counts. Spotify ducking fix (cue audio split into <5 s parts) untested on his phone; if it fails, offer Spotify Web API (needs Premium + dev app).
+- **Constraints:** wrist pain ≤2/10; no loaded pronation/supination; no right-hand underclings/slopers/wide pinches; no ball-grip hangs until physio clears. Phase 1: 1 climb/week, projects capped ≤V5, ≤5–6 attempts, no full crimp. He likes projecting; the once-a-week "mixed" climb format is approved.
+- **App:** https://climbing-coach-eladsch.vercel.app/ — after timer/guide edits: `python3 tools/build_site.py`, commit, push branch + `main`, redeploy Vercel project `climbing-coach` (team `eladsch`) with the git SHA. Timer now has a "Time" picker (fitSession/TRIM_STEPS in `workout-timer.html`).
+- **Images:** follow `.claude/skills/exercise-illustration/` (+ `tools/dream.py` driver). Skipped on purpose: reverse wrist curls, finger bands, pronation/supination, Y-T-W "W" frame — don't retry unless he asks.
+- **Offered, never set up:** daily 07:40 check-in scheduled task.
