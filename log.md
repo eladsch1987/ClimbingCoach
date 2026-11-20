@@ -12,7 +12,7 @@ Effort: easy / moderate / hard. Fingers/elbows/shoulders: 0–10 pain or "ok". N
 | 2026-11-16 | 1 | 20 mm BW hang test (half crimp) | moderate | — | — | — | — | 15 s, test cap reached (not to failure). Park B not reported yet |
 | 2026-11-18 | 1 | Park B (push/legs), park | moderate | great | R wrist (ECU) tight 3–4/10 after | — | 73 (says still 73) | Ring face pulls instead of reverse wrist curls. Creatine: says 7–8 g/day (capsules are 0.5 g each — asked if he meant capsules); feels stronger. Food: 1,956 kcal, 128 g protein (Cal AI). Felt longer than 50 min (app now estimates ~53; time picker added) |
 | 2026-11-19 | 1 | Climb (mixed: warm-up, projects, flash, volume), evening | moderate–hard | ok | R wrist ok; shoulders + legs sore (DOMS from Park B) | — | 72.3 (morning, fasted) | First proper morning weigh-in. Climb: tried V4+ (projects capped ≤V5) |
-| 2026-11-20 | 1 | Recovery: yoga + hip mobility, 25 min | easy | 0 (morning after climb) | — | — | 72.3 (morning) | |
+| 2026-11-20 | 1 | Recovery: yoga + hip mobility, 25 min | easy | 0 (morning after climb) | R wrist 2/10, feels good | — | 72.3 (morning) | |
 
 ## Benchmarks
 | Date | Max pull-ups | 20 mm BW hang (s) | 20 mm max hang (% BW) | Weighted pull-up 2RM | Front lever | Hardest send |
