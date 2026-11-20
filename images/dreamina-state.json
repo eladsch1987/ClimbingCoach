@@ -978,5 +978,37 @@
    "pronsup": "palm direction ambiguous after 2 attempts; exercise barred on right wrist for now",
    "ytw W frame": "asymmetric arms twice"
   }
- }
+ },
+ "dipsHold_A": {
+  "nodeId": "node_3vn6c47jh6",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_9qfp30gfnp}}: use only for the man, his clothes, the outdoor park, the parallel dip bars and the flat vector style. Image 2 {{res:e554707c-05ce-4ffb-8fbc-e22f3e64ed8e}}: use only for the body position and the camera angle. Do not copy its gym, person, kettlebells or text. Pure side view, he faces RIGHT. Parallel-bar support hold: he holds himself up between two parallel bars at about hip height, both arms completely STRAIGHT and locked, vertical, hands gripping the bars beside his hips. Shoulders pushed DOWN away from his ears, long neck, chest proud. Torso upright and vertical, stacked over the hands. Knees bent about 90 degrees with the feet together BEHIND him, well OFF the ground. Head neutral, looking ahead. Full body and both bars visible. No text.",
+  "submitId": "5e03948e-6943-4fb5-b2d7-6fc21ea3e2dd",
+  "resourceId": "53eda556-a55b-4c0f-bbb2-40e151c24c00",
+  "state": "succeeded"
+ },
+ "dipsHold_B": {
+  "nodeId": "node_p0z8an0vac",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_9qfp30gfnp}}: use only for the man, his clothes, the outdoor park, the parallel dip bars and the flat vector style. Image 2 {{res:e554707c-05ce-4ffb-8fbc-e22f3e64ed8e}}: use only for the body position and the camera angle. Do not copy its gym, person, kettlebells or text. Pure side view, he faces RIGHT. Parallel-bar support hold: he holds himself up between two parallel bars at about hip height, both arms completely STRAIGHT and locked, vertical, hands gripping the bars beside his hips. Shoulders pushed DOWN away from his ears, long neck, chest proud. Torso upright and vertical, stacked over the hands. Knees bent about 90 degrees with the feet together BEHIND him, well OFF the ground. Head neutral, looking ahead. Full body and both bars visible. No text.",
+  "submitId": "49c0da14-41cb-4c99-b7d1-79598c4efa14",
+  "resourceId": "e4b2c7a1-7bdd-4ef3-b23c-c9633394163b",
+  "state": "succeeded"
+ },
+ "dipsStart_A": {
+  "nodeId": "node_r71tgx06kq",
+  "prompt": "Edit {{node:node_p0z8an0vac}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep the bars and his hands on the bars in exactly the same place. Change only his height and legs: this is the START, before he presses up. He stands on the ground between the bars, feet flat on the ground under his hips, legs straight, hands on the bars beside his hips, elbows slightly bent, body upright, about to push himself up. No text.",
+  "submitId": "ea070981-64d5-43c8-b680-8148cfe30bbe",
+  "resourceId": "114cf101-c2a7-4c1d-ba7f-23aab57a8c7a",
+  "state": "succeeded"
+ },
+ "dipsStart_B": {
+  "nodeId": "node_ygmwrny3c7",
+  "prompt": "Edit {{node:node_p0z8an0vac}}. Keep the man, clothes, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep the bars and his hands on the bars in exactly the same place. Change only his height and legs: this is the START, before he presses up. He stands on the ground between the bars, feet flat on the ground under his hips, legs straight, hands on the bars beside his hips, elbows slightly bent, body upright, about to push himself up. No text.",
+  "submitId": "7525d090-50f3-4bfa-b472-4a1ee273e49a",
+  "resourceId": "9ac62238-f104-45b8-82af-35e4faa23b84",
+  "state": "succeeded"
+ },
+ "_anim_dips_2026-11-20": [
+  "dipsStart_B",
+  "dipsHold_B"
+ ]
 }
