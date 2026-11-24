@@ -1080,5 +1080,89 @@
   "submitId": "51218ded-4c8e-475e-bded-2337e8293aa8",
   "resourceId": "0d919cf7-3b0f-4034-8edb-8821168ce3f1",
   "state": "succeeded"
+ },
+ "frogN_A": {
+  "nodeId": "node_rate1qazmk",
+  "prompt": "Instructional illustration for a mobility app. Image 1 {{node:node_d40yr96vwn}}: use only for the man, his grey t-shirt and dark shorts, the grey exercise mat, the plain off-white background and the flat vector style. Image 2 {{res:93527393-18b0-4881-b233-19e286563b15}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Frog stretch, seen from the front at a slight angle from above, he faces the viewer. He is on his FOREARMS and knees on the mat. Knees spread very wide apart to the sides, each knee bent 90 degrees, shins pointing straight out sideways and parallel to each other, inner edges of both feet flat on the mat, ankles in line with the knees. Hips in line with the knees, back flat, forearms flat on the mat under the shoulders, head neutral. Full body visible. No text.",
+  "submitId": "e3122ec2-63c3-4180-ab05-415be19dcd35",
+  "resourceId": "2ae2bccd-102e-466d-921a-e3eda6e0f1dd",
+  "state": "succeeded"
+ },
+ "ninetyN_A": {
+  "nodeId": "node_j230tp6bmh",
+  "prompt": "Instructional illustration for a mobility app. Image 1 {{node:node_d40yr96vwn}}: use only for the man, his grey t-shirt and dark shorts, the grey exercise mat, the plain off-white background and the flat vector style. Image 2 {{res:b1c015eb-db71-4a17-8c4a-8d38bf6ed770}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. 90/90 hip position, seen from the front, he faces the viewer. He sits on the mat with BOTH knees bent 90 degrees: his right shin lies across in front of his body, parallel to the front edge of the mat, right knee pointing to his right; his left leg is out to his left side with the left thigh pointing left and the left shin pointing BACKWARD, left knee bent 90 degrees. Torso tall and upright, chest facing the viewer, fingertips lightly on the mat beside the hips. Full body visible. No text.",
+  "submitId": "0e70c8df-dc63-42cf-991a-325f01665032",
+  "resourceId": "d259abbe-9d32-4dcf-b284-c9b0b87dbecd",
+  "state": "succeeded"
+ },
+ "squatN_A": {
+  "nodeId": "node_m07ghaqtke",
+  "prompt": "Instructional illustration for a mobility app. Image 1 {{node:node_d40yr96vwn}}: use only for the man, his grey t-shirt and dark shorts, the grey exercise mat, the plain off-white background and the flat vector style. Image 2 {{res:edb31478-2104-45f7-87e9-bf1f0ef03a37}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Deep squat hold, seen from the front, he faces the viewer. Feet shoulder-width, toes turned slightly out, both heels FLAT on the mat. He sits all the way down, hips below the knees, chest up, back straight. Hands together in front of the chest, elbows pressing against the INSIDE of the knees, pushing the knees out over the toes. Full body visible. No text.",
+  "submitId": "30a53105-631b-4d99-a7b4-01602d615cf5",
+  "resourceId": "7f9a50b6-0f58-4c6d-b6a8-c03bc59b701e",
+  "state": "succeeded"
+ },
+ "frogN_B": {
+  "nodeId": "node_xt01q79kr8",
+  "prompt": "Instructional illustration for a mobility app. Image 1 {{node:node_d40yr96vwn}}: use only for the man, his grey t-shirt and dark shorts, the grey exercise mat, the plain off-white background and the flat vector style. Image 2 {{res:93527393-18b0-4881-b233-19e286563b15}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Frog stretch, seen from the front at a slight angle from above, he faces the viewer. He is on his FOREARMS and knees on the mat. Knees spread very wide apart to the sides, each knee bent 90 degrees, shins pointing straight out sideways and parallel to each other, inner edges of both feet flat on the mat, ankles in line with the knees. Hips in line with the knees, back flat, forearms flat on the mat under the shoulders, head neutral. Full body visible. No text.",
+  "submitId": "03e2cb60-92e4-4e3a-9c77-d86895237575",
+  "resourceId": "00941b4e-e1f6-4d50-a810-5f2aa742476c",
+  "state": "succeeded"
+ },
+ "ninetyN_B": {
+  "nodeId": "node_xty6z904w9",
+  "prompt": "Instructional illustration for a mobility app. Image 1 {{node:node_d40yr96vwn}}: use only for the man, his grey t-shirt and dark shorts, the grey exercise mat, the plain off-white background and the flat vector style. Image 2 {{res:b1c015eb-db71-4a17-8c4a-8d38bf6ed770}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. 90/90 hip position, seen from the front, he faces the viewer. He sits on the mat with BOTH knees bent 90 degrees: his right shin lies across in front of his body, parallel to the front edge of the mat, right knee pointing to his right; his left leg is out to his left side with the left thigh pointing left and the left shin pointing BACKWARD, left knee bent 90 degrees. Torso tall and upright, chest facing the viewer, fingertips lightly on the mat beside the hips. Full body visible. No text.",
+  "submitId": "b32f6794-3138-42d9-a19a-d79a97e8d6e7",
+  "resourceId": "059afa71-0f27-430c-a12a-10c9596a0920",
+  "state": "succeeded"
+ },
+ "squatN_B": {
+  "nodeId": "node_4nrd4z0jf1",
+  "prompt": "Instructional illustration for a mobility app. Image 1 {{node:node_d40yr96vwn}}: use only for the man, his grey t-shirt and dark shorts, the grey exercise mat, the plain off-white background and the flat vector style. Image 2 {{res:edb31478-2104-45f7-87e9-bf1f0ef03a37}}: use only for the body position and camera angle. Do not copy its room, gym, person, logo or text. Deep squat hold, seen from the front, he faces the viewer. Feet shoulder-width, toes turned slightly out, both heels FLAT on the mat. He sits all the way down, hips below the knees, chest up, back straight. Hands together in front of the chest, elbows pressing against the INSIDE of the knees, pushing the knees out over the toes. Full body visible. No text.",
+  "submitId": "5791fdc5-8121-43aa-928d-b0f78b97f448",
+  "resourceId": "edd06029-564f-4c5b-b655-73570e397ecc",
+  "state": "succeeded"
+ },
+ "frogNB_A": {
+  "nodeId": "node_zge6w5sjt9",
+  "prompt": "Edit {{node:node_rate1qazmk}}. Keep the man, clothes, mat, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his knees, shins, feet and forearms on exactly the same spots on the mat. Change only his hips: he slowly pushes his hips BACKWARD and slightly down toward the line between his feet, so his back slopes down toward his forearms and the inner thighs stretch. No text.",
+  "submitId": "14c7bc3a-4b66-4908-b936-36ef15891bd7",
+  "resourceId": "b45be49d-8691-4a02-82c6-15b0b6f22817",
+  "state": "succeeded"
+ },
+ "ninetyN2_A": {
+  "nodeId": "node_82dcmz0c6p",
+  "prompt": "Instructional illustration for a mobility app. Image 1 {{node:node_d40yr96vwn}}: use only for the man, his grey t-shirt and dark shorts, the grey exercise mat, the plain off-white background and the flat vector style. Image 2 {{res:b1c015eb-db71-4a17-8c4a-8d38bf6ed770}}: use only as a rough guide to the seated 90/90 pose. Do not copy its gym, person, logo or text. Camera HIGH in front of him, looking DOWN at about 50 degrees, so both legs are clearly seen lying flat on the mat. 90/90 hip position, barefoot: he sits on the mat facing the viewer. FRONT leg: his right thigh points forward-right, right knee bent 90 degrees, right shin lies flat across the front of the mat. BACK leg: his left thigh points straight out to his left side, left knee bent 90 degrees, left shin and foot point BACKWARD, behind his body. Both legs form two right angles, like a pinwheel. Torso tall and upright, fingertips on the mat beside the hips. Exactly two legs and two feet. Full body visible. No text.",
+  "submitId": "27b93184-8e80-46eb-8dcd-a0b29bd1b73e",
+  "resourceId": "0944b216-6fa3-4200-ab32-2fb8083959dc",
+  "state": "succeeded"
+ },
+ "frogNB_B": {
+  "nodeId": "node_f9f7gmfxh5",
+  "prompt": "Edit {{node:node_rate1qazmk}}. Keep the man, clothes, mat, background, camera position, framing, lighting and flat vector style exactly unchanged, and keep his knees, shins, feet and forearms on exactly the same spots on the mat. Change only his hips: he slowly pushes his hips BACKWARD and slightly down toward the line between his feet, so his back slopes down toward his forearms and the inner thighs stretch. No text.",
+  "submitId": "33d822c3-5cb4-4233-a31d-b337ee9f461d",
+  "resourceId": "07c8e558-921f-4917-8412-f05c96cec156",
+  "state": "succeeded"
+ },
+ "ninetyN2_B": {
+  "nodeId": "node_1tc4q0q2q6",
+  "prompt": "Instructional illustration for a mobility app. Image 1 {{node:node_d40yr96vwn}}: use only for the man, his grey t-shirt and dark shorts, the grey exercise mat, the plain off-white background and the flat vector style. Image 2 {{res:b1c015eb-db71-4a17-8c4a-8d38bf6ed770}}: use only as a rough guide to the seated 90/90 pose. Do not copy its gym, person, logo or text. Camera HIGH in front of him, looking DOWN at about 50 degrees, so both legs are clearly seen lying flat on the mat. 90/90 hip position, barefoot: he sits on the mat facing the viewer. FRONT leg: his right thigh points forward-right, right knee bent 90 degrees, right shin lies flat across the front of the mat. BACK leg: his left thigh points straight out to his left side, left knee bent 90 degrees, left shin and foot point BACKWARD, behind his body. Both legs form two right angles, like a pinwheel. Torso tall and upright, fingertips on the mat beside the hips. Exactly two legs and two feet. Full body visible. No text.",
+  "submitId": "6bceb8a0-3b54-4024-bdf8-be3e558e2203",
+  "resourceId": "36ef58a3-3b40-41b1-a9bd-0db30cc4cd98",
+  "state": "succeeded"
+ },
+ "frogN3_A": {
+  "nodeId": "node_yrt24443rq",
+  "prompt": "Instructional illustration for a mobility app. Image 1 {{node:node_d40yr96vwn}}: use only for the man, his grey t-shirt and dark shorts, the grey exercise mat, the plain off-white background and the flat vector style. Image 2 {{res:306461dd-f4b1-4ecf-a7e8-d16b9919cebd}}: use only as a rough guide to the pose and the three-quarter camera angle. Do not copy its room, person, logo or text. Camera HIGH, in front of him and to his right, looking DOWN at about 55 degrees, so his thighs and shins are clearly visible on the mat. Frog stretch, barefoot: he is on his forearms and knees. Knees spread very wide apart to the left and right. Each knee bent exactly 90 degrees: thighs point out sideways, and both SHINS point straight BACKWARD, parallel to each other and to his spine, with the inner edge of each foot flat on the mat directly BEHIND its knee. Hips level with the knees, back flat, forearms flat on the mat under the shoulders. Exactly two legs and two feet. Full body visible. No text.",
+  "submitId": "2e87eab2-7ee9-42e5-a297-b58df1244d08",
+  "resourceId": "1adfc203-3038-4141-9408-bbe967e73e06",
+  "state": "succeeded"
+ },
+ "frogN3_B": {
+  "nodeId": "node_dh65p039wk",
+  "prompt": "Instructional illustration for a mobility app. Image 1 {{node:node_d40yr96vwn}}: use only for the man, his grey t-shirt and dark shorts, the grey exercise mat, the plain off-white background and the flat vector style. Image 2 {{res:306461dd-f4b1-4ecf-a7e8-d16b9919cebd}}: use only as a rough guide to the pose and the three-quarter camera angle. Do not copy its room, person, logo or text. Camera HIGH, in front of him and to his right, looking DOWN at about 55 degrees, so his thighs and shins are clearly visible on the mat. Frog stretch, barefoot: he is on his forearms and knees. Knees spread very wide apart to the left and right. Each knee bent exactly 90 degrees: thighs point out sideways, and both SHINS point straight BACKWARD, parallel to each other and to his spine, with the inner edge of each foot flat on the mat directly BEHIND its knee. Hips level with the knees, back flat, forearms flat on the mat under the shoulders. Exactly two legs and two feet. Full body visible. No text.",
+  "submitId": "8a62bc55-b65c-43da-a0c7-f30bd2cc7ef2",
+  "resourceId": "d674c1c8-2093-4ed3-a103-b47912b4283f",
+  "state": "succeeded"
  }
 }
