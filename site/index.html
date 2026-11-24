@@ -191,6 +191,8 @@ const EX = {
   glides:   { name: "Tendon glides", vid: "_7Uikppmd_o", cue: "Straight → hook fist → full fist → tabletop → flat fist. Slow, 2 s each." },
   abra:     { name: "Abrahangs (20 mm)", vid: "VOI2Xcbe45I", cue: "Feet stay on the floor. Pull gently: effort 2–4 out of 10." },
   pulltest: { name: "Max pull-up test", vid: "rmdn5X_KLkY", cue: "One all-out set. Dead hang start, chin over bar, full lockout. Only clean reps count." },
+  pikeel:   { name: "Pike push-ups, feet up (handles)", like: "pike", vid: "pHR5yG6xBps", cue: "Replaces the DB press. Feet on a bench, hips high over your hands, handles under the shoulders. Head down toward the gap between your hands. Too hard: feet on the floor." },
+  bulg:     { name: "Bulgarian split squats", like: "split", vid: "-IpkZv8tZYM", cue: "Back foot on a bench, front foot a big step forward. 3 s down, back knee toward the floor. Left leg, then right = 1 set." },
   easyclimb:{ name: "Easy problems", vid: "", cue: "8–12 problems from V0 up to V3. Silent feet. Then start your session." },
 };
 
@@ -241,6 +243,7 @@ function gripSVG(kind) {
 const GRIP_OF = { "Half crimp": "half", "Open hand": "open", "3-finger drag": "drag" };
 
 const ANIM = new Set(["facepull","frog","ninety","couch","couchR","squat","pancake","rope","scap","pullup","ringrow","tuck","dips","hollow","extrot","pushup","ringpush","pike","ohp","split","sideplank","ytw","scappush","lockoff","knees"]);
+const LIKE = k => (EX[k] && EX[k].like) || k; // exercise variants reuse the base exercise's picture and voice cue
 function animImg(k) { return `<img src="anim/${k}.webp" alt="" class="anim">`; }
 function picHTML(k) { return ANIM.has(k) ? animImg(k) : PHOTOS[k] ? PHOTOS[k].map(src => `<img src="${src}" alt="" loading="lazy">`).join("") : PICS[k]; }
 const HIP_CUES = {"frog": "On forearms and knees. Knees wide, shins out to the sides, ankles in line with knees. Slowly push your hips back until you feel the inner thighs.", "ninety": "Sit with both knees bent 90°: front shin across in front of you, back shin out to the side and behind. Sit tall. Lift both knees and swing them to the other side = 1 switch.", "couch": "Back knee on a cushion close to the wall or couch, back shin up the wall. Front foot forward. Squeeze the back-leg glute, torso upright. Feel the front of the hip and thigh.", "squat": "Feet shoulder-width, toes slightly out, heels down. Sit as low as is comfortable, chest up, elbows gently pushing the knees out. Hold a pole if you need to.", "pancake": "Sit with legs wide and straight, toes up. Sit tall, then walk your hands forward, bending at the hips without rounding your back. Centre, then over the left leg, then the right."};
@@ -312,6 +315,17 @@ const SESSIONS = [
     { ex: "ohp", type: "reps", sets: 3, target: "10–12", unit: "reps each arm", rest: 60 },
     { ex: "knees", type: "reps", sets: 3, target: "8", unit: "reps", rest: 60 },
     { ex: "split", type: "reps", sets: 3, target: "10", unit: "reps each leg", rest: 60 },
+    { ex: "ytw", type: "reps", sets: 2, target: "8+8+8", unit: "Y, T, W", rest: 45 },
+    { ex: "facepull", type: "reps", sets: 2, target: "12–15", unit: "reps, slow", rest: 45 },
+    HIPS,
+  ]},
+  { id: "parkB-bw", name: "Park B, no weights (push/legs) · ~50 min", items: [
+    ROPE,
+    { ex: "ringpush", type: "reps", sets: 3, target: "8–12", unit: "reps", rest: 90 },
+    { ex: "pike", type: "reps", sets: 3, target: "6–10", unit: "reps, on handles", rest: 90 },
+    { ex: "pikeel", type: "reps", sets: 3, target: "5–8", unit: "reps, slow", rest: 90 },
+    { ex: "bulg", type: "reps", sets: 3, target: "8–10", unit: "reps each leg", rest: 60 },
+    { ex: "knees", type: "reps", sets: 3, target: "8", unit: "reps", rest: 60 },
     { ex: "ytw", type: "reps", sets: 2, target: "8+8+8", unit: "Y, T, W", rest: 45 },
     { ex: "facepull", type: "reps", sets: 2, target: "12–15", unit: "reps, slow", rest: 45 },
     HIPS,
@@ -558,7 +572,7 @@ function cueKey(i) {
   const q = phases[i]; if (!q) return null;
   const it = session.items[q.ei];
   if (it.type === "circuit") { const part = it.parts[q.set - 1]; return part && part.pic ? "hip_" + part.pic.replace("R", "") : "hips"; }
-  return it.ex;
+  return LIKE(it.ex);
 }
 function setCueBtn() { const b = document.getElementById("cue-btn"); if (b) b.textContent = cuePlaying ? "■ Stop voice" : "🔊 Hear how"; }
 cueAudio.addEventListener("ended", () => {
@@ -674,7 +688,7 @@ function render() {
   const restPic = isRest && !p.transition && p.label === "Rest" ? `<img src="anim/rest.jpg" alt="" class="anim">` : "";
   const gPhase = isRest ? phases[idx + 1] : p; const gItem = gPhase ? session.items[gPhase.ei] : null;
   const gripKey = gItem && gItem.ex === "abra" ? GRIP_OF[(gPhase.label || "").split(" · ")[0]] : null;
-  const animHTML = gripKey ? `<div class="gripbox">${gripSVG(gripKey)}</div>` : restPic || (part && part.pic ? picHTML(part.pic) : ANIM.has(showEx) ? animImg(showEx) : "");
+  const animHTML = gripKey ? `<div class="gripbox">${gripSVG(gripKey)}</div>` : restPic || (part && part.pic ? picHTML(part.pic) : ANIM.has(LIKE(showEx)) ? animImg(LIKE(showEx)) : "");
   if (els.pic.dataset.k !== animHTML) { els.pic.innerHTML = animHTML; els.pic.dataset.k = animHTML; }
   if (part && part.pic) els.cue.textContent = HIP_CUES[part.pic.replace("R", "")];
   els.vid.hidden = !ex.vid;
