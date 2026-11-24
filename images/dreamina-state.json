@@ -1164,5 +1164,19 @@
   "submitId": "8a62bc55-b65c-43da-a0c7-f30bd2cc7ef2",
   "resourceId": "d674c1c8-2093-4ed3-a103-b47912b4283f",
   "state": "succeeded"
+ },
+ "frogTop_A": {
+  "nodeId": "node_dkqymyht4z",
+  "prompt": "Instructional illustration for a mobility app. Image 1 {{node:node_d40yr96vwn}}: use only for the man, his grey t-shirt and dark shorts, the grey exercise mat, the plain off-white background and the flat vector style. TOP-DOWN view, camera straight above, looking down at his back. Frog stretch, barefoot, his head at the TOP of the image. He is on his forearms and knees on the mat. His knees are spread very wide apart to the left and right, so his thighs point straight out sideways like a wide letter T. Each knee is bent exactly 90 degrees, so both SHINS point straight DOWN the image (backward), parallel to each other, with each foot directly below its own knee, soles facing outward. His hips are on the line between his knees. Forearms flat on the mat, parallel, pointing forward, head between them. Exactly two arms, two legs, two feet. No text.",
+  "submitId": "ff7e8944-814d-4cba-9f1c-a3fda51f8df3",
+  "resourceId": "d5a7d47f-b07a-4c23-9117-3687d222b976",
+  "state": "succeeded"
+ },
+ "frogTop_B": {
+  "nodeId": "node_9x0p03yrva",
+  "prompt": "Instructional illustration for a mobility app. Image 1 {{node:node_d40yr96vwn}}: use only for the man, his grey t-shirt and dark shorts, the grey exercise mat, the plain off-white background and the flat vector style. TOP-DOWN view, camera straight above, looking down at his back. Frog stretch, barefoot, his head at the TOP of the image. He is on his forearms and knees on the mat. His knees are spread very wide apart to the left and right, so his thighs point straight out sideways like a wide letter T. Each knee is bent exactly 90 degrees, so both SHINS point straight DOWN the image (backward), parallel to each other, with each foot directly below its own knee, soles facing outward. His hips are on the line between his knees. Forearms flat on the mat, parallel, pointing forward, head between them. Exactly two arms, two legs, two feet. No text.",
+  "submitId": "8dd04bb7-e984-4b37-b5f6-074772748c9b",
+  "resourceId": "5f63910a-790b-4625-94da-491e23117008",
+  "state": "succeeded"
  }
 }
