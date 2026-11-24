@@ -191,8 +191,8 @@ const EX = {
   glides:   { name: "Tendon glides", vid: "_7Uikppmd_o", cue: "Straight → hook fist → full fist → tabletop → flat fist. Slow, 2 s each." },
   abra:     { name: "Abrahangs (20 mm)", vid: "VOI2Xcbe45I", cue: "Feet stay on the floor. Pull gently: effort 2–4 out of 10." },
   pulltest: { name: "Max pull-up test", vid: "rmdn5X_KLkY", cue: "One all-out set. Dead hang start, chin over bar, full lockout. Only clean reps count." },
-  pikeel:   { name: "Pike push-ups, feet up (handles)", like: "pike", vid: "pHR5yG6xBps", cue: "Replaces the DB press. Feet on a bench, hips high over your hands, handles under the shoulders. Head down toward the gap between your hands. Too hard: feet on the floor." },
-  bulg:     { name: "Bulgarian split squats", like: "split", vid: "-IpkZv8tZYM", cue: "Back foot on a bench, front foot a big step forward. 3 s down, back knee toward the floor. Left leg, then right = 1 set." },
+  pikeel:   { name: "Pike push-ups, feet up (handles)", like: "pike", vid: "5IcgscNCId8", cue: "Replaces the DB press. Feet on a bench, hips high over your hands, handles under the shoulders. Head down toward the gap between your hands. Too hard: feet on the floor." },
+  bulg:     { name: "Bulgarian split squats", like: "split", vid: "oGTVhFgRnes", cue: "Back foot on a bench, front foot a big step forward. 3 s down, back knee toward the floor. Left leg, then right = 1 set." },
   easyclimb:{ name: "Easy problems", vid: "", cue: "8–12 problems from V0 up to V3. Silent feet. Then start your session." },
 };
 
@@ -242,7 +242,7 @@ function gripSVG(kind) {
 }
 const GRIP_OF = { "Half crimp": "half", "Open hand": "open", "3-finger drag": "drag" };
 
-const ANIM = new Set(["facepull","frog","ninety","couch","couchR","squat","pancake","rope","scap","pullup","ringrow","tuck","dips","hollow","extrot","pushup","ringpush","pike","ohp","split","sideplank","ytw","scappush","lockoff","knees"]);
+const ANIM = new Set(["facepull","frog","ninety","couch","couchR","squat","pancake","rope","scap","pullup","ringrow","tuck","dips","hollow","extrot","pushup","ringpush","pike","ohp","split","sideplank","ytw","scappush","lockoff","knees","pikeel","bulg"]);
 const LIKE = k => (EX[k] && EX[k].like) || k; // exercise variants reuse the base exercise's picture and voice cue
 function animImg(k) { return `<img src="anim/${k}.webp" alt="" class="anim">`; }
 function picHTML(k) { return ANIM.has(k) ? animImg(k) : PHOTOS[k] ? PHOTOS[k].map(src => `<img src="${src}" alt="" loading="lazy">`).join("") : PICS[k]; }
@@ -688,7 +688,7 @@ function render() {
   const restPic = isRest && !p.transition && p.label === "Rest" ? `<img src="anim/rest.jpg" alt="" class="anim">` : "";
   const gPhase = isRest ? phases[idx + 1] : p; const gItem = gPhase ? session.items[gPhase.ei] : null;
   const gripKey = gItem && gItem.ex === "abra" ? GRIP_OF[(gPhase.label || "").split(" · ")[0]] : null;
-  const animHTML = gripKey ? `<div class="gripbox">${gripSVG(gripKey)}</div>` : restPic || (part && part.pic ? picHTML(part.pic) : ANIM.has(LIKE(showEx)) ? animImg(LIKE(showEx)) : "");
+  const animHTML = gripKey ? `<div class="gripbox">${gripSVG(gripKey)}</div>` : restPic || (part && part.pic ? picHTML(part.pic) : ANIM.has(showEx) ? animImg(showEx) : ANIM.has(LIKE(showEx)) ? animImg(LIKE(showEx)) : "");
   if (els.pic.dataset.k !== animHTML) { els.pic.innerHTML = animHTML; els.pic.dataset.k = animHTML; }
   if (part && part.pic) els.cue.textContent = HIP_CUES[part.pic.replace("R", "")];
   els.vid.hidden = !ex.vid;

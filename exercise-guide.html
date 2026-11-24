@@ -185,7 +185,7 @@ function gripSVG(kind) {
 }
 const GRIP_OF = { "Half crimp": "half", "Open hand": "open", "3-finger drag": "drag" };
 
-const ANIM = new Set(["facepull","frog","ninety","couch","couchR","squat","pancake","rope","scap","pullup","ringrow","tuck","dips","hollow","extrot","pushup","ringpush","pike","ohp","split","sideplank","ytw","scappush","lockoff","knees"]);
+const ANIM = new Set(["facepull","frog","ninety","couch","couchR","squat","pancake","rope","scap","pullup","ringrow","tuck","dips","hollow","extrot","pushup","ringpush","pike","ohp","split","sideplank","ytw","scappush","lockoff","knees","pikeel","bulg"]);
 function animImg(k) { return `<img src="anim/${k}.webp" alt="" class="anim">`; }
 function picHTML(k) { return ANIM.has(k) ? animImg(k) : PHOTOS[k] ? PHOTOS[k].map(src => `<img src="${src}" alt="" loading="lazy">`).join("") : PICS[k]; }
 const HIP_CUES = {"frog": "On forearms and knees. Knees wide, shins out to the sides, ankles in line with knees. Slowly push your hips back until you feel the inner thighs.", "ninety": "Sit with both knees bent 90°: front shin across in front of you, back shin out to the side and behind. Sit tall. Lift both knees and swing them to the other side = 1 switch.", "couch": "Back knee on a cushion close to the wall or couch, back shin up the wall. Front foot forward. Squeeze the back-leg glute, torso upright. Feel the front of the hip and thigh.", "squat": "Feet shoulder-width, toes slightly out, heels down. Sit as low as is comfortable, chest up, elbows gently pushing the knees out. Hold a pole if you need to.", "pancake": "Sit with legs wide and straight, toes up. Sit tall, then walk your hands forward, bending at the hips without rounding your back. Centre, then over the left leg, then the right."};
@@ -208,6 +208,8 @@ const SESSIONS = [
     order: ["rope","scap","pullup","ringrow","tuck","dips","hollow","facepull"] },
   { id: "parkB", name: "Park B (push/legs)", note: "Push and legs. Skip lock-offs until you can do 8 clean pull-ups.",
     order: ["rope","ringpush","pike","ohp","lockoff","knees","split","ytw","revcurl","hips"] },
+  { id: "parkB-bw", name: "Park B, no weights", note: "Same day as Park B when you don't bring the dumbbell. Feet-up pike push-ups replace the overhead press; Bulgarian split squats replace split squats.",
+    order: ["rope","ringpush","pike","pikeel","bulg","knees","ytw","facepull","hips"] },
   { id: "abra", name: "Abrahangs (10 min)", note: "At least 6 h away from climbing. Fingers should feel fresher after, not worked.",
     order: ["glides","grips","abra"] },
   { id: "climbwu", name: "Climb warm-up", note: "Do this, then 8–12 easy problems from V0 up to V3 with silent feet, before anything hard.",
@@ -265,6 +267,10 @@ const EX = {
     cues: ["Hips high, body like an upside-down V", "Lower the top of your head toward a point in front of your hands", "Elbows angle back, not out to the sides"],
     mistake: "Turning it into a normal push-up by letting the hips drop.",
     video: ["pHR5yG6xBps", "Pike Push Up Tutorial For Beginners (With Progressions)"], q: "pike push up tutorial beginner" },
+  pikeel: { g: "push", name: "Pike push-ups, feet up (handles)", dose: "3 × 5–8",
+    cues: ["Feet on a bench (about knee height), hands on push-up handles under the shoulders", "Walk the hands in until the hips are stacked over the shoulders", "Lower the head toward the gap in front of the handles, elbows back, then press up", "Too hard: put the feet back on the floor"],
+    mistake: "Hands too far from the bench, so it turns into a decline push-up.",
+    video: ["5IcgscNCId8", "\"Elevated\" Pike Push-Up Technique"], q: "elevated pike push up tutorial" },
   ohp: { g: "push", name: "One-arm dumbbell overhead press", dose: "3 × 8–10 each arm, 8 kg",
     cues: ["Stand tall, squeeze your glutes and brace", "Dumbbell at the shoulder, elbow slightly in front", "Press straight up until the arm is by your ear; lower slowly", "Don't lean away from the weight"],
     mistake: "Leaning sideways or arching the lower back to finish the rep.",
@@ -309,6 +315,10 @@ const EX = {
     cues: ["Start with the back foot on the floor (split squat); progress to back foot on a bench", "Lower the back knee straight down toward the floor", "Front heel stays down; slight forward lean is fine", "Add the dumbbells when 3 × 10 is easy"],
     mistake: "Stance too short, so the front heel lifts.",
     video: ["-IpkZv8tZYM", "DB Bulgarian Split Squat (Exercise Library)"], q: "bulgarian split squat proper form" },
+  bulg: { g: "legs", name: "Bulgarian split squats (bodyweight)", dose: "3 × 8–10 each leg",
+    cues: ["Back foot laces-down on a bench, front foot a big step forward", "3 s down: back knee drops straight toward the ground", "Front heel stays flat, front knee over the middle of the foot", "Hands on hips; stand all the way up"],
+    mistake: "Front foot too close to the bench, so the heel lifts and the knee shoots forward.",
+    video: ["oGTVhFgRnes", "Bodyweight Bulgarian Split Squat (Torokhtiy)"], q: "bodyweight bulgarian split squat" },
   hips: { g: "legs", name: "Hip mobility circuit", dose: "10 min",
     cues: ["Relaxed breathing; ease into each position, no forcing", "Good for climbing: high steps, heel hooks, getting hips close to the wall"],
     mistake: "Bouncing into stretches.",

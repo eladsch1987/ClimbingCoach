@@ -1010,5 +1010,75 @@
  "_anim_dips_2026-11-20": [
   "dipsStart_B",
   "dipsHold_B"
- ]
+ ],
+ "pikeelT_A": {
+  "nodeId": "node_3sjjvmgvmq",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_h7hyexd2y2}}: use only for the man, his clothes, the outdoor park with grey metal bars and the flat vector style. Image 2 {{res:b0979d2f-1bd3-4fcf-80a3-c78c6250d34a}}: use only for the body position and camera angle. Do not copy its room, gym, boxes, person, logo or text. Pure side view, he faces RIGHT. Top of a feet-elevated pike push-up: the balls of both feet rest on top of a plain wooden park bench (about knee height) on the LEFT, legs completely straight. Hips piked high directly above his shoulders, so the torso is almost vertical, about 75 to 80 degrees to the ground. Arms fully straight, holding a pair of small black push-up handles on the ground shoulder-width apart, head between the arms looking back toward his feet. Full body and the whole bench visible. No text.",
+  "submitId": "c30e1d21-8a44-4dc1-8836-7b36472a2e98",
+  "resourceId": "28462ca7-afae-4352-8b47-b7aab5533456",
+  "state": "succeeded"
+ },
+ "bulgT_A": {
+  "nodeId": "node_451dzbncbh",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_h7hyexd2y2}}: use only for the man, his clothes, the outdoor park with grey metal bars and the flat vector style. Image 2 {{res:2493343e-d6b9-407c-936d-83e73e55b777}}: use only for the body position and camera angle. Do not copy its room, gym, boxes, person, logo or text. Pure side view, he faces RIGHT. Top of a bodyweight Bulgarian split squat: the back foot rests laces-down on top of a plain wooden park bench BEHIND him (on the LEFT), back knee bent. The front foot is a big step in front of the bench, whole sole flat on the ground, front leg almost straight. Torso upright with a slight forward lean, hands on his hips, no weights. Full body and the whole bench visible. No text.",
+  "submitId": "7d5b18a7-4cd1-4140-ab6d-5402108e88a8",
+  "resourceId": "81bcae16-a1a7-4440-97b2-1c704d70a514",
+  "state": "succeeded"
+ },
+ "pikeelT_B": {
+  "nodeId": "node_mmrdw29j41",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_h7hyexd2y2}}: use only for the man, his clothes, the outdoor park with grey metal bars and the flat vector style. Image 2 {{res:b0979d2f-1bd3-4fcf-80a3-c78c6250d34a}}: use only for the body position and camera angle. Do not copy its room, gym, boxes, person, logo or text. Pure side view, he faces RIGHT. Top of a feet-elevated pike push-up: the balls of both feet rest on top of a plain wooden park bench (about knee height) on the LEFT, legs completely straight. Hips piked high directly above his shoulders, so the torso is almost vertical, about 75 to 80 degrees to the ground. Arms fully straight, holding a pair of small black push-up handles on the ground shoulder-width apart, head between the arms looking back toward his feet. Full body and the whole bench visible. No text.",
+  "submitId": "6a610a5d-5264-4eb9-8149-bc7e03ba7fa9",
+  "resourceId": "5ee3a06c-c2e6-4f30-b19d-57c13d07291f",
+  "state": "succeeded"
+ },
+ "bulgT_B": {
+  "nodeId": "node_9vjwfsact4",
+  "prompt": "Instructional illustration for a training app. Image 1 {{node:node_h7hyexd2y2}}: use only for the man, his clothes, the outdoor park with grey metal bars and the flat vector style. Image 2 {{res:2493343e-d6b9-407c-936d-83e73e55b777}}: use only for the body position and camera angle. Do not copy its room, gym, boxes, person, logo or text. Pure side view, he faces RIGHT. Top of a bodyweight Bulgarian split squat: the back foot rests laces-down on top of a plain wooden park bench BEHIND him (on the LEFT), back knee bent. The front foot is a big step in front of the bench, whole sole flat on the ground, front leg almost straight. Torso upright with a slight forward lean, hands on his hips, no weights. Full body and the whole bench visible. No text.",
+  "submitId": "edeb0ceb-58ea-42de-a088-09a2bccaab5e",
+  "resourceId": "502afcc3-3f19-4b3b-8318-c986c1854202",
+  "state": "succeeded"
+ },
+ "pikeelB_A": {
+  "nodeId": "node_ft1npw6tnv",
+  "prompt": "Edit {{node:node_3sjjvmgvmq}}. Keep the man, clothes, background, bench, camera position, framing, lighting and flat vector style exactly unchanged, and keep his feet on exactly the same spot on the bench and the push-up handles on exactly the same spot on the ground. Change only his arms and upper body: he lowers to the BOTTOM of the pike push-up. Elbows bent about 90 degrees, forearms vertical, elbows pointing back toward the bench. The top of his head is just above the ground, slightly IN FRONT of the handles. Hips stay high, legs stay straight. No text.",
+  "submitId": "4f69444d-8d99-4d56-ac64-96b071363845",
+  "resourceId": "3b388250-7bb7-456c-a5a9-44134bae7026",
+  "state": "succeeded"
+ },
+ "bulgT2_A": {
+  "nodeId": "node_x66mcwy7jz",
+  "prompt": "Edit {{node:node_451dzbncbh}}. Keep the man, clothes, background, bench, camera position, framing, lighting and flat vector style exactly unchanged, and keep both feet on exactly the same spots (back foot on the bench, front foot on the ground). Change only his height: he stands up to the TOP of the Bulgarian split squat. Front leg almost straight, torso upright, hips higher; the back knee is bent and points down toward the ground, below his hips. Hands stay on his hips. No text.",
+  "submitId": "47b3f447-a256-4d41-86a9-3a6b2d168129",
+  "resourceId": "8c2cea87-de31-439d-b3c9-8313c7ca3093",
+  "state": "succeeded"
+ },
+ "bulgB_A": {
+  "nodeId": "node_cfa38w42ax",
+  "prompt": "Edit {{node:node_451dzbncbh}}. Keep the man, clothes, background, bench, camera position, framing, lighting and flat vector style exactly unchanged, and keep both feet on exactly the same spots (back foot on the bench, front foot flat on the ground). Change only his depth: he lowers to the BOTTOM of the Bulgarian split squat. Front thigh about parallel to the ground, front knee bent about 90 degrees above the middle of the front foot, front heel flat. The back knee drops STRAIGHT DOWN and hovers just above the ground, back thigh nearly vertical. Torso upright with a slight forward lean, hands on hips. No text.",
+  "submitId": "f083c6c7-fd6b-4a0a-a681-961fd9b6f0eb",
+  "resourceId": "56b6deab-daed-424b-a64e-85988166d135",
+  "state": "succeeded"
+ },
+ "pikeelB_B": {
+  "nodeId": "node_g6pba7sn94",
+  "prompt": "Edit {{node:node_3sjjvmgvmq}}. Keep the man, clothes, background, bench, camera position, framing, lighting and flat vector style exactly unchanged, and keep his feet on exactly the same spot on the bench and the push-up handles on exactly the same spot on the ground. Change only his arms and upper body: he lowers to the BOTTOM of the pike push-up. Elbows bent about 90 degrees, forearms vertical, elbows pointing back toward the bench. The top of his head is just above the ground, slightly IN FRONT of the handles. Hips stay high, legs stay straight. No text.",
+  "submitId": "0f536bba-29bc-43ac-a700-e488e1341adb",
+  "resourceId": "bcb4403e-93c6-4f42-a5ec-6ba0613d4610",
+  "state": "succeeded"
+ },
+ "bulgT2_B": {
+  "nodeId": "node_ghs870qtvs",
+  "prompt": "Edit {{node:node_451dzbncbh}}. Keep the man, clothes, background, bench, camera position, framing, lighting and flat vector style exactly unchanged, and keep both feet on exactly the same spots (back foot on the bench, front foot on the ground). Change only his height: he stands up to the TOP of the Bulgarian split squat. Front leg almost straight, torso upright, hips higher; the back knee is bent and points down toward the ground, below his hips. Hands stay on his hips. No text.",
+  "submitId": "fb59572c-68a0-428b-a51d-394ea17c905c",
+  "resourceId": "d7da611e-b6dd-48ae-a657-1716b427f166",
+  "state": "succeeded"
+ },
+ "bulgB_B": {
+  "nodeId": "node_h281tjqyhc",
+  "prompt": "Edit {{node:node_451dzbncbh}}. Keep the man, clothes, background, bench, camera position, framing, lighting and flat vector style exactly unchanged, and keep both feet on exactly the same spots (back foot on the bench, front foot flat on the ground). Change only his depth: he lowers to the BOTTOM of the Bulgarian split squat. Front thigh about parallel to the ground, front knee bent about 90 degrees above the middle of the front foot, front heel flat. The back knee drops STRAIGHT DOWN and hovers just above the ground, back thigh nearly vertical. Torso upright with a slight forward lean, hands on hips. No text.",
+  "submitId": "51218ded-4c8e-475e-bded-2337e8293aa8",
+  "resourceId": "0d919cf7-3b0f-4034-8edb-8821168ce3f1",
+  "state": "succeeded"
+ }
 }
