@@ -16,6 +16,7 @@ Effort: easy / moderate / hard. Fingers/elbows/shoulders: 0–10 pain or "ok". N
 | 2026-11-21 | 1 | Long walk | easy | — | — | — | — | Active rest |
 | 2026-11-22 | 1 | Long walk | easy | — | — | — | — | Active rest |
 | 2026-11-23 | 2 | Park A (pull), 45 min | moderate ("pretty good") | 0 | R wrist 1/10; forearms tight | — | 72 (morning) | Planned for Sat 21. Week 1 weigh-ins: 72.3, 72.3, 72 → avg ~72.2. Waist not measured yet |
+| 2026-11-24 | 2 | Park B, no weights (park) + hip mobility (EDR Fitness 10-min video) | moderate | — | R wrist 2–3/10 after; forearms tight in the morning | — | — | Regular push-ups on handles instead of ring push-ups (rings too high). Pike push-ups on handles. "Good" otherwise |
 
 ## Benchmarks
 | Date | Max pull-ups | 20 mm BW hang (s) | 20 mm max hang (% BW) | Weighted pull-up 2RM | Front lever | Hardest send |
