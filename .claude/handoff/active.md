@@ -1,14 +1,14 @@
 ---
-saved-at: 2026-11-20T21:10:36Z
-saved-at-sha: 06d3fbf
+saved-at: 2026-11-24T17:35:29Z
+saved-at-sha: 8bd805b
 saved-at-branch: claude/festive-johnson-53hwwe
 saved-from-cwd: /home/user/ClimbingCoach
 ---
 
-- **Pick up:** keep coaching Elad per `CLAUDE.md`. Week 1 (started Mon 2026-11-16). Next: **Sat 21 Park A** (full; pull-ups 5×4 ≈60% of max 7; monkey bars only if wrist <2), **Sun 22 rest + first weekly check**: 7-day average of morning weights (72.3 on 19 and 20 Nov) + waist at navel. Ask how Park A went; log it.
-- **Read first:** `log.md`, `coach-rules.md` (State: ECU rules), `athlete.md` (ultrasound 16 Nov = mild ECU tenosynovitis; physio still to book: ask, and ask him to have it checked dynamically for subluxation/clicking).
-- **Open questions:** creatine: label is 0.5 g/capsule; he said "7–8 g/day". Unanswered whether he meant capsules (→ 3.5–4 g, fine) or grams; target 5 g = 10 capsules. Protein: aiming 120 g this week (hit 128 g on 18 Nov), 140 g from week 2. Calories ~2,000 training / ~1,750 rest; Cal AI under-counts. Spotify ducking fix (cue audio split into <5 s parts) untested on his phone; if it fails, offer Spotify Web API (needs Premium + dev app).
-- **Constraints:** wrist pain ≤2/10; no loaded pronation/supination; no right-hand underclings/slopers/wide pinches; no ball-grip hangs until physio clears. Phase 1: 1 climb/week, projects capped ≤V5, ≤5–6 attempts, no full crimp. He likes projecting; the once-a-week "mixed" climb format is approved.
-- **App:** https://climbing-coach-eladsch.vercel.app/ — after timer/guide edits: `python3 tools/build_site.py`, commit, push branch + `main`, redeploy Vercel project `climbing-coach` (team `eladsch`) with the git SHA. Timer now has a "Time" picker (fitSession/TRIM_STEPS in `workout-timer.html`).
-- **Images:** follow `.claude/skills/exercise-illustration/` (+ `tools/dream.py` driver). Skipped on purpose: reverse wrist curls, finger bands, pronation/supination, Y-T-W "W" frame — don't retry unless he asks.
+- **Pick up:** keep coaching Elad per `CLAUDE.md`. Week 2 (started Mon 2026-11-23). Tue 24: he planned Park B, **no-weights version** ("Park B, no weights" in the app, with Time picker), at the park, maybe late. Ask how it went (wrist 0–10, forearms were tight on 24th) and log it. Week plan given: Wed Abrahangs or rest/mobility, **Thu 26 climb (mixed format)**, Fri recovery (no grip), Sat Park A, Sun rest.
+- **Ask/collect:** waist at navel (morning, fasted; asked to measure 24th; not yet received). Week-1 weigh-in avg ~72.2 (72.3, 72.3, 72). 2-week weight check is due ~Sun 29 Nov; creatine water may mask loss: don't cut calories before then. Physio still to book for the right wrist (ECU): ask, and have it checked dynamically for subluxation/clicking.
+- **Read first:** `log.md`, `coach-rules.md` (State: ECU rules), `athlete.md`.
+- **Open questions:** creatine capsules vs grams (0.5 g/capsule; target 5 g = 10 capsules) still unanswered. Protein target 140 g from week 2. Calories ~2,000 training / ~1,750 rest. Spotify ducking fix untested on his phone.
+- **Constraints:** wrist ≤2/10; no loaded pronation/supination; no right-hand underclings/slopers/wide pinches; Phase 1: 1 climb/week, projects ≤V5, ≤5–6 attempts, no full crimp. He uses push-up handles for pike push-ups (approved, neutral wrist).
+- **App:** https://climbing-coach-eladsch.vercel.app/ — after edits: `python3 tools/build_site.py`, commit, push branch + `main`, deploy Vercel project `climbing-coach` (team `eladsch`) with gitSource sha. Exercise variants use `like:` in `EX` (voice cue fallback). New anims: `anim/pikeel.webp`, `anim/bulg.webp`. Keep raw generated PNGs out of the repo (scratchpad only). `exercise-guide.html` claude.ai artifact not republished since these changes; republish if he uses that link.
 - **Offered, never set up:** daily 07:40 check-in scheduled task.
