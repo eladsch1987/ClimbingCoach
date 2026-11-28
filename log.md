@@ -19,7 +19,6 @@ Effort: easy / moderate / hard. Fingers/elbows/shoulders: 0–10 pain or "ok". N
 | 2026-11-24 | 2 | Park B, no weights (park) + hip mobility (EDR Fitness 10-min video) | moderate | — | R wrist 2–3/10 after; forearms tight in the morning | — | — | Regular push-ups on handles instead of ring push-ups (rings too high). Pike push-ups on handles. "Good" otherwise |
 | 2026-11-25 | 2 | Rest: morning yoga with hip mobility + long walk | easy | — | R wrist 0–1 (evening) | — | — | Abrahangs skipped (wrist 2–3 the night before, climb tomorrow) |
 | 2026-11-26 | 2 | (morning weigh-in) | — | — | — | — | 72.3 (morning) | Planned climb not done (busy) |
-| 2026-11-27 | 2 | ? (not reported) | — | — | — | — | — | |
 | 2026-11-28 | 2 | Waist measurement; climb planned for the evening (moved from Thu) | — | — | — | — | — | Waist 91 cm at navel (baseline). Waist/height 0.55 |
 
 ## Benchmarks
